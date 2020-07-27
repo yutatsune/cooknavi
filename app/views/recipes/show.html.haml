@@ -1,0 +1,13 @@
+.contents
+  .contents__show{style: "background-image: url(#{@recipe.image});"}
+    .more
+      %span.more__image
+        = image_tag 'arrow_top.png'
+      %ul.more__list
+        %li
+          = link_to '編集', edit_recipe_path(@recipe.id), method: :get
+        %li
+          = link_to '削除', recipe_path(@recipe.id), method: :delete
+    %p= @recipe.text
+    %span.name
+      = @recipe.name

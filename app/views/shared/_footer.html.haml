@@ -1,0 +1,46 @@
+.wrepper
+  .footer
+    %ul.con
+      %li.content
+        %h2.content__head
+          FURIMAについて
+        %ul.content__head--menu
+          %li
+            = link_to "#", class: "list--menu" do
+              = "会社概要（運営会社）"
+          %li
+            = link_to "#", class: "list--menu" do
+              = "プライバシーポリシー"
+          %li
+            = link_to "#", class: "list--menu" do
+              = "FURIMA利用規約"
+          %li
+            = link_to "#", class: "list--menu" do
+              = "ポイントに関する特約"
+      %li.content
+        %h2.content__head
+          FURIMAを見る
+        %ul.content__head--menu
+          %li
+            = link_to "#", class: "list--menu" do
+              = "カテゴリー一覧"
+          %li
+            = link_to "#", class: "list--menu" do
+              = "ブランド一覧"
+      %li.content
+        %h2.content__head
+          ヘルプ&ガイド
+        %ul.content__head--menu
+          %li
+            = link_to "#", class: "list--menu" do
+              = "FURIMAガイド"
+          %li
+            = link_to "#", class: "list--menu" do
+              = "FURIMAロゴ利用ガイドライン"
+          %li
+            = link_to "#", class: "list--menu" do
+              = "お知らせ"
+    .footer__logo
+      = link_to "#", class: "list--menu" do
+        = image_tag "logo-white.png", alt:"フッターのロゴ", class: "footer__logo__white"
+      %p ©FURIMA

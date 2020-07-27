@@ -1,0 +1,8 @@
+.contents
+  .contents__edit
+    = form_with(model: @recipe, local: true) do |form|
+      %h3.contents__edit__title 編集する
+      = form.text_field :name, placeholder: "Nickname", class: "contents__edit__text"
+      = form.text_field :image, placeholder: "Image Url", class: "contents__edit__text"
+      = form.text_area :text, placeholder: "text", rows: "10"
+      = form.submit "SEND", class: "contents__edit__send"
