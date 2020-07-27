@@ -1,0 +1,7 @@
+.contents
+  - @recipes.each do |recipe|
+    .contents__index{style: "background-image: url(#{recipe.image});"}
+      = link_to "詳細", recipe_path(recipe.id)
+      %p= recipe.text
+      %span.name
+        = recipe.name
