@@ -5,29 +5,26 @@
   margin-top: 0;
   margin-bottom: 0;
   max-width: 660px;
-  &__index {
+  &__title {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: #666;
+    font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  }
+  &__post {
     margin: 20px 0;
     padding: 30px;
     position: relative;
     height: 400px;
-    width: 100%;
     color: #fff;
     background-size: cover;
     background-position: center center;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(41,41,41,0.2);
-    &__link {
-      position: absolute;
-      cursor: pointer;
-      top: 20px;
-      right: 30px;
-      z-index: 2;
-      height: 100px;
-      width: 80px;
-      text-align: right;
-      
-    }
-    p {
+    &__text {
       position: absolute;
       left: 30px;
       right: 100px;
@@ -35,6 +32,7 @@
       margin: 0;
       font-size: 20px;
       z-index: 2;
+      color: #fff;
       font-weight: bold;
       text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
     }

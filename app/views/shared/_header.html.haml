@@ -2,8 +2,7 @@
   .headerIn
     .headermain
       %h1.headermain__icon
-        = link_to root_path do
-          = image_tag ("logo.png"),class: "logoimage"
+        = link_to "CookNavi", root_path
       .searchbar
         = form_with url: "#", local: true, method: :get, class: "form" do |f|
           = f.text_field :keyword, placeholder: "キーワードから探す", class: "searchbar-input"
@@ -13,11 +12,16 @@
     .tag
       %ul.lefttag
         %li.lefttag__item.leftta__item--first
-          = link_to "カテゴリ", "#", class: "post"
-        %li.lefttag__item
-          = link_to  "ブランド", "#", class: "post"
+          = link_to "新規投稿", "/recipes/new", class: "post"
+      - if user_signed_in?
+        %ul.righttag
+          %li.righttag__item.righttag__item--login
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post"
+          %li.righttag__item.righttag__item--new
+            = link_to  "マイページ", "/users/#{current_user.id}", class: "post"
+      - else
         %ul.righttag
           %li.righttag__item
-            = link_to "ログイン", "#", class: 'post'
+            = link_to "ログイン", new_user_session_path, class: 'post'
           %li.righttag__item
-            = link_to "新規会員登録", "#", class: 'post'
+            = link_to "新規会員登録", new_user_registration_path, class: 'post'
