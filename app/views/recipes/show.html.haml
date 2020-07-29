@@ -13,3 +13,20 @@
       %a{href: "/users/#{@recipe.user.id}"}
         %span 投稿者
         = @recipe.user.nickname
+  .contents__container
+    - if current_user
+      = form_with(model: [@recipe, @comment], local: true) do |form|
+        = form.text_area :text, placeholder: "コメントする", rows: "2", class: "contents__container__text"
+        = form.submit "SEND", class: "contents__container__send"
+    - else
+      %strong
+        %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+    .contents__container__comments
+      %h4 ＜コメント一覧＞
+      - if @comments
+        - @comments.each do |comment|
+          %p.contents__container__comments__main
+            %strong
+              = link_to comment.user.nickname, "/users/#{comment.user_id}"
+              ：
+            = comment.text
