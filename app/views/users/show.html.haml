@@ -1,0 +1,8 @@
+.contents
+  %p.contents__title
+    = @nickname
+    さんの投稿一覧
+  - @recipes.each do |recipe|
+    .contents__post{style: "background-image: url(#{recipe.image});"}
+      %p.contents__post__text
+        = recipe.text

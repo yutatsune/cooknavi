@@ -1,7 +1,10 @@
 .contents
   - @recipes.each do |recipe|
     .contents__index{style: "background-image: url(#{recipe.image});"}
-      = link_to "詳細", recipe_path(recipe.id)
+      = link_to "詳細", recipe_path(recipe.id), class: "contents__index__link"
       %p= recipe.text
       %span.name
-        = recipe.name
+        %a{href: "/users/#{recipe.user.id}"}
+          %span 投稿者
+          = recipe.user.nickname
+        

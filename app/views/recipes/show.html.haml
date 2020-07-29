@@ -10,4 +10,6 @@
           = link_to '削除', recipe_path(@recipe.id), method: :delete
     %p= @recipe.text
     %span.name
-      = @recipe.name
+      %a{href: "/users/#{@recipe.user.id}"}
+        %span 投稿者
+        = @recipe.user.nickname

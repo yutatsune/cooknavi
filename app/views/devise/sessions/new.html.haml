@@ -1,0 +1,19 @@
+.contents
+  .contents__container
+    %h2 Log in
+    = form_with model: @user, url: user_session_path, id: 'new_user', class: 'contents__container__new', local: true do |f|
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, class: "contents__container__new__field"
+      .field
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "off", class: "contents__container__new__field"
+      - if devise_mapping.rememberable?
+        .field
+          = f.label :remember_me
+          %br/
+          = f.check_box :remember_me
+      .actions
+        = f.submit "Log in"
