@@ -2,7 +2,7 @@
   - @recipes.each do |recipe|
     .contents__index{style: "background-image: url(#{recipe.image});"}
       = link_to "詳細", recipe_path(recipe.id), class: "contents__index__link"
-      %p= recipe.text
+      %p= recipe.name
       %span.name
         %a{href: "/users/#{recipe.user.id}"}
           %span 投稿者
