@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.images.new
   end
 
   def create
@@ -39,7 +40,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:image, :text).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:name, :image, :text, :material, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_recipe

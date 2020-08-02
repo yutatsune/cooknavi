@@ -19,7 +19,7 @@
   <li>自慢の調理器具を紹介するコーナー</li>
 </ul>
 
-# CookNavi DB設計
+# CookNavi DB設計（暫定）
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -33,12 +33,22 @@
 ## recipesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text||
+|name|text||
+|material|text||
 |text|text||
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :comments
+- has_many :images
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|src|string||
+|recipe_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :recipe
 
 ## commentsテーブル
 |Column|Type|Options|

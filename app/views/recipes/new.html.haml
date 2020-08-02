@@ -1,7 +1,24 @@
 .contents
   .contents__new
     = form_with(model: @recipe, local: true) do |form|
-      %h3.contents__new__title 投稿する
-      = form.text_field :image, placeholder: "Image Url", class: "contents__new__text"
-      = form.text_area :text, placeholder: "text", rows: "10"
-      = form.submit "SEND", class: "contents__new__send"
+      %h3.contents__new__title レシピの投稿
+      #image-box
+        #previews
+          - if @recipe.persisted?
+            - @recipe.images.each_with_index do |image, i|
+              = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+        = form.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :src, class: 'js-file'
+            %br/
+            %span.js-remove 削除
+          - if @recipe.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        - if @recipe.persisted?
+          .js-file_group{"data-index" => "#{@recipe.images.count}"}
+            = file_field_tag :src, name: "recipe[images_attributes][#{@recipe.images.count}][src]", class: 'js-file'
+            .js-remove 削除
+      = form.text_field :name, placeholder: "料理名", class: "contents__new__text"
+      = form.text_area :material, placeholder: "材料", rows: "5"
+      = form.text_area :text, placeholder: "作り方", rows: "10"
+      = form.submit "投稿する", class: "contents__new__send"

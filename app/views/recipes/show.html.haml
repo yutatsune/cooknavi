@@ -1,23 +1,32 @@
 .contents
-  .contents__show{style: "background-image: url(#{@recipe.image});"}
-    .more
-      %span.more__image
-        = image_tag 'arrow_top.png'
-      %ul.more__list
-        %li
-          = link_to '編集', edit_recipe_path(@recipe.id), method: :get
-        %li
-          = link_to '削除', recipe_path(@recipe.id), method: :delete
-    %p= @recipe.text
+  .contents__show{style: "background-image: url(#{@recipe.images.first.src.url});"}
+    %p= @recipe.name
     %span.name
       %a{href: "/users/#{@recipe.user.id}"}
         %span 投稿者
         = @recipe.user.nickname
+  .contents__box
+    .contents__box__list
+      - @recipe.images.each_with_index do |image, i|
+        .image-list__item
+          = image_tag image.src.url, alt: "画像", class: "image-index-#{i}"
+    .contents__material
+      %p 材料
+      = @recipe.material
+    .contents__how
+      %p 作り方
+      = @recipe.text
+  - if user_signed_in? && current_user.id == @recipe.user_id
+    .list
+      %p
+        = link_to '編集', edit_recipe_path(@recipe.id), method: :get
+      %p
+        = link_to '削除', recipe_path(@recipe.id), method: :delete
   .contents__container
     - if current_user
       = form_with(model: [@recipe, @comment], local: true) do |form|
-        = form.text_area :text, placeholder: "コメントする", rows: "2", class: "contents__container__text"
-        = form.submit "SEND", class: "contents__container__send"
+        = form.text_area :text, placeholder: "コメントを入力", rows: "2", class: "contents__container__text"
+        = form.submit "投稿する", class: "contents__container__send"
     - else
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
