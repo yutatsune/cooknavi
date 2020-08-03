@@ -1,6 +1,6 @@
 .contents
   - @recipes.each do |recipe|
-    .contents__index{style: "background-image: url(#{recipe.image});"}
+    .contents__index{style: "background-image: url(#{recipe.images.first.src.url});"}
       = link_to "詳細", recipe_path(recipe.id), class: "contents__index__link"
       %p= recipe.name
       %span.name
