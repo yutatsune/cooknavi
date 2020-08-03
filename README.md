@@ -1,5 +1,7 @@
 <h2 align="center">CookNavi</h2>
 
+https://user-images.githubusercontent.com/66116053/89136208-78058280-d56d-11ea-8d75-f5f2fbd31fd5.jpg
+
 ## :link: アプリケーションの概要
 <ul>
   <li>レシピが投稿できるアプリです。</li>
