@@ -3,6 +3,6 @@
     = @nickname
     さんの投稿一覧
   - @recipes.each do |recipe|
-    .contents__post{style: "background-image: url(#{recipe.image});"}
+    .contents__post{style: "background-image: url(#{recipe.images.first.src.url});"}
       %p.contents__post__text
         = recipe.name
