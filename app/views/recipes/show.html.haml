@@ -24,7 +24,7 @@
         = link_to '削除', recipe_path(@recipe.id), method: :delete
   .contents__container
     - if current_user
-      = form_with(model: [@recipe, @comment], local: true) do |form|
+      = form_with(model: [@recipe, @comment], local: true, id: "new_comment") do |form|
         = form.text_area :text, placeholder: "コメントを入力", rows: "2", class: "contents__container__text"
         = form.submit "投稿する", class: "contents__container__send"
     - else
