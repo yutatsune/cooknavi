@@ -12,9 +12,14 @@ class MaterialsController < ApplicationController
       Material.create(material_params)
     end
 
+    def destroy
+      material = Material.find(params[:id])
+      material.destroy
+    end
+
     private
     def material_params
       params.require(:material).permit(:name, :address)
     end
-    
+
 end
