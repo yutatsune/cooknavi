@@ -26,6 +26,11 @@ class MaterialsController < ApplicationController
       material.update(material_params)
     end
 
+    def show
+      @material = Material.find(params[:id])
+      @materials = Material.all
+    end
+
     private
     def material_params
       params.require(:material).permit(:name, :address)

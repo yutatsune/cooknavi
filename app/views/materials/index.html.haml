@@ -1,3 +1,3 @@
 .contents
   - @materials.each do |material|
-    = link_to material.name, "#", class: "material-name"
+    = link_to material.name, material_path(material.id), class: "material-name"
