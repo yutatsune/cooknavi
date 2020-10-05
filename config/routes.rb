@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: :show
-  resources :materials
+  resources :materials do
+    collection do
+      get 'search'
+    end
+  end
 end

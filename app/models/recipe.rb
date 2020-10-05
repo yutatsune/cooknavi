@@ -6,7 +6,7 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def self.search(search)
-    if search
+    if search != ""
       Recipe.where('name LIKE(?)', "%#{search}%")
     else
       Recipe.all
