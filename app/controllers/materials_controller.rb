@@ -38,7 +38,7 @@ class MaterialsController < ApplicationController
 
   private
   def material_params
-    params.require(:material).permit(:name, :address).merge(user_id: current_user.id)
+    params.require(:material).permit(:name, :postcode, :prefecture_code, :address_city, :address_street, :address_building).merge(user_id: current_user.id)
   end
 
   def move_to_index
