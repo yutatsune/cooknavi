@@ -1,0 +1,4 @@
+.contents
+  - @materials.each do |material|
+    %p= material.name
+    = link_to material.address, "#", class: "material-address"
