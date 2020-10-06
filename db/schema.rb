@@ -31,8 +31,10 @@ ActiveRecord::Schema.define(version: 2020_10_02_004810) do
   create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "address"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_materials_on_user_id"
   end
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,5 +61,6 @@ ActiveRecord::Schema.define(version: 2020_10_02_004810) do
   end
 
   add_foreign_key "images", "recipes"
+  add_foreign_key "materials", "users"
   add_foreign_key "recipes", "users"
 end

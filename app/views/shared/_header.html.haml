@@ -3,18 +3,14 @@
     .headermain
       %h1.headermain__icon
         = link_to "CookNavi", root_path
-      .searchbar
-        = form_with url: search_recipes_path, local: true, method: :get, class: "form" do |f|
-          = f.text_field :keyword, placeholder: "キーワードから探す", class: "searchbar-input"
-          = button_tag type: 'submit', class: 'search-btn' do
-            .searchbar__icon
-              = image_tag ("icon-search 1.png"), class: "searchicon"
     .tag
       %ul.lefttag
         %li.lefttag__item.leftta__item--first
           = link_to "新規投稿", "/recipes/new", class: "post"
         %li.lefttag__item.leftta__item--material
           = link_to "材料検索", "/materials", class: "post"
+        %li.lefttag__item.leftta__item--material__new
+          = link_to "材料新規", "/materials/new", class: "post"
       - if user_signed_in?
         %ul.righttag
           %li.righttag__item.righttag__item--login

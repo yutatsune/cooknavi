@@ -7,3 +7,6 @@
 .contents
   - @materials.each do |material|
     = link_to material.name, material_path(material.id), class: "material-name"
+    - if user_signed_in? && current_user.id == material.user_id
+      = link_to '編集', edit_material_path(material.id), method: :get, class: "material-edit"
+      = link_to '削除', material_path(material.id), method: :delete, class: "material-delete"

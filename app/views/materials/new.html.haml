@@ -3,5 +3,5 @@
     = form_with(model: @material, local: true) do |form|
       %h3.contents__new__title 材料の投稿
       = form.text_field :name, placeholder: "材料名", class: "contents__new__text"
-      = form.text_area :address, placeholder: "住所", rows: "10"
+      = form.text_area :address, placeholder: "住所", rows: "2"
       = form.submit "投稿する", class: "contents__new__send"

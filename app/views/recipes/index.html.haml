@@ -1,3 +1,9 @@
+.searchbar
+  = form_with url: search_recipes_path, local: true, method: :get, class: "form" do |f|
+    = f.text_field :keyword, placeholder: "キーワードから探す", class: "searchbar-input"
+    = button_tag type: 'submit', class: 'search-btn' do
+      .searchbar__icon
+        = image_tag ("icon-search 1.png"), class: "searchicon"
 .contents
   - @recipes.each do |recipe|
     .contents__index{style: "background-image: url(#{recipe.images.first.src.url});"}

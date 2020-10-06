@@ -1,6 +1,7 @@
 class Material < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
+  belongs_to :user
 
   def self.search(search)
     if search != ""

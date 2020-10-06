@@ -3,6 +3,7 @@ class CreateMaterials < ActiveRecord::Migration[6.0]
     create_table :materials do |t|
       t.string :name
       t.text :address
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end
