@@ -13,4 +13,5 @@
         %a{href: "/users/#{recipe.user.id}"}
           %span 投稿者
           = recipe.user.nickname
-          
+.new_recipe_btn
+  = link_to "新規投稿", "/recipes/new"
