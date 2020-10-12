@@ -1,4 +1,5 @@
 <h2 align="center">CookNavi</h2>
+http://18.180.3.22/
 
 ![443ae4e96c03a5cb995b4350dd322e82](https://user-images.githubusercontent.com/66116053/89136208-78058280-d56d-11ea-8d75-f5f2fbd31fd5.jpg)
 
