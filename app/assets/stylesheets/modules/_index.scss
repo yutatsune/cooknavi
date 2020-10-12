@@ -84,3 +84,19 @@
     }
   }
 }
+
+.new_recipe_btn{
+  height: 100px;
+  width: 100px;
+  background-color: #de0202;
+  color: white;
+  border-radius: 4%;
+  text-align: center;
+  text-decoration: none;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  i {
+    padding-top: 8px;
+  }
+}

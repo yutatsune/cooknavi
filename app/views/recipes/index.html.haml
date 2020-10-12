@@ -1,6 +1,6 @@
 .searchbar
   = form_with url: search_recipes_path, local: true, method: :get, class: "form" do |f|
-    = f.text_field :keyword, placeholder: "キーワードから探す", class: "searchbar-input"
+    = f.text_field :keyword, placeholder: "レシピの検索", class: "searchbar-input"
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
@@ -13,4 +13,9 @@
         %a{href: "/users/#{recipe.user.id}"}
           %span 投稿者
           = recipe.user.nickname
-          
+- if user_signed_in?
+  = link_to new_recipe_path, id: "#button", class: "new_recipe_btn" do
+    .exhibitionBtn__box
+      .exhibitionbox__text
+        レシピ投稿
+      %i.fas.fa-hotdog.fa-3x

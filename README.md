@@ -16,9 +16,8 @@
 
 ## :link: 実装予定の内容
 <ul>
-  <li>材料が手に入る場所を共有する機能の追加</li>
-  <li>非同期通信を使ったインクリメンタルサーチの実装</li>
-  <li>自慢の調理器具を紹介するコーナー</li>
+  <li>材料が手に入る場所を共有する機能を現在作成中です！</li>
+  <li>現在Googleマップとの連携に挑戦中です</li>
 </ul>
 
 # CookNavi DB設計（暫定）
@@ -31,6 +30,7 @@
 ### Association
 - has_many :recipes
 - has_many :comments
+- has_many :materials
 
 ## recipesテーブル
 |Column|Type|Options|
@@ -60,4 +60,17 @@
 |recipe_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :recipe
+- belongs_to :user
+
+## materialテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|postcode|integer||
+|prefecture_code|integer||
+|address_city|string||
+|address_street|string||
+|address_building|string||
+|user_id|references|null: false, foreign_key: true|
+### Association
 - belongs_to :user

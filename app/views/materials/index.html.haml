@@ -1,6 +1,6 @@
 .searchbar
   = form_with url: search_materials_path, local: true, method: :get, class: "form" do |f|
-    = f.text_field :keyword, placeholder: "材料を検索", class: "searchbar-input"
+    = f.text_field :keyword, placeholder: "材料の検索", class: "searchbar-input"
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
@@ -10,3 +10,9 @@
     - if user_signed_in? && current_user.id == material.user_id
       = link_to '編集', edit_material_path(material.id), method: :get, class: "material-edit"
       = link_to '削除', material_path(material.id), method: :delete, class: "material-delete"
+- if user_signed_in?
+  = link_to new_material_path, id: "#button", class: "new_recipe_btn" do
+    .exhibitionBtn__box
+      .exhibitionbox__text
+        材料の投稿
+      %i.fas.fa-carrot.fa-3x
