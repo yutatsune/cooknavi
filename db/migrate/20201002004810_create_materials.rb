@@ -7,6 +7,8 @@ class CreateMaterials < ActiveRecord::Migration[6.0]
       t.string :address_city
       t.string :address_street
       t.string :address_building
+      t.float :latitude
+      t.float :longitude
       t.references :user, foreign_key: true
       t.timestamps
     end

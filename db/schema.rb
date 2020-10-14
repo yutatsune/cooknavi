@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2020_10_02_004810) do
     t.string "address_city"
     t.string "address_street"
     t.string "address_building"
+    t.float "latitude"
+    t.float "longitude"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
