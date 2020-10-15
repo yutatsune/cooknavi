@@ -1,5 +1,7 @@
 .contents
   - @materials.each do |material|
     %p= material.name
-    = link_to material.prefecture_name, "#", class: "material-address"
+    .address_city= material.address_city
+    %button{id:"searchAddressBtn", value:"検索", type:"button"}
+      場所を検索
     #map
