@@ -5,6 +5,7 @@
     %title Cooknavi
     = csrf_meta_tags
     = csp_meta_tag
+    = include_gon
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
     %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=&callback=initMap"}

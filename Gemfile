@@ -73,4 +73,4 @@ end
 gem 'fog-aws'
 gem 'jp_prefecture'
 gem "geocoder"
-gem 'gmaps4rails'
+gem 'gon'
