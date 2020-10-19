@@ -72,3 +72,6 @@ group :development, :test do
 end
 gem 'fog-aws'
 gem 'jp_prefecture'
+gem "geocoder"
+gem 'gon'
+gem "dotenv-rails"

@@ -30,6 +30,8 @@ class MaterialsController < ApplicationController
   def show
     @material = Material.find(params[:id])
     @materials = Material.all
+    gon.material_latitude = @material.latitude
+    gon.material_longitude = @material.longitude
   end
 
   def search

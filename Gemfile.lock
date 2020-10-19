@@ -106,6 +106,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.9.0)
     erubis (2.7.0)
     excon (0.75.0)
@@ -129,8 +133,14 @@ GEM
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
     formatador (0.2.5)
+    geocoder (1.6.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.4.0)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -233,6 +243,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.1)
+    request_store (1.5.0)
+      rack (>= 1.4)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -321,8 +333,11 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
+  dotenv-rails
   fog-aws
   font-awesome-sass
+  geocoder
+  gon
   haml-rails (>= 1.0, <= 2.0.1)
   jbuilder (~> 2.7)
   jp_prefecture
