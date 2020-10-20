@@ -50,6 +50,5 @@ test:
 production:
   <<: *default
   database: cooknavi_production
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  username: cooknavi
+  password: <%= ENV['COOKNAVI_DATABASE_PASSWORD'] %>
