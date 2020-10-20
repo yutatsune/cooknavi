@@ -1,4 +1,7 @@
 .contents
+  - @recipe.errors.full_messages.each do |message|
+    .form-error
+      = message
   .contents__new
     = form_with(model: @recipe, local: true) do |form|
       %h3.contents__new__title レシピの投稿
