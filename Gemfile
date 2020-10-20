@@ -64,3 +64,6 @@ gem "geocoder"
 gem 'gon'
 gem "dotenv-rails"
 gem 'rails-i18n'
+group :production do
+  gem 'unicorn', '5.4.1'
+end
