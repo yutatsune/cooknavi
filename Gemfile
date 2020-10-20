@@ -75,3 +75,4 @@ gem 'jp_prefecture'
 gem "geocoder"
 gem 'gon'
 gem "dotenv-rails"
+gem 'rails-i18n'

@@ -12,20 +12,33 @@ class RecipesController < ApplicationController
   end
 
   def create
-    Recipe.create(recipe_params)
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      flash[:notice] = "新規投稿しました"
+      redirect_to("/")
+    else
+      render("recipes/new")
+    end
   end
 
   def destroy
     recipe = Recipe.find(params[:id])
     recipe.destroy
+    flash[:notice] = "投稿を削除しました"
+    redirect_to("/")
   end
 
   def edit
   end
 
   def update
-    recipe = Recipe.find(params[:id])
-    recipe.update(recipe_params)
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      flash[:notice] = "投稿を編集しました"
+      redirect_to("/")
+    else
+      render("recipes/edit")
+    end
   end
 
   def show

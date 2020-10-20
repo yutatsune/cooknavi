@@ -1,5 +1,8 @@
 class Material < ApplicationRecord
   validates :name, presence: true
+  validates :postcode, presence: true
+  validates :prefecture_code, presence: true
+  validates :address_city, presence: true
   belongs_to :user
 
   def self.search(search)

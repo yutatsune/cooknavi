@@ -10,12 +10,20 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    Material.create(material_params)
+    @material = Material.new(material_params)
+    if @material.save
+      flash[:notice] = "新規投稿しました"
+      redirect_to("/materials")
+    else
+      render("materials/new")
+    end
   end
 
   def destroy
     material = Material.find(params[:id])
     material.destroy
+    flash[:notice] = "投稿を削除しました"
+    redirect_to("/materials")
   end
 
   def edit
@@ -23,8 +31,13 @@ class MaterialsController < ApplicationController
   end
 
   def update
-    material = Material.find(params[:id])
-    material.update(material_params)
+    @material = Material.find(params[:id])
+    if @material.update(material_params)
+      flash[:notice] = "投稿を編集しました"
+      redirect_to("/materials")
+    else
+      render("materials/edit")
+    end
   end
 
   def show

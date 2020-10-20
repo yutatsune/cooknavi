@@ -1,4 +1,7 @@
 .contents
+  - @material.errors.full_messages.each do |message|
+    .form-error
+      = message
   .contents__new
     = form_with(model: @material, local: true) do |form|
       %h3.contents__new__title 材料の投稿
