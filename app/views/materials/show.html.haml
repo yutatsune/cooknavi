@@ -1,5 +1,12 @@
 .contents
   %p= @material.name
-  .address_city= @material.address_city
-  場所を検索
+  - if user_signed_in? && current_user.id == @material.user_id
+    %ul.btn
+      %li.material-btn
+        = link_to '編集', edit_material_path(@material.id), method: :get
+      %li.material-btn
+        = link_to '削除', material_path(@material.id), method: :delete
+  .address_city= @material.prefecture_name + @material.address_city
+  .address_building= @material.address_building
+  地図を表示
   #map

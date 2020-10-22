@@ -5,7 +5,6 @@ class CreateMaterials < ActiveRecord::Migration[6.0]
       t.integer :postcode
       t.integer :prefecture_code
       t.string :address_city
-      t.string :address_street
       t.string :address_building
       t.float :latitude
       t.float :longitude
