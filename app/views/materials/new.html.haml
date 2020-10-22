@@ -8,7 +8,6 @@
       = form.text_field :name, placeholder: "材料名", class: "contents__new__text"
       = form.text_field :postcode, placeholder: "郵便番号", class: "contents__new__text"
       = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "contents__new__text"
-      = form.text_field :address_city, placeholder: "市区町村", class: "contents__new__text"
-      = form.text_field :address_street, placeholder: "番地", class: "contents__new__text"
+      = form.text_field :address_city, placeholder: "市区町村番地", class: "contents__new__text"
       = form.text_field :address_building, placeholder: "建物名", class: "contents__new__text"
       = form.submit "投稿する", class: "contents__new__send"
