@@ -1,11 +1,12 @@
 .searchbar {
-  margin: 20px 450px;
+  margin: 20px auto;
   display: flex;
 
   .form {
-    width: 536px;
+    width: 100%;
     padding: 10px, 20px;
     display: flex;
+    justify-content: center;
     height: 36px;
     margin-bottom: 5px;
 
