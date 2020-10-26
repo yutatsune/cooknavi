@@ -12,7 +12,8 @@
 ## :link: アプリケーションの概要
 <ul>
   <li>レシピが投稿できるアプリです。</li>
-  <li>今後、レシピで使う材料はどこで買えるのか共有しあえる機能を追加予定です。</li>
+  <li>また、レシピで使う材料はどこで買えるのか共有しあえる機能がございます。</li>
+  <li>材料の情報を投稿する際に入力した住所の情報から、自動でGoogleMapの位置情報を取得できます。</li>
 </ul>
 
 ## :link: 制作背景
@@ -23,8 +24,9 @@
 
 ## :link: 実装予定の内容
 <ul>
-  <li>材料が手に入る場所を共有する機能を現在作成中です！</li>
+  <li>レシピや材料情報のいいね機能</li>
   <li>現在Googleマップとの連携に挑戦中です</li>
+  <li>(マップの表示はできるものの、動作が不安定なため検証中)</li>
 </ul>
 
 # CookNavi DB設計（暫定）
@@ -76,8 +78,9 @@
 |postcode|integer||
 |prefecture_code|integer||
 |address_city|string||
-|address_street|string||
 |address_building|string||
+|latitude|float||
+|longitude|float||
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
