@@ -1,11 +1,11 @@
 .contents
   .contents__container
-    %h2 Sign up
+    %h2 新規会員登録
     = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'contents__container__new', local: true do |f|
       = devise_error_messages!
       .field
         = f.label :nickname
-        %em (6 characters maximum)
+        %em (最大6文字)
         %br/
         = f.text_field :nickname, autofocus: true, maxlength: "6"
       .field
