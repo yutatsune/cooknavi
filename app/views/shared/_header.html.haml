@@ -12,7 +12,7 @@
           %li.righttag__item.righttag__item--login
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post"
           %li.righttag__item.righttag__item--new
-            = link_to  "マイページ", "/users/#{current_user.id}", class: "post"
+            = link_to  "マイページ", "/users/mypage", class: "post"
       - else
         %ul.righttag
           %li.righttag__item
