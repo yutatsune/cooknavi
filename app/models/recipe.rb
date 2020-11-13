@@ -5,6 +5,8 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :images, dependent: :destroy
+  has_many :likes
+  has_many :users, through: :likes
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def self.search(search)

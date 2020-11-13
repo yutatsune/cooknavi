@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 2020_10_02_004810) do
     t.index ["recipe_id"], name: "index_images_on_recipe_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "recipe_id"
+    t.bigint "material_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_id"], name: "index_likes_on_material_id"
+    t.index ["recipe_id"], name: "index_likes_on_recipe_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "postcode"
@@ -66,6 +77,9 @@ ActiveRecord::Schema.define(version: 2020_10_02_004810) do
   end
 
   add_foreign_key "images", "recipes"
+  add_foreign_key "likes", "materials"
+  add_foreign_key "likes", "recipes"
+  add_foreign_key "likes", "users"
   add_foreign_key "materials", "users"
   add_foreign_key "recipes", "users"
 end

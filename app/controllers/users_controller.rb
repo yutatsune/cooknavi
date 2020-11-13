@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @nickname = @user.nickname
     @recipes = @user.recipes
+    @materials = @user.materials
   end
 
   private
