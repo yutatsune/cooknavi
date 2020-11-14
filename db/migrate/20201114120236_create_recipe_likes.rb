@@ -1,9 +1,8 @@
-class CreateLikes < ActiveRecord::Migration[6.0]
+class CreateRecipeLikes < ActiveRecord::Migration[6.0]
   def change
-    create_table :likes do |t|
+    create_table :recipe_likes do |t|
       t.references :user, foreign_key: true
       t.references :recipe, foreign_key: true
-      t.references :material, foreign_key: true
       t.timestamps
     end
   end

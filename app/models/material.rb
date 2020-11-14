@@ -4,8 +4,6 @@ class Material < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :address_city, presence: true
   belongs_to :user
-  has_many :likes
-  has_many :users through: :likes
 
   def self.search(search)
     if search != ""
