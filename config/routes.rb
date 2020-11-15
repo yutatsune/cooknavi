@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: :show
-  resources :recipe_likes, only: :create
+  resources :recipe_likes, only: [:create, :destroy]
   resources :materials do
     collection do
       get 'search'

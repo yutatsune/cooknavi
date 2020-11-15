@@ -13,6 +13,9 @@
         %a{href: "/users/#{recipe.user.id}"}
           %span 投稿者
           = recipe.user.nickname
+    = form_with(model: @recipe_like, url: recipe_likes_path, local: true) do |f|
+      = f.hidden_field :recipe_id, value: recipe.id
+      = f.submit 'いいね！'
 - if user_signed_in?
   = link_to new_recipe_path, id: "#button", class: "new_recipe_btn" do
     .exhibitionBtn__box

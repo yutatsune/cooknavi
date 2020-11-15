@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_120236) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_recipe_likes_on_recipe_id"
+    t.index ["user_id", "recipe_id"], name: "index_recipe_likes_on_user_id_and_recipe_id", unique: true
     t.index ["user_id"], name: "index_recipe_likes_on_user_id"
   end
 
