@@ -7,10 +7,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :materials
   has_many :recipe_likes
-  has_many :recipe_favorites, through: :recipe_likes, source: :recipe
-
-  def recipe_like_this(clicked_recipe)
-    self.recipe_likes.find_or_create_by(recipe_id: clicked_recipe.id)
-    binding.pry
+  has_many :liked_recipes, through: :recipe_likes, source: :recipe
+  def already_liked?(recipe)
+    self.recipe_likes.exists?(recipe_id: recipe.id)
   end
 end
