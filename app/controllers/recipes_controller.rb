@@ -44,6 +44,7 @@ class RecipesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @recipe.comments.includes(:user)
+    @like = RecipeLike.new
   end
 
   def search
