@@ -1,3 +1,6 @@
+#recipe.big-bg
+  .home-content
+    %h2.page-title Recipes
 .searchbar
   = form_with url: search_recipes_path, local: true, method: :get, class: "form" do |f|
     = f.text_field :keyword, placeholder: "レシピの検索", class: "searchbar-input"
