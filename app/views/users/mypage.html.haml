@@ -1,6 +1,7 @@
-%p
-  = "#{current_user.nickname}のマイページ"
-%p
-  = link_to 'ユーザー情報の編集', edit_user_registration_path, method: :get, class:"user_edit"
-%p
-  = link_to 'レシピ投稿一覧', user_path(current_user), method: :get, class:"user_edit"
+.mypage-contents
+  %p
+    = "#{current_user.nickname}のマイページ"
+  %p
+    = link_to 'ユーザー情報の編集', edit_user_registration_path, method: :get, class:"user_edit"
+  %p
+    = link_to 'レシピ投稿一覧', user_path(current_user), method: :get, class:"user_edit"
