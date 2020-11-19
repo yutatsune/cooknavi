@@ -1,6 +1,5 @@
 .header {
   padding: 0px 60px;
-  width: 100%;
   position: absolute;
 
   .headerIn {
@@ -11,8 +10,6 @@
     padding: 15px 0 0;
 
     .headermain {
-      position: relative;
-      display: flex;
       align-items: center;
 
       &__icon {
@@ -30,45 +27,16 @@
 
     .tag {
       font-size: 14px;
-      display: flex;
-      margin-bottom: 10px;
-
-      .lefttag {
-        position: relative;
-        display: flex;
-
-        .lefttag__item {
-          color: #ffffff;
-          text-decoration: none !important;
-          line-height: 32px;
-          background-position: center right;
-          background-repeat: no-repeat;
-          background-size: 18px;
-          padding-right: 30px;
-          
-          .lefttag__item--first {
-            text-decoration: none;
-            padding: 0;
-          }
+      margin: 10px 0;
+      .menus {
+        display: none;
+        li {
+          padding: 5px 10px;
+          border: solid 1px black;
+          background-color: white;
         }
-      }
-      .righttag {
-        margin-left: auto;
-        display: flex;
-      
-        &__item {
-          color: #333;
-          text-decoration: none !important;
-          line-height: 32px;
-          background-position: center right;
-          background-repeat: no-repeat;
-          background-size: 18px;
-          padding-right: 30px;
-        }
-      
-        &--login {
-          text-decoration: none !important;
-          padding: 0;
+        li:hover {
+          background-color: lightgray;
         }
       }
     }
