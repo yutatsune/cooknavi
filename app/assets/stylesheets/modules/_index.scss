@@ -1,3 +1,4 @@
+
 .searchbar {
   margin: 20px auto;
   display: flex;
@@ -29,13 +30,13 @@
   }
 }
 
-.contents {
+.recipe-contents {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 660px;
+  max-width: 1000px;
   &__index {
     margin: 20px 0;
     padding: 30px;
@@ -44,7 +45,7 @@
     width: 100%;
     color: #fff;
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(41,41,41,0.2);
     &__link {
@@ -108,7 +109,7 @@
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 660px;
+  max-width: 1000px;
   &__index {
     margin: 20px 0;
     padding: 30px;
@@ -127,4 +128,16 @@
   text-decoration: none;
   color: #666;
   font-size: 18px;
+}
+.grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  margin-top: 6%;
+  margin-bottom: 50px;
+}
+.recipe-image {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
 }

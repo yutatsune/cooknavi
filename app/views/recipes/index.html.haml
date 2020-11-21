@@ -1,13 +1,16 @@
+#recipe.big-bg
+  .home-content
+    %h2.page-title Recipes
 .searchbar
   = form_with url: search_recipes_path, local: true, method: :get, class: "form" do |f|
     = f.text_field :keyword, placeholder: "レシピの検索", class: "searchbar-input"
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
-.contents
+.recipe-contents.grid
   - @recipes.each do |recipe|
-    .contents__index{style: "background-image: url(#{recipe.images.first.src.url});"}
-      = link_to "詳細", recipe_path(recipe.id), class: "contents__index__link"
+    .item
+      = link_to image_tag("#{recipe.images.first.src.url}", class: "recipe-image"), recipe_path(recipe.id)
       %p= recipe.name
       %span.name
         %a{href: "/users/#{recipe.user.id}"}
