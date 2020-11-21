@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :users, only: :show
+  resources :users, only: [:index, :show]
+  resources :relationships, only: [:create, :destroy]
   resources :materials do
     collection do
       get 'search'
