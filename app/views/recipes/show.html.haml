@@ -16,6 +16,10 @@
       = button_to 'いいねを取り消す', recipe_recipe_like_path(@recipe), method: :delete
     - else
       = button_to 'いいね', recipe_recipe_likes_path(@recipe)
+    %h2
+      いいねしたユーザー
+    - @recipe.liked_users.each do |user|
+      %li= user.nickname
     .contents__material
       %p 材料
       = @recipe.material

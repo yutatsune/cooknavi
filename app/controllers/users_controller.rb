@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def show
     @nickname = @user.nickname
     @recipes = @user.recipes
+    @liked_recipes = @user.liked_recipes
     @materials = @user.materials
   end
 

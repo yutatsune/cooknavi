@@ -6,3 +6,11 @@
     .contents__post{style: "background-image: url(#{recipe.images.first.src.url});"}
       %p.contents__post__text
         = recipe.name
+        .contents
+.contents
+  %p.contents__title
+    いいねしたレシピ一覧
+  - @liked_recipes.each do |recipe|
+    .contents__post{style: "background-image: url(#{recipe.images.first.src.url});"}
+      %p.contents__post__text
+        = recipe.name
