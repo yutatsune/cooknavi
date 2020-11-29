@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   resources :homes, only: [:show]
   resources :recipes do
     resources :comments, only: :create
-    resources :recipe_likes, only: [:create, :destroy]
+    resources :recipe_likes, only: %i[create destroy]
     collection do
       get 'search'
     end
   end
-  resources :users, only: [:index, :show]
-  resources :relationships, only: [:create, :destroy]
+  resources :users, only: %i[index show]
+  resources :relationships, only: %i[create destroy]
   resources :materials do
     collection do
       get 'search'

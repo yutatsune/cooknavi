@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:edit, :show]
-  before_action :move_to_index, except: [:index, :show, :search]
+  before_action :set_recipe, only: %i[edit show]
+  before_action :move_to_index, except: %i[index show search]
 
   def index
     @recipes = Recipe.includes(:user)
@@ -28,8 +28,7 @@ class RecipesController < ApplicationController
     redirect_to("/")
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @recipe = Recipe.find(params[:id])
@@ -54,7 +53,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :image, :text, :material, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:name, :image, :text, :material, images_attributes: %i[src _destroy id]).merge(user_id: current_user.id)
   end
 
   def set_recipe
@@ -62,8 +61,6 @@ class RecipesController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 end

@@ -12,6 +12,6 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'freyja3-cooknavi'
+  config.fog_directory = 'freyja3-cooknavi'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freyja3-cooknavi'
 end
