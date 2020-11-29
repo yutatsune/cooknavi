@@ -26,5 +26,4 @@ class Material < ApplicationRecord
 
   geocoded_by :address_city
   after_validation :geocode
-
 end

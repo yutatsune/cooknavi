@@ -1,5 +1,5 @@
 class MaterialsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: %i[index show]
 
   def index
     @materials = Material.all
@@ -52,14 +52,12 @@ class MaterialsController < ApplicationController
   end
 
   private
+
   def material_params
     params.require(:material).permit(:name, :postcode, :prefecture_code, :address_city, :address_street, :address_building).merge(user_id: current_user.id)
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
-
 end
