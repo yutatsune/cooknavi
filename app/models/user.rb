@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :reverse_of_rerationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_rerationships, source: :user
 
+  validates :nickname, presence: true, length: { maximum: 6 }
+
   def already_liked?(recipe)
     recipe_likes.exists?(recipe_id: recipe.id)
   end
