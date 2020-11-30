@@ -65,15 +65,7 @@ gem 'mini_magick'
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-group :production do
-  gem 'unicorn', '5.4.1'
-end
 group :development, :test do
-  gem 'capistrano'
-  gem 'capistrano3-unicorn'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'factory_bot_rails'
 end
