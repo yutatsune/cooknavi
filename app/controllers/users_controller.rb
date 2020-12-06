@@ -10,8 +10,10 @@ class UsersController < ApplicationController
 
   def show
     @nickname = @user.nickname
-    @recipes = @user.recipes
-    @liked_recipes = @user.liked_recipes
+    @followings = @user.followings
+    @followed = @user.reverse_of_relationships
+    @recipes = @user.recipes.order("created_at DESC")
+    @liked_recipes = @user.liked_recipes.order("created_at DESC")
     @materials = @user.materials
   end
 
