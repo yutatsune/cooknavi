@@ -6,12 +6,12 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @followers = current_user.followers
+    @followings = current_user.followings
   end
 
   def show
     @nickname = @user.nickname
-    @followings = @user.followings
-    @followed = @user.reverse_of_relationships
     @recipes = @user.recipes.order("created_at DESC")
     @liked_recipes = @user.liked_recipes.order("created_at DESC")
     @materials = @user.materials
