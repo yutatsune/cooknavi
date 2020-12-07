@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
     following = current_user.follow(@user)
     if following.save
       flash[:notice] = 'ユーザーをフォローしました'
-      redirect_to root_path
+      redirect_to users_path
     end
   end
 
@@ -13,7 +13,7 @@ class RelationshipsController < ApplicationController
     following = current_user.unfollow(@user)
     if following.destroy
       flash[:notice] = 'ユーザーのフォローを解除しました'
-      redirect_to root_path
+      redirect_to users_path
     end
   end
 

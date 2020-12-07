@@ -1,16 +1,26 @@
-.contents
+.user_show_contents
   %p.contents__title
     = @nickname
     さんの投稿一覧
-  - @recipes.each do |recipe|
-    .contents__post{style: "background-image: url(#{recipe.images.first.src.url});"}
-      %p.contents__post__text
-        = recipe.name
-        .contents
-.contents
+  .grid
+    - @recipes.each do |recipe|
+      .item
+        = link_to image_tag("#{recipe.images.first.src.url}", class: "recipe-image"), recipe_path(recipe.id)
+        %p= recipe.name
+        %span.name
+          %a{href: "/users/#{recipe.user.id}"}
+            %span 投稿者
+            = recipe.user.nickname
+        = recipe.liked_users.count
+.user_show_contents
   %p.contents__title
     いいねしたレシピ一覧
   - @liked_recipes.each do |recipe|
-    .contents__post{style: "background-image: url(#{recipe.images.first.src.url});"}
-      %p.contents__post__text
-        = recipe.name
+    .item
+      = link_to image_tag("#{recipe.images.first.src.url}", class: "recipe-image"), recipe_path(recipe.id)
+      %p= recipe.name
+      %span.name
+        %a{href: "/users/#{recipe.user.id}"}
+          %span 投稿者
+          = recipe.user.nickname
+      = recipe.liked_users.count

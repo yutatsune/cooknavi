@@ -1,25 +1,24 @@
 .contents
   .contents__show{style: "background-image: url(#{@recipe.images.first.src.url});"}
-    %p= @recipe.name
-    %span.name
-      %a{href: "/users/#{@recipe.user.id}"}
-        %span 投稿者
-        = @recipe.user.nickname
   .contents__box
     .contents__box__list
       - @recipe.images.each_with_index do |image, i|
         .image-list__item
           = image_tag image.src.url, alt: "画像", class: "image-index-#{i}"
-    %h3
-      いいね件数: #{@recipe.recipe_likes.count}
-    - if current_user.already_liked?(@recipe)
-      = button_to 'いいねを取り消す', recipe_recipe_like_path(@recipe), method: :delete
-    - else
-      = button_to 'いいね', recipe_recipe_likes_path(@recipe)
-    %h2
-      いいねしたユーザー
-    - @recipe.liked_users.each do |user|
-      %li= user.nickname
+    .recipe_name= @recipe.name
+    .show_name
+      = link_to "投稿者 #{@recipe.user.nickname}", "/users/#{@recipe.user_id}"
+    .show_likes
+      %p
+        いいね件数: #{@recipe.recipe_likes.count}
+      - if current_user.already_liked?(@recipe)
+        = button_to 'いいねを取り消す', recipe_recipe_like_path(@recipe), method: :delete
+      - else
+        = button_to 'いいね', recipe_recipe_likes_path(@recipe)
+      %p
+        いいねしたユーザー
+      - @recipe.liked_users.each do |user|
+        %li= user.nickname
     .contents__material
       %p 材料
       = @recipe.material

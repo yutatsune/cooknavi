@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :move_to_index, except: %i[index show search]
 
   def index
-    @recipes = Recipe.includes(:user)
+    @recipes = Recipe.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
       flash[:notice] = "新規投稿しました"
-      redirect_to("/")
+      redirect_to("/recipes")
     else
       render("recipes/new")
     end

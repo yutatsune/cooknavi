@@ -1,23 +1,26 @@
-.header
-  .headerIn
-    .headermain
-      %h1.headermain__icon
-        = link_to "CookNavi", root_path
-    %nav.tag
-      %button{type: "button"}
-        Menu
-      %ul.menus
-        %li
-          = link_to "レシピを見てみる！", "/recipes", class: "post"
-        %li
-          = link_to "材料を探してみる！", "/materials", class: "post"
-        - if user_signed_in?
+.headfix
+  .header
+    .headerIn
+      .headermain
+        %h1.headermain__icon
+          = link_to "CookNavi", root_path
+      .headerbutton
+        %button{type: "button"}
+          Menu
+      %nav.tag
+        %ul.menus
           %li
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post"
+            = link_to "レシピを見てみる！", "/recipes", class: "post"
           %li
-            = link_to  "マイページ", "/users/mypage", class: "post"
-        - else
-          %li
-            = link_to "ログイン", new_user_session_path, class: 'post'
-          %li
-            = link_to "新規会員登録", new_user_registration_path, class: 'post'
+            = link_to "材料を探してみる！", "/materials", class: "post"
+          - if user_signed_in?
+            %li
+              = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post"
+            %li
+              = link_to  "マイページ", "/users/mypage", class: "post"
+          - else
+            %li
+              = link_to "ログイン", new_user_session_path, class: 'post'
+            %li
+              = link_to "新規会員登録", new_user_registration_path, class: 'post'
+              

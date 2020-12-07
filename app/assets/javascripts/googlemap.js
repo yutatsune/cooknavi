@@ -1,22 +1,22 @@
-$(document).on('turbolinks:load',function initMap() {
+function initMap() {
   //latitude,longitudeから位置を特定
-  var latitude = gon.material_latitude
-  var longitude = gon.material_longitude
-  var test ={lat: latitude, lng: longitude};
-  var map = new google.maps.Map(document.getElementById('map'), {
+  let latitude = gon.material_latitude
+  let longitude = gon.material_longitude
+  let test ={lat: latitude, lng: longitude};
+  let map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15, 
             center: test
             });
-  var transitLayer = new google.maps.TransitLayer();
+  let transitLayer = new google.maps.TransitLayer();
   transitLayer.setMap(map);
 
-  var contentString = '住所：<%= shop.address %>';
-  var infowindow = new google.maps.InfoWindow({
+  let contentString = '住所：<%= shop.address %>';
+  let infowindow = new google.maps.InfoWindow({
     content: contentString
   });
   
   //Map上の指定した位置にピンを挿して表示する
-  var marker = new google.maps.Marker({
+  let marker = new google.maps.Marker({
                 position:test,
                 map: map,
                 title: contentString
@@ -25,4 +25,4 @@ $(document).on('turbolinks:load',function initMap() {
     marker.addListener('click', function() {
       infowindow.open(map, marker);
     });
-});
+};

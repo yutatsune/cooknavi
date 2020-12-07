@@ -1,48 +1,66 @@
-.header {
-  padding: 0px 60px;
-  position: absolute;
+.headfix {
+  position: fixed;
+  width: 100%;
+  
+  .header {
+    padding: 0px 60px;
+    background-color: black;
+    height: 70px;
 
-  .headerIn {
-    max-width: 1040px;
-    width: 100%;
-    min-height: 82px;
-    margin: 0 auto;
-    padding: 15px 0 0;
+    .headerIn {
+      width: 100%;
+      padding: 15px 0 0;
+      position: relative;
 
-    .headermain {
-      align-items: center;
+      .headermain {
+        align-items: center;
 
-      &__icon {
-        font-size: 25px;
-        line-height: 41px;
-        float: left;
-        margin-right: 15px;
-        a {
-          color: #666;
-          font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
-          text-decoration: none;
+        &__icon {
+          font-size: 28px;
+          
+          a {
+            color: whitesmoke;
+            font-family: 'Philosopher', serif;
+            text-decoration: none;
+          }
         }
       }
-    }
-
-    .tag {
-      font-size: 14px;
-      margin: 10px 0;
-      .menus {
-        display: none;
-        li {
-          padding: 5px 10px;
-          border: solid 1px black;
-          background-color: white;
+      .headerbutton {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        button {
+          border: none;
+          outline: none;
+          background-color: whitesmoke;
+          border-radius: 20px;
+          font-size: 25px;
+          font-family: 'Philosopher', serif;
         }
-        li:hover {
-          background-color: lightgray;
+        button:hover {
+          background-color: lightblue;
+        }
+      }
+      .tag {
+        font-size: 14px;
+        position: fixed;
+        top: 70px;
+        width: 250px;
+        height: 100%;
+        margin-left: -310px;
+        background-color: black;
+        li {
+          text-align: center;
+          font-size: 18px;
+        }
+        li:hover{
+          background-color: darkgray;
         }
       }
     }
   }
 }
 .post {
-  color: #333;
+  color: whitesmoke;
   text-decoration: none !important;
 }

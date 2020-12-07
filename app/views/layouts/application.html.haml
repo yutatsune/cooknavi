@@ -6,14 +6,16 @@
     = csrf_meta_tags
     = csp_meta_tag
     = include_gon
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all'
     %link{href: "https://fonts.googleapis.com/css2?family=Philosopher&display=swap", rel: "stylesheet"}/
     = javascript_include_tag 'application'
     %script{async: "", defer: "defer", src: "https://maps.googleapis.com/maps/api/js?key=#{ ENV['GOOGLE_MAP_API_KEY'] }&callback=initMap"}
   %body
-    = render 'shared/header'
-    - if flash[:notice]
-      .flash
-        = flash[:notice]
-    = yield
-    = render 'shared/footer'
+    #wrapper
+      = render 'shared/header'
+      - if flash[:notice]
+        .flash
+          = flash[:notice]
+      .cook-contents
+        = yield
+      = render 'shared/footer'
