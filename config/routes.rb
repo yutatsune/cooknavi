@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
   get '/users/mypage' => 'users#mypage'
   root "homes#show"
   resources :homes, only: [:show]
@@ -11,6 +14,9 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: %i[index show]
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
   resources :relationships, only: %i[create destroy]
   resources :materials do
     collection do
