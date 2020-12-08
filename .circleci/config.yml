@@ -1,15 +1,19 @@
 version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2 
 
 jobs:
-  build:
+  test:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
+      - image: circleci/ruby:2.6.5
+    working_directory: ~/repo
     steps:
       - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+      - run: 
+          name: Run test
+          command: ruby calculation_spec.rb
+
+
+workflows:
+  version: 2.1
+  workflows:
+    jobs:
+      - test
