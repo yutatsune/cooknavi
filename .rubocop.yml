@@ -26,3 +26,7 @@ Metrics/LineLength:
 #'frozen_string_literal: true'を無効
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'

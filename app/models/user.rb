@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   def unfollow(other_user)
     relationship = relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship
+    relationship&.destroy
   end
 
   def following?(other_user)
@@ -37,5 +37,4 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-
 end

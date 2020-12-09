@@ -3,18 +3,18 @@ class RelationshipsController < ApplicationController
 
   def create
     following = current_user.follow(@user)
-    if following.save
-      flash[:notice] = 'ユーザーをフォローしました'
-      redirect_to users_path
-    end
+    return unless following.save
+
+    flash[:notice] = 'ユーザーをフォローしました'
+    redirect_to users_path
   end
 
   def destroy
     following = current_user.unfollow(@user)
-    if following.destroy
-      flash[:notice] = 'ユーザーのフォローを解除しました'
-      redirect_to users_path
-    end
+    return unless following.destroy
+
+    flash[:notice] = 'ユーザーのフォローを解除しました'
+    redirect_to users_path
   end
 
   private
