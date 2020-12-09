@@ -65,6 +65,7 @@ gem 'rails-i18n'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'rspec_junit_formatter'
   gem 'factory_bot_rails'
 end
 gem 'fog-aws'
