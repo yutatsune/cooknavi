@@ -131,7 +131,7 @@
 .grid {
   display: grid;
   gap: 26px;
-  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   margin-top: 6%;
   margin-bottom: 50px;
 }
@@ -151,7 +151,7 @@
     margin-right: auto;
     padding-top: 70px;
     margin-bottom: 0;
-    max-width: 1000px;
+    max-width: 660px;
     h2 {
       color: #666;
     }
@@ -168,6 +168,92 @@
       box-shadow: 0 0 10px rgba(41,41,41,0.2);
       display: flex;
       justify-content: space-between;
+    }
+  }
+}
+
+/* レスポンシブ
+------------------------------ */
+@media (max-width: 600px) {
+  .searchbar {
+    margin: 20px auto;
+    display: flex;
+  
+    .form {
+      width: 100%;
+      padding: 10px, 20px;
+      display: flex;
+      justify-content: center;
+      height: 36px;
+      margin-bottom: 5px;
+  
+      .searchbar-input {
+        width: 200px;
+        padding: 0 0 0 5px;
+      }
+  
+      .search-btn {
+        width: 36px;
+        border: 0;
+        cursor: pointer;
+        background-color: #de0202;
+        padding: 8px;
+      
+        .searchicon{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .recipe-contents {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 320px;
+  }
+  .grid {
+    display: grid;
+    gap: 13px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-top: 6%;
+    margin-bottom: 50px;
+  }
+  .recipe-image {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(41,41,41,0.2);
+  }
+  .user-contents {
+    padding-top: 70px;
+    .user-box {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 70px;
+      margin-bottom: 0;
+      max-width: 300px;
+      h2 {
+        color: #666;
+      }
+      .user-list {
+        margin: 20px 0;
+        padding: 30px;
+        position: relative;
+        height: 25px;
+        width: 100%;
+        max-width: 250px;
+        color: #fff;
+        background-size: cover;
+        background-position: center center;
+        border-radius: 3px;
+        box-shadow: 0 0 10px rgba(41,41,41,0.2);
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 }

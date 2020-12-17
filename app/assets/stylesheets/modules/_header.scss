@@ -27,7 +27,7 @@
       }
       .headerbutton {
         position: absolute;
-        top: 15px;
+        top: 20px;
         right: 20px;
         button {
           border: none;
@@ -45,9 +45,9 @@
         font-size: 14px;
         position: fixed;
         top: 70px;
-        width: 250px;
+        width: 200px;
         height: 100%;
-        margin-left: -310px;
+        margin-left: -260px;
         background-color: black;
         li {
           text-align: center;
@@ -63,4 +63,75 @@
 .post {
   color: whitesmoke;
   text-decoration: none !important;
+}
+
+/* レスポンシブ
+------------------------------ */
+@media (max-width: 600px) {
+  .headfix {
+    position: fixed;
+    width: 100%;
+    
+    .header {
+      padding: 0px 20px;
+      background-color: black;
+      height: 70px;
+  
+      .headerIn {
+        width: 100%;
+        padding: 15px 0 0;
+        position: relative;
+  
+        .headermain {
+          align-items: center;
+  
+          &__icon {
+            font-size: 28px;
+            
+            a {
+              color: whitesmoke;
+              font-family: 'Philosopher', serif;
+              text-decoration: none;
+            }
+          }
+        }
+        .headerbutton {
+          position: absolute;
+          top: 20px;
+          right: 10px;
+          button {
+            border: none;
+            outline: none;
+            background-color: whitesmoke;
+            border-radius: 20px;
+            font-size: 25px;
+            font-family: 'Philosopher', serif;
+          }
+          button:hover {
+            background-color: lightblue;
+          }
+        }
+        .tag {
+          font-size: 10px;
+          position: fixed;
+          top: 70px;
+          width: 200px;
+          height: 100%;
+          margin-left: -220px;
+          background-color: black;
+          li {
+            text-align: center;
+            font-size: 18px;
+          }
+          li:hover{
+            background-color: darkgray;
+          }
+        }
+      }
+    }
+  }
+  .post {
+    color: whitesmoke;
+    text-decoration: none !important;
+  }
 }

@@ -41,3 +41,34 @@
     background: #0090aa;
   }
 }
+
+/* レスポンシブ
+------------------------------ */
+@media (max-width: 600px) {
+  .home-content {
+    text-align: center;
+    padding-top: 40%;
+    .page-title {
+      font-size: 3rem;
+      font-family: 'Philosopher', serif;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+    p {
+      font-size: 1rem;
+      margin: 25px 0 25px;
+    }
+    .button {
+      font-size: 1rem;
+      text-decoration: none;
+      background: #0bd;
+      color: #fff;
+      border-radius: 5px;
+      padding: 18px 32px;
+      display: inline-block;
+    }
+    .button:hover{
+      background: #0090aa;
+    }
+  }
+}

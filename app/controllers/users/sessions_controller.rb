@@ -1,5 +1,5 @@
-class Users < Devise
-  class SessionsController < SessionsController
+module Users
+  class SessionsController < Devise::SessionsController
     def new_guest
       user = User.guest
       sign_in user
