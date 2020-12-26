@@ -32,12 +32,23 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    if @recipe.update(recipe_params)
-      flash[:notice] = "投稿を編集しました"
-      redirect_to("/")
-    else
-      render("recipes/edit")
+    length = @recipe.images.length
+    i = 0
+    while i < length do
+      if recipe_params[:images_attributes]["#{i}"]["_destroy"] == "0"
+        @recipe.update(recipe_params)
+        flash[:notice] = "投稿を編集しました"
+        redirect_to("/")
+        return
+      else
+        i += 1
+      end
     end
+    if recipe_params[:images_attributes]["#{i}"]
+      @recipe.update(recipe_params)
+    end
+    render("recipes/edit")
+    return
   end
 
   def show

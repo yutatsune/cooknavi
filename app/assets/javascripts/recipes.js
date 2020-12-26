@@ -9,9 +9,6 @@ $( ()=> {
                     <img src=${image} alt="preview">
                   </div>
                   <div class="lower-box">
-                    <div class="update-box">
-                      <div class="edit-btn">編集</div>
-                    </div>
                     <div class="delete-box">
                       <div class="delete-btn" data-delete-id= ${id}>削除</div>
                     </div>
