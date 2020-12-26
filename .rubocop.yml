@@ -30,3 +30,11 @@ Style/FrozenStringLiteralComment:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/controllers/recipes_controller.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'app/controllers/recipes_controller.rb'
