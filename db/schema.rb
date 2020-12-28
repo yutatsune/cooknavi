@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_125227) do
+ActiveRecord::Schema.define(version: 2020_12_28_141620) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 2020_12_28_125227) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["material_id"], name: "index_material_images_on_material_id"
+  end
+
+  create_table "material_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "material_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_id"], name: "index_material_likes_on_material_id"
+    t.index ["user_id", "material_id"], name: "index_material_likes_on_user_id_and_material_id", unique: true
+    t.index ["user_id"], name: "index_material_likes_on_user_id"
   end
 
   create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_12_28_125227) do
 
   add_foreign_key "images", "recipes"
   add_foreign_key "material_images", "materials"
+  add_foreign_key "material_likes", "materials"
+  add_foreign_key "material_likes", "users"
   add_foreign_key "materials", "users"
   add_foreign_key "recipe_likes", "recipes"
   add_foreign_key "recipe_likes", "users"

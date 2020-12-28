@@ -4,6 +4,8 @@ class Material < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :address_city, presence: true
   belongs_to :user
+  has_many :material_likes
+  has_many :liked_users, through: :material_likes, source: :user
   has_many :material_images, dependent: :destroy
   accepts_nested_attributes_for :material_images, allow_destroy: true
 
