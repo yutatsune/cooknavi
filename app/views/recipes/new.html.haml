@@ -18,11 +18,11 @@
                 %pre.label-box__text-visible クリックしてファイルをアップロード
             .hidden-content
               = form.fields_for :images, multiple: true do |i|
-                = i.file_field :src, class:"hidden-field"
-                %input{class:"hidden-field", type: "file", name: "recipe[images_attributes][1][src]", id: "recipe_images_attributes_1_src" }
-                %input{class:"hidden-field", type: "file", name: "recipe[images_attributes][2][src]", id: "recipe_images_attributes_2_src" }
-                %input{class:"hidden-field", type: "file", name: "recipe[images_attributes][3][src]", id: "recipe_images_attributes_3_src" }
-                %input{class:"hidden-field", type: "file", name: "recipe[images_attributes][4][src]", id: "recipe_images_attributes_4_src" }
+                = i.file_field :src, class:"recipe-hidden-field"
+                %input{class:"recipe-hidden-field", type: "file", name: "recipe[images_attributes][1][src]", id: "recipe_images_attributes_1_src" }
+                %input{class:"recipe-hidden-field", type: "file", name: "recipe[images_attributes][2][src]", id: "recipe_images_attributes_2_src" }
+                %input{class:"recipe-hidden-field", type: "file", name: "recipe[images_attributes][3][src]", id: "recipe_images_attributes_3_src" }
+                %input{class:"recipe-hidden-field", type: "file", name: "recipe[images_attributes][4][src]", id: "recipe_images_attributes_4_src" }
       = form.text_field :name, placeholder: "料理名", class: "new_recipe_contents__new__text"
       = form.text_area :material, placeholder: "材料", rows: "5"
       = form.text_area :text, placeholder: "作り方", rows: "10"

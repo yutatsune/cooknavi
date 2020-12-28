@@ -5,6 +5,38 @@
   .contents__new
     = form_with(model: @material, local: true) do |form|
       %h3.contents__new__title 材料の編集
+      .material__block__form
+        .material__block__form__upload
+          %h3.material__block__form__upload__head
+            レシピ画像
+            %span.require 必須
+          %p 最大5枚までアップロードできます
+          .post__drop__box__container
+            .prev-content
+
+              //JSで挿入したhtmlと同じ形 each文でのプレビュー表示
+              - @material.material_images.each_with_index do |image,i|
+                .preview-box
+                  .upper-box
+                    = image_tag image.src.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .delete-box
+                      .delete-btn{data:{delete_id: i}} 削除
+            .label-content
+
+              //プレビューの数に合わせてforオプションを指定
+              = form.label :"material_images_attributes_#{@material.material_images.length}_src", class: "label-box" do
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = form.fields_for :material_images do |i|
+
+                //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                = i.file_field :src,class:"material-hidden-field"
+                = i.check_box:_destroy
+
+                //5つのfile_fieldを準備するに当たって、足りない分を表示
+              - @material.material_images.length.upto(4) do |i|
+                %input{name: "material[material_images_attributes][#{i}][src]", id: "material_images_attributes_#{i}_src", class:"material-hidden-field", type:"file"}
       = form.text_field :name, placeholder: "材料名", class: "contents__new__text"
       = form.text_field :postcode, placeholder: "郵便番号", class: "contents__new__text"
       = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "contents__new__text"

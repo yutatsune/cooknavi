@@ -1,4 +1,5 @@
 class MaterialsController < ApplicationController
+  before_action :set_material, only: %i[edit show]
   before_action :move_to_index, except: %i[index show]
 
   def index
@@ -7,6 +8,7 @@ class MaterialsController < ApplicationController
 
   def new
     @material = Material.new
+    @material.material_images.new
   end
 
   def create
@@ -26,22 +28,28 @@ class MaterialsController < ApplicationController
     redirect_to("/materials")
   end
 
-  def edit
-    @material = Material.find(params[:id])
-  end
+  def edit; end
 
   def update
     @material = Material.find(params[:id])
-    if @material.update(material_params)
-      flash[:notice] = "投稿を編集しました"
-      redirect_to("/materials")
-    else
-      render("materials/edit")
+    length = @material.material_images.length
+    i = 0
+    while i < length
+      if material_params[:material_images_attributes][i.to_s]["_destroy"] == "0"
+        @material.update(material_params)
+        flash[:notice] = "投稿を編集しました"
+        redirect_to("/materials")
+        return
+      else
+        i += 1
+      end
     end
+    @material.update(material_params) if material_params[:images_attributes][i.to_s]
+    render("materials/edit")
+    nil
   end
 
   def show
-    @material = Material.find(params[:id])
     @materials = Material.all
     gon.material_latitude = @material.latitude
     gon.material_longitude = @material.longitude
@@ -54,7 +62,11 @@ class MaterialsController < ApplicationController
   private
 
   def material_params
-    params.require(:material).permit(:name, :postcode, :prefecture_code, :address_city, :address_street, :address_building).merge(user_id: current_user.id)
+    params.require(:material).permit(:name, :postcode, :prefecture_code, :address_city, :address_street, :address_building, material_images_attributes: %i[src _destroy id]).merge(user_id: current_user.id)
+  end
+
+  def set_material
+    @material = Material.find(params[:id])
   end
 
   def move_to_index

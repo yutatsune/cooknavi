@@ -38,7 +38,7 @@ class RecipesController < ApplicationController
       if recipe_params[:images_attributes][i.to_s]["_destroy"] == "0"
         @recipe.update(recipe_params)
         flash[:notice] = "投稿を編集しました"
-        redirect_to("/")
+        redirect_to("/recipes")
         return
       else
         i += 1

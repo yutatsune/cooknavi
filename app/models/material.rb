@@ -4,6 +4,8 @@ class Material < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :address_city, presence: true
   belongs_to :user
+  has_many :material_images, dependent: :destroy
+  accepts_nested_attributes_for :material_images, allow_destroy: true
 
   def self.search(search)
     if search != ""
