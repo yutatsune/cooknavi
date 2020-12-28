@@ -22,9 +22,9 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data);
-      $('.contents__container__comments').append(html);
-      $('.contents__container__text').val('');
-      $('.contents__container__send').prop('disabled', false);
+      $('.recipe_show_contents__container__comments').append(html);
+      $('.recipe_show_contents__container__text').val('');
+      $('.recipe_show_contents__container__send').prop('disabled', false);
     })
     .fail(function(){
       alert('error');
