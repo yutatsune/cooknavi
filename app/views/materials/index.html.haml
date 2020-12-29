@@ -7,10 +7,16 @@
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
-.material-contents
+.material-contents.grid
   - @materials.each do |material|
-    .material-contents__index
-      = link_to material.name, material_path(material.id), class: "contents_name"
+    .item
+      = link_to image_tag("#{material.material_images.first.src.url}", class: "material-image"), material_path(material.id)
+      %p= material.name
+      %span.name
+        %a{href: "/users/#{material.user.id}"}
+          %span 投稿者
+          = material.user.nickname
+      = material.liked_users.count
 - if user_signed_in?
   = link_to new_material_path, id: "#button", class: "new_recipe_btn" do
     .exhibitionBtn__box
