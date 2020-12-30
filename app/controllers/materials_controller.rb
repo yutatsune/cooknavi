@@ -51,6 +51,8 @@ class MaterialsController < ApplicationController
 
   def show
     @materials = Material.all
+    @comment = MaterialComment.new
+    @comments = @material.material_comments.includes(:user)
     @like = MaterialLike.new
     gon.material_latitude = @material.latitude
     gon.material_longitude = @material.longitude

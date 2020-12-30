@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :comments
   has_many :materials
+  has_many :material_comments
   has_many :recipe_likes
   has_many :liked_recipes, through: :recipe_likes, source: :recipe
   has_many :material_likes
