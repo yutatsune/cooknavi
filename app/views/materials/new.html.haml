@@ -1,10 +1,10 @@
-.contents
+.new_material_contents
   - @material.errors.full_messages.each do |message|
     .form-error
       = message
-  .contents__new
+  .new_material_contents__new
     = form_with(model: @material, local: true) do |form|
-      %h3.contents__new__title 材料の投稿
+      %h3.new_material_contents__new__title 材料の投稿
       .material__block__form
         .material__block__form__upload
           %h3.material__block__form__upload__head
@@ -23,9 +23,9 @@
                 %input{class:"material-hidden-field", type: "file", name: "material[material_images_attributes][2][src]", id: "material_images_attributes_2_src" }
                 %input{class:"material-hidden-field", type: "file", name: "material[material_images_attributes][3][src]", id: "material_images_attributes_3_src" }
                 %input{class:"material-hidden-field", type: "file", name: "material[material_images_attributes][4][src]", id: "material_images_attributes_4_src" }
-      = form.text_field :name, placeholder: "材料名", class: "contents__new__text"
-      = form.text_field :postcode, placeholder: "郵便番号", class: "contents__new__text"
-      = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "contents__new__text"
-      = form.text_field :address_city, placeholder: "市区町村番地", class: "contents__new__text"
-      = form.text_field :address_building, placeholder: "建物名", class: "contents__new__text"
-      = form.submit "投稿する", class: "contents__new__send"
+      = form.text_field :name, placeholder: "材料名", class: "new_material_contents__new__text"
+      = form.text_field :postcode, placeholder: "郵便番号", class: "new_material_contents__new__text"
+      = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "new_material_contents__new__text"
+      = form.text_field :address_city, placeholder: "市区町村番地", class: "new_material_contents__new__text"
+      = form.text_field :address_building, placeholder: "建物名", class: "new_material_contents__new__text"
+      = form.submit "投稿する", class: "new_material_contents__new__send"

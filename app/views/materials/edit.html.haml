@@ -1,10 +1,10 @@
-.contents
+.edit_material_contents
   - @material.errors.full_messages.each do |message|
     .form-error
       = message
-  .contents__new
+  .edit_material_contents__edit
     = form_with(model: @material, local: true) do |form|
-      %h3.contents__new__title 材料の編集
+      %h3.edit_material_contents__new__title 材料の編集
       .material__block__form
         .material__block__form__upload
           %h3.material__block__form__upload__head
@@ -37,9 +37,9 @@
                 //5つのfile_fieldを準備するに当たって、足りない分を表示
               - @material.material_images.length.upto(4) do |i|
                 %input{name: "material[material_images_attributes][#{i}][src]", id: "material_images_attributes_#{i}_src", class:"material-hidden-field", type:"file"}
-      = form.text_field :name, placeholder: "材料名", class: "contents__new__text"
-      = form.text_field :postcode, placeholder: "郵便番号", class: "contents__new__text"
-      = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "contents__new__text"
-      = form.text_field :address_city, placeholder: "市区町村番地", class: "contents__new__text"
-      = form.text_field :address_building, placeholder: "建物名", class: "contents__new__text"
-      = form.submit "編集する", class: "contents__new__send"
+      = form.text_field :name, placeholder: "材料名", class: "edit_material_contents__edit__text"
+      = form.text_field :postcode, placeholder: "郵便番号", class: "edit_material_contents__edit__text"
+      = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "edit_material_contents__edit__text"
+      = form.text_field :address_city, placeholder: "市区町村番地", class: "edit_material_contents__edit__text"
+      = form.text_field :address_building, placeholder: "建物名", class: "edit_material_contents__edit__text"
+      = form.submit "編集する", class: "edit_material_contents__edit__send"
