@@ -44,7 +44,7 @@ class MaterialsController < ApplicationController
         i += 1
       end
     end
-    @material.update(material_params) if material_params[:images_attributes][i.to_s]
+    @material.update(material_params) if material_params[:material_images_attributes][i.to_s]
     render("materials/edit")
     nil
   end
