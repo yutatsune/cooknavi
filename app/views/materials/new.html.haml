@@ -28,4 +28,5 @@
       = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "new_material_contents__new__text"
       = form.text_field :address_city, placeholder: "市区町村番地", class: "new_material_contents__new__text"
       = form.text_field :address_building, placeholder: "建物名", class: "new_material_contents__new__text"
+      = form.text_area :explanation, placeholder: "説明文", rows: "5"
       = form.submit "投稿する", class: "new_material_contents__new__send"

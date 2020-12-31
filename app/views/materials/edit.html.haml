@@ -8,7 +8,7 @@
       .material__block__form
         .material__block__form__upload
           %h3.material__block__form__upload__head
-            レシピ画像
+            材料画像
             %span.require 必須
           %p 最大5枚までアップロードできます
           .material_post__drop__box__container
@@ -42,4 +42,5 @@
       = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "edit_material_contents__edit__text"
       = form.text_field :address_city, placeholder: "市区町村番地", class: "edit_material_contents__edit__text"
       = form.text_field :address_building, placeholder: "建物名", class: "edit_material_contents__edit__text"
+      = form.text_area :explanation, placeholder: "説明文", rows: "5"
       = form.submit "編集する", class: "edit_material_contents__edit__send"

@@ -17,6 +17,8 @@
     .address_city= @material.prefecture_name + @material.address_city
     .address_building= @material.address_building
     .show_likes
+    %p 説明文
+    .explanation= @material.explanation
     %p
       いいね件数: #{@material.material_likes.count}
     - if current_user.material_already_liked?(@material)

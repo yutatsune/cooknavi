@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_092844) do
     t.integer "prefecture_code", null: false
     t.string "address_city", null: false
     t.string "address_building"
+    t.string "explanation", null: false
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.bigint "user_id", null: false

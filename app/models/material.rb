@@ -3,6 +3,7 @@ class Material < ApplicationRecord
   validates :postcode, presence: true
   validates :prefecture_code, presence: true
   validates :address_city, presence: true
+  validates :explanation, presence: true
   belongs_to :user
   has_many :material_comments
   has_many :material_likes
