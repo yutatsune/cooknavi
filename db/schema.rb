@@ -10,33 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_21_132052) do
+ActiveRecord::Schema.define(version: 2020_12_29_092844) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "recipe_id"
-    t.text "text"
+    t.integer "user_id", null: false
+    t.integer "recipe_id", null: false
+    t.text "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "src"
-    t.bigint "recipe_id"
+    t.string "src", null: false
+    t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_images_on_recipe_id"
   end
 
-  create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "postcode"
-    t.integer "prefecture_code"
-    t.string "address_city"
-    t.string "address_building"
-    t.float "latitude"
-    t.float "longitude"
+  create_table "material_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "material_id", null: false
+    t.text "text", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "material_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "material_id", null: false
+    t.string "src", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_id"], name: "index_material_images_on_material_id"
+  end
+
+  create_table "material_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "material_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_id"], name: "index_material_likes_on_material_id"
+    t.index ["user_id", "material_id"], name: "index_material_likes_on_user_id_and_material_id", unique: true
+    t.index ["user_id"], name: "index_material_likes_on_user_id"
+  end
+
+  create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "postcode", null: false
+    t.integer "prefecture_code", null: false
+    t.string "address_city", null: false
+    t.string "address_building"
+    t.string "explanation", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_materials_on_user_id"
@@ -53,10 +80,10 @@ ActiveRecord::Schema.define(version: 2020_11_21_132052) do
   end
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "material"
-    t.text "text"
-    t.bigint "user_id"
+    t.string "name", null: false
+    t.text "material", null: false
+    t.text "text", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"
@@ -86,6 +113,9 @@ ActiveRecord::Schema.define(version: 2020_11_21_132052) do
   end
 
   add_foreign_key "images", "recipes"
+  add_foreign_key "material_images", "materials"
+  add_foreign_key "material_likes", "materials"
+  add_foreign_key "material_likes", "users"
   add_foreign_key "materials", "users"
   add_foreign_key "recipe_likes", "recipes"
   add_foreign_key "recipe_likes", "users"

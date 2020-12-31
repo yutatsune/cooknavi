@@ -1,0 +1,2 @@
+module MaterialCommentsHelper
+end

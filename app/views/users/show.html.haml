@@ -24,3 +24,15 @@
           %span 投稿者
           = recipe.user.nickname
       = recipe.liked_users.count
+.like_show_contents
+  %p.contents__title
+    いいねした材料一覧
+  - @liked_materials.each do |material|
+    .item
+      = link_to image_tag("#{material.material_images.first.src.url}", class: "material-image"), material_path(material.id)
+      %p= material.name
+      %span.name
+        %a{href: "/users/#{material.user.id}"}
+          %span 投稿者
+          = material.user.nickname
+      = material.liked_users.count

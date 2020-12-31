@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: %i[create destroy]
   resources :materials do
+    resources :material_comments, only: :create
+    resources :material_likes, only: %i[create destroy]
     collection do
       get 'search'
     end

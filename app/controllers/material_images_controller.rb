@@ -1,0 +1,2 @@
+class MaterialImagesController < ApplicationController
+end

@@ -1,13 +1,46 @@
-.contents
+.edit_material_contents
   - @material.errors.full_messages.each do |message|
     .form-error
       = message
-  .contents__new
+  .edit_material_contents__edit
     = form_with(model: @material, local: true) do |form|
-      %h3.contents__new__title 材料の編集
-      = form.text_field :name, placeholder: "材料名", class: "contents__new__text"
-      = form.text_field :postcode, placeholder: "郵便番号", class: "contents__new__text"
-      = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "contents__new__text"
-      = form.text_field :address_city, placeholder: "市区町村番地", class: "contents__new__text"
-      = form.text_field :address_building, placeholder: "建物名", class: "contents__new__text"
-      = form.submit "編集する", class: "contents__new__send"
+      %h3.edit_material_contents__new__title 材料の編集
+      .material__block__form
+        .material__block__form__upload
+          %h3.material__block__form__upload__head
+            材料画像
+            %span.require 必須
+          %p 最大5枚までアップロードできます
+          .material_post__drop__box__container
+            .material_prev-content
+
+              //JSで挿入したhtmlと同じ形 each文でのプレビュー表示
+              - @material.material_images.each_with_index do |image,i|
+                .material_preview-box
+                  .material_upper-box
+                    = image_tag image.src.url, width: "112", height: "112", alt: "preview"
+                  .material_lower-box
+                    .material_delete-box
+                      .material_delete-btn{data:{delete_id: i}} 削除
+            .material_label-content
+
+              //プレビューの数に合わせてforオプションを指定
+              = form.label :"material_material_images_attributes_#{@material.material_images.length}_src", class: "material_label-box" do
+                %pre.material_label-box__text-visible クリックしてファイルをアップロード
+            .material_hidden-content
+              = form.fields_for :material_images do |i|
+
+                //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                = i.file_field :src,class:"material-hidden-field"
+                = i.check_box:_destroy
+
+                //5つのfile_fieldを準備するに当たって、足りない分を表示
+              - @material.material_images.length.upto(4) do |i|
+                %input{name: "material[material_images_attributes][#{i}][src]", id: "material_material_images_attributes_#{i}_src", class:"material-hidden-field", type:"file"}
+      = form.text_field :name, placeholder: "材料名", class: "edit_material_contents__edit__text"
+      = form.text_field :postcode, placeholder: "郵便番号", class: "edit_material_contents__edit__text"
+      = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "edit_material_contents__edit__text"
+      = form.text_field :address_city, placeholder: "市区町村番地", class: "edit_material_contents__edit__text"
+      = form.text_field :address_building, placeholder: "建物名", class: "edit_material_contents__edit__text"
+      = form.text_area :explanation, placeholder: "説明文", rows: "5"
+      = form.submit "編集する", class: "edit_material_contents__edit__send"
