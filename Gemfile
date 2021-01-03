@@ -65,9 +65,12 @@ gem 'rails-i18n'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'factory_bot_rails'
+  gem 'faker', "~> 2.8"
+  gem 'rails-controller-testing'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails', '~> 4.0.1'
-  gem 'rails-controller-testing'
-  gem 'faker', "~> 2.8"
 end
 gem 'fog-aws'
+group :production do
+  gem 'unicorn', '5.4.1'
+end
