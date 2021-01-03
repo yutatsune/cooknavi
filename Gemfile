@@ -67,5 +67,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'rails-controller-testing'
+  gem 'faker', "~> 2.8"
 end
 gem 'fog-aws'
