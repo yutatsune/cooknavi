@@ -1,6 +1,6 @@
 <h2 align="center">CookNavi</h2>
 
-![443ae4e96c03a5cb995b4350dd322e82](https://user-images.githubusercontent.com/66116053/89136208-78058280-d56d-11ea-8d75-f5f2fbd31fd5.jpg)
+![443ae4e96c03a5cb995b4350dd322e82](https://user-images.githubusercontent.com/66116053/103897639-3473fd80-5137-11eb-9d6e-a86386a86459.jpg)
 
 ## :globe_with_meridians: サイト紹介
 <ul>
