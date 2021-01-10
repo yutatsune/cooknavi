@@ -41,3 +41,15 @@ Metrics/MethodLength:
   Exclude:
     - 'app/controllers/recipes_controller.rb'
     - 'app/controllers/materials_controller.rb'
+
+Style/AsciiComments:
+  Exclude:
+    - 'config/deploy.rb'
+
+Style/GlobalVars:
+  Exclude:
+    - 'config/unicorn/production.rb'
+
+Lint/SuppressedException:
+  Exclude:
+    - 'config/unicorn/production.rb'
