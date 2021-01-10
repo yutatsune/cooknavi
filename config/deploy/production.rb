@@ -55,3 +55,5 @@
 #   }
 
 server '3.114.126.161', user: 'yuta', roles: %w[app db web]
+
+set :ssh_options, keys: '~/.ssh/cooknavi_key_rsa'
