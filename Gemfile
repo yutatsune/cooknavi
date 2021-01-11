@@ -64,11 +64,6 @@ gem 'pry-rails'
 gem 'rails-i18n'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
-  gem 'capistrano'
-  gem 'capistrano3-unicorn'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
   gem 'factory_bot_rails'
   gem 'faker', "~> 2.8"
   gem 'rails-controller-testing'
