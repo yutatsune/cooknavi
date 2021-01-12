@@ -6,7 +6,7 @@
 <ul>
   <li>ログイン用Email : yutayuta@gmail.com</li>
   <li>パスワード : yutayuta</li>
-  <li>IPアドレス : http://176.32.93.82/</li>
+  <li>IPアドレス : http://3.114.126.161/</li>
 </ul>
 
 ## :link: アプリケーションの概要
