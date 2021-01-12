@@ -110,7 +110,7 @@
       font-family: "游ゴシック", "YuGothic";
     }
     &__send {
-      background-color: #de0202;
+      background-color: #0bd;
       border-radius: 20px;
       color: #fff;
       border: 0;
@@ -119,6 +119,9 @@
       padding: 10px;
       width: 594px;
       height: 50px;
+    }
+    &__send:hover {
+      background: #0090aa;
     }
     &__comments {
       padding: 5px;
@@ -235,7 +238,7 @@
       font-family: "游ゴシック", "YuGothic";
     }
     &__send {
-      background-color: #de0202;
+      background-color: #0bd;
       border-radius: 20px;
       color: #fff;
       border: 0;
@@ -244,6 +247,9 @@
       padding: 10px;
       width: 594px;
       height: 50px;
+    }
+    &__send:hover {
+      background-color: #0090aa;
     }
     &__comments {
       padding: 5px;

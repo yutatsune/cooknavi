@@ -6,6 +6,12 @@
         .image-list__item
           = image_tag image.src.url, alt: "画像", class: "image-index-#{i}"
     .recipe_name= @recipe.name
+    - if user_signed_in? && current_user.id == @recipe.user_id
+      %ul.btn
+        %li.material-btn
+          = link_to '編集', edit_recipe_path(@recipe.id), method: :get
+        %li.material-btn
+          = link_to '削除', recipe_path(@recipe.id), method: :delete
     .show_name
       = link_to "投稿者 #{@recipe.user.nickname}", "/users/#{@recipe.user_id}"
     .show_likes
@@ -25,12 +31,6 @@
     .recipe_show_contents__how
       %p 作り方
       = @recipe.text
-  - if user_signed_in? && current_user.id == @recipe.user_id
-    .list
-      %p
-        = link_to '編集', edit_recipe_path(@recipe.id), method: :get
-      %p
-        = link_to '削除', recipe_path(@recipe.id), method: :delete
   .recipe_show_contents__container
     - if current_user
       = form_with(model: [@recipe, @comment], local: true, id: "new_comment") do |form|

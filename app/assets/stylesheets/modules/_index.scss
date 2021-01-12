@@ -19,12 +19,15 @@
       width: 36px;
       border: 0;
       cursor: pointer;
-      background-color: #de0202;
+      background-color: #0bd;
       padding: 8px;
     
       .searchicon{
         width: 100%;
       }
+    }
+    .search-btn:hover {
+      background: #0090aa;
     }
   }
 }
@@ -89,7 +92,7 @@
 .new_recipe_btn{
   height: 100px;
   width: 100px;
-  background-color: #de0202;
+  background-color: #0bd;
   color: white;
   border-radius: 4%;
   text-align: center;
@@ -100,6 +103,9 @@
   i {
     padding-top: 8px;
   }
+}
+.new_recipe_btn:hover{
+  background: #0090aa;
 }
 
 .material-contents {
@@ -239,12 +245,15 @@
         width: 36px;
         border: 0;
         cursor: pointer;
-        background-color: #de0202;
+        background-color: #0bd;
         padding: 8px;
       
         .searchicon{
           width: 100%;
         }
+      }
+      .search-btn:hover {
+        background: #0090aa;
       }
     }
   }

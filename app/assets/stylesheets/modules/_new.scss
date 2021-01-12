@@ -36,13 +36,16 @@
       font-family: "游ゴシック", "YuGothic";
     }
     &__send {
-      background-color: #de0202;
+      background-color: #0bd;
       border-radius: 20px;
       width: 100%;
       color: #fff;
       border: 0;
       font-size: 18px;
       padding: 10px;
+    }
+    &__send:hover {
+      background: #0090aa;
     }
   }
 }
