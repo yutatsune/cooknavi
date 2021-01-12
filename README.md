@@ -4,8 +4,6 @@
 
 ## :globe_with_meridians: サイト紹介
 <ul>
-  <li>ログイン用Email : yutayuta@gmail.com</li>
-  <li>パスワード : yutayuta</li>
   <li>IPアドレス : http://3.114.126.161/</li>
 </ul>
 
