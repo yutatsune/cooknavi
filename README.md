@@ -62,9 +62,9 @@
 ## recipesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text||
-|material|text||
-|text|text||
+|name|text|null: false|
+|material|text|null: false|
+|text|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -74,7 +74,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|src|string||
+|src|string|null: false|
 |recipe_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :recipe
@@ -102,12 +102,42 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|postcode|integer||
-|prefecture_code|integer||
-|address_city|string||
+|postcode|integer|null: false|
+|prefecture_code|integer|null: false|
+|address_city|string|null: false|
 |address_building|string||
-|latitude|float||
-|longitude|float||
+|explanation|string|null: false|
+|latitude|float|null: false|
+|longitude|float|null: false|
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+- has_many :material_comments
+- has_many :material_images
+
+## material_imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|src|string|null: false|
+|material_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :material
+
+## material_commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user_id|references|null: false, foreign_key: true|
+|material_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :material
+- belongs_to :user
+
+## material_likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|material_id|references|foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :material
