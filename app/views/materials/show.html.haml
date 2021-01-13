@@ -22,9 +22,11 @@
     %p
       いいね件数: #{@material.material_likes.count}
     - if current_user.material_already_liked?(@material)
-      = button_to 'いいねを取り消す', material_material_like_path(@material), method: :delete
+      = link_to material_material_like_path(@material), method: :delete do
+        %i.fas.fa-heart.like_heart
     - else
-      = button_to 'いいね', material_material_likes_path(@material)
+      = link_to material_material_likes_path(@material), method: :post do
+        %i.far.fa-heart.unlike_heart
     %p
       いいねしたユーザー
     - @material.liked_users.each do |user|

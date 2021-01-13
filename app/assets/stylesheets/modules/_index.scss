@@ -39,52 +39,26 @@
   margin-top: 0;
   margin-bottom: 0;
   max-width: 1000px;
-  &__index {
-    margin: 20px 0;
-    padding: 30px;
-    position: relative;
-    height: 400px;
-    width: 100%;
-    color: #fff;
-    background-size: cover;
-    background-position: center;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(41,41,41,0.2);
-    &__link {
-      position: absolute;
-      cursor: pointer;
-      top: 20px;
-      right: 30px;
-      text-align: right;
-      text-decoration: none;
-      color: #fff;
-      text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
-    }
+  .item {
     p {
-      position: absolute;
-      left: 30px;
-      right: 100px;
-      bottom: 30px;
       margin: 0;
-      font-size: 20px;
+      font-size: 16px;
       z-index: 2;
-      font-weight: bold;
-      text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
+      color: darkgray;
     }
     .name {
-      position: absolute;
-      right: 30px;
-      bottom: 30px;
       z-index: 2;
-      font-size: 13px;
+      font-size: 14px;
       a {
         text-decoration: none;
-        color: #fff;
-        text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
-        span {
-          display: block;
-        }
+        color: darkgray;
       }
+    }
+    .fas {
+      color: red;
+    }
+    .count {
+      color: darkgray;
     }
   }
 }
@@ -115,52 +89,26 @@
   margin-top: 0;
   margin-bottom: 0;
   max-width: 1000px;
-  &__index {
-    margin: 20px 0;
-    padding: 30px;
-    position: relative;
-    height: 400px;
-    width: 100%;
-    color: #fff;
-    background-size: cover;
-    background-position: center;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(41,41,41,0.2);
-    &__link {
-      position: absolute;
-      cursor: pointer;
-      top: 20px;
-      right: 30px;
-      text-align: right;
-      text-decoration: none;
-      color: #fff;
-      text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
-    }
+  .item {
     p {
-      position: absolute;
-      left: 30px;
-      right: 100px;
-      bottom: 30px;
       margin: 0;
-      font-size: 20px;
+      font-size: 16px;
       z-index: 2;
-      font-weight: bold;
-      text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
+      color: darkgray;
     }
     .name {
-      position: absolute;
-      right: 30px;
-      bottom: 30px;
       z-index: 2;
-      font-size: 13px;
+      font-size: 14px;
       a {
         text-decoration: none;
-        color: #fff;
-        text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
-        span {
-          display: block;
-        }
+        color: darkgray;
       }
+    }
+    .index_heart {
+      color: red;
+    }
+    .count {
+      color: darkgray;
     }
   }
 }

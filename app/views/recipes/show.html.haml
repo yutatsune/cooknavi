@@ -18,9 +18,11 @@
       %p
         いいね件数: #{@recipe.recipe_likes.count}
       - if current_user.already_liked?(@recipe)
-        = button_to 'いいねを取り消す', recipe_recipe_like_path(@recipe), method: :delete
+        = link_to recipe_recipe_like_path(@recipe), method: :delete do
+          %i.fas.fa-heart.like_heart
       - else
-        = button_to 'いいね', recipe_recipe_likes_path(@recipe)
+        = link_to recipe_recipe_likes_path(@recipe), method: :post do
+          %i.far.fa-heart.unlike_heart
       %p
         いいねしたユーザー
       - @recipe.liked_users.each do |user|

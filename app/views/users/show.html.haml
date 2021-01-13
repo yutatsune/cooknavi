@@ -11,7 +11,8 @@
           %a{href: "/users/#{recipe.user.id}"}
             %span 投稿者
             = recipe.user.nickname
-        = recipe.liked_users.count
+        %i.fas.fa-heart.index_heart
+        %span.count= recipe.liked_users.count
 .like_show_contents
   %p.contents__title
     = @nickname
@@ -25,7 +26,8 @@
           %a{href: "/users/#{material.user.id}"}
             %span 投稿者
             = material.user.nickname
-        = material.liked_users.count
+        %i.fas.fa-heart.index_heart
+        %span.count= material.liked_users.count
 .like_show_contents
   %p.contents__title
     いいねしたレシピ一覧
@@ -38,7 +40,8 @@
           %a{href: "/users/#{recipe.user.id}"}
             %span 投稿者
             = recipe.user.nickname
-        = recipe.liked_users.count
+        %i.fas.fa-heart.index_heart
+        %span.count= recipe.liked_users.count
 .like_show_contents
   %p.contents__title
     いいねした材料一覧
@@ -51,4 +54,5 @@
           %a{href: "/users/#{material.user.id}"}
             %span 投稿者
             = material.user.nickname
-        = material.liked_users.count
+        %i.fas.fa-heart.index_heart
+        %span.count= material.liked_users.count
