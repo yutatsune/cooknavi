@@ -27,6 +27,9 @@
         いいねしたユーザー
       - @recipe.liked_users.each do |user|
         %li= user.nickname
+    .recipe_show_contents__explanation
+      %p 説明
+      = @recipe.explanation
     .recipe_show_contents__material
       %p 材料
       = @recipe.material

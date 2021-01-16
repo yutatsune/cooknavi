@@ -38,6 +38,7 @@
               - @recipe.images.length.upto(4) do |i|
                 %input{name: "recipe[images_attributes][#{i}][src]", id: "recipe_images_attributes_#{i}_src", class:"recipe-hidden-field", type:"file"}
       = form.text_field :name, placeholder: "料理名", class: "edit_recipe_contents__edit__text"
+      = form.text_area :explanation, placeholder: "説明", rows: "5"
       = form.text_area :material, placeholder: "材料", rows: "5"
       = form.text_area :text, placeholder: "作り方", rows: "10"
       = form.submit "編集", class: "edit_recipe_contents__edit__send"

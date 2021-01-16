@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_092844) do
     t.integer "prefecture_code", null: false
     t.string "address_city", null: false
     t.string "address_building"
-    t.string "explanation", null: false
+    t.text "explanation", null: false
     t.float "latitude", null: false
     t.float "longitude", null: false
     t.bigint "user_id", null: false
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_092844) do
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.text "explanation", null: false
     t.text "material", null: false
     t.text "text", null: false
     t.bigint "user_id", null: false
