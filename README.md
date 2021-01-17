@@ -2,9 +2,9 @@
 
 ![443ae4e96c03a5cb995b4350dd322e82](https://user-images.githubusercontent.com/66116053/103897639-3473fd80-5137-11eb-9d6e-a86386a86459.jpg)
 
-## :globe_with_meridians: サイト紹介
+## :globe_with_meridians: App URL
 <ul>
-  <li>IPアドレス : http://3.114.126.161/</li>
+  <li>IPアドレス : https://www.cooknavi.xyz/</li>
 </ul>
 
 ## :link: アプリケーションの概要
@@ -18,13 +18,6 @@
 <ul>
   <li>日頃、料理のレシピを見ていて、この材料はどこで買えるんだろうと思うことがありました。</li>
   <li>そこで、レシピを投稿できるアプリに、材料はどこで買えるのか共有できる機能を実装できれば解決できるのではないかと考え、このアプリを制作することにしました。</li>
-</ul>
-
-## :link: 実装予定の内容
-<ul>
-  <li>マイページの拡張</li>
-  <li>現在Googleマップとの連携に挑戦中です</li>
-  <li>(マップの表示はできるものの、動作が不安定なため検証中)</li>
 </ul>
 
 # CookNavi DB設計
