@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @nickname = @user.nickname
     @recipes = @user.recipes.order("created_at DESC")
     @liked_recipes = @user.liked_recipes.order("created_at DESC")
-    @materials = @user.materials
+    @materials = @user.materials.order("created_at DESC")
     @liked_materials = @user.liked_materials.order("created_at DESC")
   end
 

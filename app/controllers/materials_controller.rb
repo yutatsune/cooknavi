@@ -1,9 +1,9 @@
 class MaterialsController < ApplicationController
   before_action :set_material, only: %i[edit show]
-  before_action :move_to_index, except: %i[index show]
+  before_action :move_to_index, except: %i[index show search]
 
   def index
-    @materials = Material.all
+    @materials = Material.includes(:user).order("created_at DESC")
   end
 
   def new
