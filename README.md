@@ -2,6 +2,8 @@
 
 ![443ae4e96c03a5cb995b4350dd322e82](https://user-images.githubusercontent.com/66116053/103897639-3473fd80-5137-11eb-9d6e-a86386a86459.jpg)
 
+![database](https://user-images.githubusercontent.com/66116053/105579274-dd258c80-5dc8-11eb-9270-83867b6f8b32.png)
+
 ## :link: アプリケーションの概要
 <ul>
   <li>レシピと料理に使った材料の投稿ができるアプリです。</li>
@@ -72,7 +74,7 @@
 ## recipesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
+|name|string|null: false|
 |explanation|text|null: false|
 |material|text|null: false|
 |text|text|null: false|
