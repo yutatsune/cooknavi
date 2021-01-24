@@ -23,6 +23,7 @@
   <li>新規投稿は右下の投稿をクリック</li>
   <li>投稿完了後は一覧画面へ戻る</li>
 </ul>
+
 ![cooknavi1](https://user-images.githubusercontent.com/66116053/105635442-28619d00-5ea6-11eb-9d5f-ce82f1e494b4.gif)
 
 ## AWS構成図
