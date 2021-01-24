@@ -24,7 +24,7 @@
   <li>投稿完了後は一覧画面へ戻る</li>
 </ul>
 
-![cooknavi1](https://user-images.githubusercontent.com/66116053/105635442-28619d00-5ea6-11eb-9d5f-ce82f1e494b4.gif)
+![cooknavi1](https://user-images.githubusercontent.com/66116053/105635615-20562d00-5ea7-11eb-9d89-511d2a3b6414.gif)
 
 ## AWS構成図
 ![aws](https://user-images.githubusercontent.com/66116053/105630353-0b1fd500-5e8c-11eb-9b5e-c02ae3471b3f.png)
