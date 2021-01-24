@@ -4,6 +4,8 @@
 
 ![database](https://user-images.githubusercontent.com/66116053/105579274-dd258c80-5dc8-11eb-9270-83867b6f8b32.png)
 
+![aws](https://user-images.githubusercontent.com/66116053/105630353-0b1fd500-5e8c-11eb-9b5e-c02ae3471b3f.png)
+
 ## :link: アプリケーションの概要
 <ul>
   <li>レシピと料理に使った材料の投稿ができるアプリです。</li>
