@@ -25,7 +25,7 @@
 ![cooknavi1](https://user-images.githubusercontent.com/66116053/105635615-20562d00-5ea7-11eb-9d89-511d2a3b6414.gif)
 
 <ul>
-  <li>ログインが完了したら、それぞれの一覧画面の右下から新規投稿ができます</li>
+  <li>ログインが完了したら、レシピまたは材料の一覧画面の右下から新規投稿ができます</li>
   <li>必要な項目を入力して、投稿するをクリック</li>
   <li>投稿完了後は一覧画面へ戻ります</li>
 </ul>
@@ -37,6 +37,18 @@
 </ul>
 
 ![cooknavi3](https://user-images.githubusercontent.com/66116053/105711271-ad5abe00-5f5b-11eb-960d-d10d435551e9.gif)
+
+<ul>
+  <li>材料投稿画面で入力した住所の経度・緯度を自動で取得して、GoogleMapに表示されます</li>
+</ul>
+
+![cooknavi4](https://user-images.githubusercontent.com/66116053/105712820-b3519e80-5f5d-11eb-9ec0-baff468e665b.gif)
+
+<ul>
+  <li>投稿詳細画面でいいねをすることができます</li>
+</ul>
+
+![cooknavi5](https://user-images.githubusercontent.com/66116053/105713215-3115aa00-5f5e-11eb-83e6-cd5a0229874e.gif)
 
 ## AWS構成図
 ![aws](https://user-images.githubusercontent.com/66116053/105630353-0b1fd500-5e8c-11eb-9b5e-c02ae3471b3f.png)
