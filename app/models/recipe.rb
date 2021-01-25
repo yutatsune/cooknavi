@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  validates_associated :images
+  validates :images, presence: true
   validates :name, presence: true
   validates :explanation, presence: true
   validates :material, presence: true

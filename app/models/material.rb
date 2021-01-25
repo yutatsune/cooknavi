@@ -1,4 +1,6 @@
 class Material < ApplicationRecord
+  validates_associated :material_images
+  validates :material_images, presence: true
   validates :name, presence: true
   validates :postcode, presence: true
   validates :prefecture_code, presence: true
