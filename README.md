@@ -16,7 +16,7 @@
   <li>https://www.cooknavi.xyz/</li>
 </ul>
 
-## :computer: 利用方法
+## :computer: 主な利用方法
 <ul>
   <li>トップページからゲストログイン（閲覧用）をクリック</li>
   <li>「レシピを見てみる」または「材料を探してみる」をクリックし、一覧画面へ遷移します</li>
@@ -50,7 +50,25 @@
 
 ![cooknavi5](https://user-images.githubusercontent.com/66116053/105713215-3115aa00-5f5e-11eb-83e6-cd5a0229874e.gif)
 
-## AWS構成図
+## :package: 使用技術
+- フロントエンド
+    - jQuery 1.12.4
+    - HTML/CSS/Haml/Sass
+- バックエンド
+    - ruby 2.6.5
+    - Ruby on Rails 6.0.0
+    - Google Maps API
+- インフラ
+    - CircleCI
+    - Docker 19.03.13/docker-compose 1.27.4
+    - nginx 1.12.2
+    - mysql 5.7.31
+    - AWS ( EC2, ALB, ACM, RDS, Route53, VPC, IAM )
+- その他使用ツール
+    - Visual Studio Code
+    - draw.io
+
+## :key: AWS構成図
 ![aws](https://user-images.githubusercontent.com/66116053/105630353-0b1fd500-5e8c-11eb-9b5e-c02ae3471b3f.png)
 
 ## :gift: 機能一覧
@@ -72,7 +90,7 @@
 |マップ表示機能|材料投稿画面で入力した住所の経度・緯度を自動で取得し、マップで表示することができます|
 |レスポンシブデザイン|スマートフォン向けの表示に対応|
 
-# CookNavi DB設計
+# :floppy_disk: CookNavi DB設計
 
 ## ER図
 ![database](https://user-images.githubusercontent.com/66116053/105579274-dd258c80-5dc8-11eb-9270-83867b6f8b32.png)
