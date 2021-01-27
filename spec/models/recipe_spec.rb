@@ -1,10 +1,11 @@
 require 'rails_helper'
 describe Recipe do
   describe '#create' do
-    it "nameとmaterial、textがあれば登録できること" do
+    it "nameとexplanationとmaterial、textがあれば登録できること" do
       user = build(:user)
       recipe = user.recipes.build(
         name: "パンケーキ",
+        explanation: "パンケーキです！",
         material: "●小麦粉 100g",
         text: "ボウルにＡをふるい入れ、泡立て器で混ぜる。",
         user_id: "1"
