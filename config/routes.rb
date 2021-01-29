@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root "homes#show"
   resources :homes, only: [:show]
   resources :recipes do
-    resources :comments, only: :create
+    resources :comments, only: %i[create destroy]
     resources :recipe_likes, only: %i[create destroy]
     collection do
       get 'search'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: %i[create destroy]
   resources :materials do
-    resources :material_comments, only: :create
+    resources :material_comments, only: %i[create destroy]
     resources :material_likes, only: %i[create destroy]
     collection do
       get 'search'

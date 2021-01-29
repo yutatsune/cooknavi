@@ -43,9 +43,11 @@
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
     .material_show_contents__container__comments
       %h4 ＜コメント一覧＞
-      - @comments.each do |comment|
+      - @comments.each do |material_comment|
         %p.material_show_contents__container__comments__main
           %strong
-            = link_to comment.user.nickname, "/users/#{comment.user_id}"
+            = link_to material_comment.user.nickname, "/users/#{material_comment.user_id}"
             ：
-          = comment.text
+          = material_comment.text
+          %span.comment-delete
+            = link_to '削除', material_material_comment_path(@material, material_comment), method: :delete

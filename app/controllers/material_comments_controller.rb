@@ -7,6 +7,13 @@ class MaterialCommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @material = Material.find(params[:material_id])
+    @comment = MaterialComment.find(params[:id])
+    @comment.destroy
+    redirect_to material_path(@material)
+  end
+
   private
 
   def material_comment_params
