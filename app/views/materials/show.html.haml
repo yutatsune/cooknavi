@@ -49,5 +49,6 @@
             = link_to material_comment.user.nickname, "/users/#{material_comment.user_id}"
             ：
           = material_comment.text
-          %span.comment-delete
-            = link_to '削除', material_material_comment_path(@material, material_comment), method: :delete
+          - if user_signed_in? && current_user.id == material_comment.user_id
+            %span.comment-delete
+              = link_to '削除', material_material_comment_path(@material, material_comment), method: :delete
