@@ -26,4 +26,15 @@ describe Recipe do
       expect(recipe.errors[:text]).to include("を入力してください")
     end
   end
+  describe '#search' do
+    it "nameが検索できること" do
+      recipe = create(:recipe)
+      another_recipe = create(:recipe, name: "ラーメン")
+      expect(Recipe.search("パンケーキ")).to include(recipe)
+      expect(Recipe.search("ラーメン")).to include(another_recipe)
+    end
+    it "一致するデータがないとき、空の値を返す" do
+      expect(Recipe.search("パンケーキ")).to be_empty
+    end
+  end
 end

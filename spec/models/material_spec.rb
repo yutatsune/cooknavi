@@ -35,4 +35,15 @@ describe Material do
       expect(material.errors[:explanation]).to include("を入力してください")
     end
   end
+  describe '#search' do
+    it "nameが検索できること" do
+      material = create(:material)
+      another_material = create(:material, name: "にんじん")
+      expect(Material.search("卵")).to include(material)
+      expect(Material.search("にんじん")).to include(another_material)
+    end
+    it "一致するデータがないとき、空の値を返す" do
+      expect(Material.search("卵")).to be_empty
+    end
+  end
 end
