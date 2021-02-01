@@ -16,7 +16,8 @@
         %a{href: "/users/#{recipe.user.id}"}
           %span 投稿者
           = recipe.user.nickname
-      = recipe.liked_users.count
+      %i.fas.fa-heart.index_heart
+      %span.count= recipe.liked_users.count
 - if user_signed_in?
   = link_to new_recipe_path, id: "#button", class: "new_recipe_btn" do
     .exhibitionBtn__box
