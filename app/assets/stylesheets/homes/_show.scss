@@ -36,9 +36,10 @@
     border-radius: 5px;
     padding: 18px 32px;
     display: inline-block;
-  }
-  .button:hover{
-    background: #0090aa;
+    &:hover {
+      background: #0090aa;
+      transition: background 0.3s;
+    }
   }
 }
 
@@ -66,9 +67,10 @@
       border-radius: 5px;
       padding: 18px 32px;
       display: inline-block;
-    }
-    .button:hover{
-      background: #0090aa;
+      &:hover {
+        background: #0090aa;
+        transition: background 0.3s;
+      }
     }
   }
 }
