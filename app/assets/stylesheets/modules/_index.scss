@@ -28,6 +28,7 @@
     }
     .search-btn:hover {
       background: #0090aa;
+      transition: background 0.3s;
     }
   }
 }
@@ -80,6 +81,7 @@
 }
 .new_recipe_btn:hover{
   background: #0090aa;
+  transition: background 0.3s;
 }
 
 .material-contents {
