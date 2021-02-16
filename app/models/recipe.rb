@@ -1,10 +1,8 @@
 class Recipe < ApplicationRecord
   validates_associated :images
-  validates_associated :foodstuffs
   validates :images, presence: true
   validates :name, presence: true
   validates :explanation, presence: true
-  validates :foodstuff, presence: true
   validates :text, presence: true
   belongs_to :user
   has_many :comments
