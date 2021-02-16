@@ -32,7 +32,9 @@
       = @recipe.explanation
     .recipe_show_contents__material
       %p 材料
-      = @recipe.material
+      - @recipe.foodstuffs.each_with_index do |foodstuff|
+        = foodstuff.foodstuff
+        = foodstuff.quantity
     .recipe_show_contents__how
       %p 作り方
       = @recipe.text
