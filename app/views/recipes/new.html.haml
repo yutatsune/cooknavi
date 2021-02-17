@@ -25,15 +25,18 @@
                 %input{class:"recipe-hidden-field", type: "file", name: "recipe[images_attributes][4][src]", id: "recipe_images_attributes_4_src" }
       = form.text_field :name, placeholder: "料理名", class: "new_recipe_contents__new__text"
       = form.text_area :explanation, placeholder: "説明", rows: "5"
-      = form.fields_for :foodstuffs do |foodstuff|
-        .foodstuff-box
-          .foodstuff-box_title
-            材料
-          .foodstuff-box_form
-            = foodstuff.text_field :foodstuff
-          .foodstuff-box_quantity
-            数量
-          .foodstuff-box_form
-            = foodstuff.text_field :quantity
+      .foodstuff-area
+        = form.fields_for :foodstuffs do |foodstuff|
+          .js-file-group{ data: {index: "#{foodstuff.index}"} }
+            .add-form-btn
+              追加する
+            .foodstuff-box_title
+              材料
+            .foodstuff-box_form
+              = foodstuff.text_field :foodstuff
+            .foodstuff-box_quantity
+              数量
+            .foodstuff-box_form
+              = foodstuff.text_field :quantity
       = form.text_area :text, placeholder: "作り方", rows: "10"
       = form.submit "投稿する", class: "new_recipe_contents__new__send"

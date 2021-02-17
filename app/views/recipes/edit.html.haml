@@ -39,15 +39,22 @@
                 %input{name: "recipe[images_attributes][#{i}][src]", id: "recipe_images_attributes_#{i}_src", class:"recipe-hidden-field", type:"file"}
       = form.text_field :name, placeholder: "料理名", class: "edit_recipe_contents__edit__text"
       = form.text_area :explanation, placeholder: "説明", rows: "5"
-      = form.fields_for :foodstuffs do |foodstuff|
-        .foodstuff-box
-          .foodstuff-box_title
-            材料
-          .foodstuff-box_form
-            = foodstuff.text_field :foodstuff
-          .foodstuff-box_quantity
-            数量
-          .foodstuff-box_form
-            = foodstuff.text_field :quantity
+      .foodstuff-area
+        = form.fields_for :foodstuffs do |foodstuff|
+          .js-file-group{ data: {index: "#{foodstuff.index}"} }
+            .add-form-btn
+              追加する
+            .foodstuff-box_title
+              材料
+            .foodstuff-box_form
+              = foodstuff.text_field :foodstuff
+            .foodstuff-box_quantity
+              数量
+            .foodstuff-box_form
+              = foodstuff.text_field :quantity
+              %span.delete-form-btn
+                削除する
+              - if @recipe.persisted?
+                = foodstuff.check_box :_destroy, data:{ index: foodstuff.index }, class: "hidden-destroy"
       = form.text_area :text, placeholder: "作り方", rows: "10"
       = form.submit "編集", class: "edit_recipe_contents__edit__send"
