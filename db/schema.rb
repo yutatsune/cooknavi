@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_115408) do
+ActiveRecord::Schema.define(version: 2021_02_17_144511) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2021_02_15_115408) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_foodstuffs_on_recipe_id"
+  end
+
+  create_table "hows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.text "how", null: false
+    t.bigint "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_hows_on_recipe_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,7 +100,6 @@ ActiveRecord::Schema.define(version: 2021_02_15_115408) do
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "explanation", null: false
-    t.text "text", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -122,6 +130,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_115408) do
   end
 
   add_foreign_key "foodstuffs", "recipes"
+  add_foreign_key "hows", "recipes"
   add_foreign_key "images", "recipes"
   add_foreign_key "material_images", "materials"
   add_foreign_key "material_likes", "materials"
