@@ -33,11 +33,13 @@
     .recipe_show_contents__material
       %p 材料
       - @recipe.foodstuffs.each_with_index do |foodstuff|
-        = foodstuff.foodstuff
+        = link_to foodstuff.foodstuff, "/materials/search?keyword=#{foodstuff.foodstuff}&button=", method: :get
         = foodstuff.quantity
     .recipe_show_contents__how
       %p 作り方
-      = @recipe.text
+      - @recipe.hows.each_with_index do |how|
+        = image_tag how.image.url
+        = how.how
   .recipe_show_contents__container
     - if current_user
       = form_with(model: [@recipe, @comment], local: true, id: "new_comment") do |form|

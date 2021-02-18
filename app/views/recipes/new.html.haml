@@ -38,5 +38,17 @@
               数量
             .foodstuff-box_form
               = foodstuff.text_field :quantity
-      = form.text_area :text, placeholder: "作り方", rows: "10"
+      .how-area
+        = form.fields_for :hows do |how|
+          .js-file-group_how{ data: {index: "#{how.index}"} }
+            .add-form-btn_how
+              追加する
+            .how-box_title
+              画像
+            .how-box_form
+              = how.file_field :image
+            .how-box_how
+              作り方
+            .how-box_form
+              = how.text_area :how
       = form.submit "投稿する", class: "new_recipe_contents__new__send"
