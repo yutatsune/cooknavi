@@ -40,10 +40,10 @@
       = form.text_field :name, placeholder: "料理名", class: "edit_recipe_contents__edit__text"
       = form.text_area :explanation, placeholder: "説明", rows: "5"
       .foodstuff-area
+        .add-form-btn
+          追加する
         = form.fields_for :foodstuffs do |foodstuff|
           .js-file-group{ data: {index: "#{foodstuff.index}"} }
-            .add-form-btn
-              追加する
             .foodstuff-box_title
               材料
             .foodstuff-box_form
@@ -55,10 +55,10 @@
               - if @recipe.persisted?
                 = foodstuff.check_box :_destroy, data:{ index: foodstuff.index }, class: "hidden-destroy"
       .how-area
+        .add-form-btn_how
+          追加する
         = form.fields_for :hows do |how|
           .js-file-group_how{ data: {index: "#{how.index}"} }
-            .add-form-btn_how
-              追加する
             .how-box_title
               画像
             .how-box_form
