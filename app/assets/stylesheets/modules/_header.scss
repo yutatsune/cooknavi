@@ -1,10 +1,11 @@
 .headfix {
   position: fixed;
   width: 100%;
+  z-index: 99;
   
   .header {
     padding: 0px 60px;
-    background-color: black;
+    background-color: rgb(250, 173, 121);
     height: 70px;
 
     .headerIn {

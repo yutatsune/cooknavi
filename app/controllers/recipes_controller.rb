@@ -9,6 +9,8 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe.images.new
+    @recipe.foodstuffs.new
+    @recipe.hows.new
   end
 
   def create
@@ -38,7 +40,7 @@ class RecipesController < ApplicationController
       if recipe_params[:images_attributes][i.to_s]["_destroy"] == "0"
         @recipe.update(recipe_params)
         flash[:notice] = "投稿を編集しました"
-        redirect_to("/recipes")
+        redirect_to recipe_path(params[:id])
         return
       else
         i += 1
@@ -62,7 +64,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :image, :text, :explanation, :material, images_attributes: %i[src _destroy id]).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:name, :explanation, images_attributes: %i[src _destroy id], foodstuffs_attributes: %i[foodstuff quantity _destroy id], hows_attributes: %i[image how _destroy id]).merge(user_id: current_user.id)
   end
 
   def set_recipe

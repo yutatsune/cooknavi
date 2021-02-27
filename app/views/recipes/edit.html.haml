@@ -39,6 +39,34 @@
                 %input{name: "recipe[images_attributes][#{i}][src]", id: "recipe_images_attributes_#{i}_src", class:"recipe-hidden-field", type:"file"}
       = form.text_field :name, placeholder: "料理名", class: "edit_recipe_contents__edit__text"
       = form.text_area :explanation, placeholder: "説明", rows: "5"
-      = form.text_area :material, placeholder: "材料", rows: "5"
-      = form.text_area :text, placeholder: "作り方", rows: "10"
+      .foodstuff-area
+        = form.fields_for :foodstuffs do |foodstuff|
+          .js-file-group{ data: {index: "#{foodstuff.index}"} }
+            .foodstuff-box_title
+              材料
+            .foodstuff-box_form
+              = foodstuff.text_field :foodstuff
+            .foodstuff-box_quantity
+              数量
+            .foodstuff-box_form
+              = foodstuff.text_field :quantity
+              - if @recipe.persisted?
+                = foodstuff.check_box :_destroy, data:{ index: foodstuff.index }, class: "hidden-destroy"
+      .add-form-btn
+        材料を追加する
+      .how-area
+        = form.fields_for :hows do |how|
+          .js-file-group_how{ data: {index: "#{how.index}"} }
+            %label.how-box_title
+              %i.fas.fa-camera.fa-4x
+              = how.file_field :image, class: "hidden-btn", id: "myfile"
+              %img#img1{style: "width:100px;height:100px;"}
+            .how-box_how
+              作り方
+            .how-box_form
+              = how.text_area :how
+              - if @recipe.persisted?
+                = how.check_box :_destroy, data:{ index: how.index }, class: "hidden-destroy_how"
+      .add-form-btn_how
+        作り方を追加する
       = form.submit "編集", class: "edit_recipe_contents__edit__send"

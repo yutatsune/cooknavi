@@ -23,23 +23,30 @@
     font-family: 'Philosopher', serif;
     text-transform: uppercase;
     font-weight: normal;
+    text-shadow: #fff 0 0 3px;
   }
-  p {
-    font-size: 1.125rem;
-    margin: 25px 0 25px;
-  }
-  .button {
-    font-size: 1.375rem;
-    text-decoration: none;
-    background: rgb(248, 161, 62);
-    color: #fff;
-    border-radius: 5px;
-    padding: 18px 32px;
-    display: inline-block;
-    &:hover {
-      background: rgb(206, 133, 50);
-      transition: background 0.3s;
-      letter-spacing: 3px;
+  .button-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    .button {
+      width: 400px;
+      font-size: 1.375rem;
+      text-decoration: none;
+      background: rgb(248, 161, 62);
+      color: #fff;
+      border-radius: 10px;
+      margin-bottom: 50px;
+      padding: 18px 32px;
+      display: inline-block;
+      white-space: pre-line;
+      &:hover {
+        width: 450px;
+        background: rgb(206, 133, 50);
+        transition: background 0.3s;
+        letter-spacing: 3px;
+      }
     }
   }
 }

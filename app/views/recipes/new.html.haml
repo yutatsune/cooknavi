@@ -25,6 +25,30 @@
                 %input{class:"recipe-hidden-field", type: "file", name: "recipe[images_attributes][4][src]", id: "recipe_images_attributes_4_src" }
       = form.text_field :name, placeholder: "料理名", class: "new_recipe_contents__new__text"
       = form.text_area :explanation, placeholder: "説明", rows: "5"
-      = form.text_area :material, placeholder: "材料", rows: "5"
-      = form.text_area :text, placeholder: "作り方", rows: "10"
+      .foodstuff-area
+        = form.fields_for :foodstuffs do |foodstuff|
+          .js-file-group{ data: {index: "#{foodstuff.index}"} }
+            .foodstuff-box_title
+              材料
+            .foodstuff-box_form
+              = foodstuff.text_field :foodstuff, placeholder: "例)小麦粉"
+            .foodstuff-box_quantity
+              数量
+            .foodstuff-box_form
+              = foodstuff.text_field :quantity, placeholder: "例)100g"
+      .add-form-btn
+        材料を追加する
+      .how-area
+        = form.fields_for :hows do |how|
+          .js-file-group_how{ data: {index: "#{how.index}"} }
+            %label.how-box_title
+              %i.fas.fa-camera.fa-4x
+              = how.file_field :image, class: "hidden-btn"
+              %img#img1{style: "width:100px;height:100px;"}
+            .how-box_how
+              作り方
+            .how-box_form
+              = how.text_area :how, placeholder: "例)卵を加えてかき混ぜる", rows: "5"
+      .add-form-btn_how
+        作り方を追加する
       = form.submit "投稿する", class: "new_recipe_contents__new__send"
