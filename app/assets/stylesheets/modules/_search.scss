@@ -1,0 +1,24 @@
+#recipe_search {
+  background-image: image-url("food-restaurant_1LJRY530IN.jpg");
+  height: 270px;
+}
+#foodstuff_search {
+  background-image: image-url("meat-beef_U8E3HKTZF9.jpg");
+  height: 270px;
+}
+.big-bg_search {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  .home-content_search {
+    text-align: center;
+    padding-top: 6%;
+    .page-title_search {
+      font-size: 5rem;
+      font-family: 'Philosopher', serif;
+      text-transform: uppercase;
+      font-weight: normal;
+      text-shadow: #fff 0 0 3px;
+    }
+  }
+}
