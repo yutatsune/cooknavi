@@ -4,14 +4,16 @@ $(function(){
                     <div class="how-box_title">
                       画像
                     </div>
-                    <div class="how-box_form">
-                      <input type="file" name="recipe[hows_attributes][${index}][image]" id="recipe_hows_attributes_${index}_image">
-                    </div>
+                    <label class="how-box_form">
+                      <i class="fas fa-camera fa-4x"></i>
+                      <input class="hidden-btn" type="file" name="recipe[hows_attributes][${index}][image]" id="recipe_hows_attributes_${index}_image">
+                      <img id="img1" style="width:100px;height:100px;" />
+                    </label>
                     <div class="how-box_title">
                       作り方
                     </div>
                     <div class="how-box_form">
-                      <textarea name="recipe[hows_attributes][${index}][how]" id="recipe_hows_attributes_${index}_how"></textarea>
+                      <textarea placeholder="例)卵を加えてかき混ぜる" rows="5" name="recipe[hows_attributes][${index}][how]" id="recipe_hows_attributes_${index}_how"></textarea>
                       <span class="delete-form-btn">
                         削除する
                       </span>
@@ -31,7 +33,7 @@ $(function(){
   $(".add-form-btn_how").on("click", function() { // 追加ボタンクリックでイベント発火
     $(".how-area").append(buildField(fileIndex[0])); // fileIndexの一番小さい数字をインデックス番号に使ってフォームを作成
     fileIndex.shift(); // fileIndexの一番小さい数字を取り除く
-    if (fileIndex.length == 0) $(".add-form-btn_how").css("display","none"); // フォームが５つになったら追加ボタンを非表示にする
+    if (fileIndex.length == 0) $(".add-form-btn_how").css("display","none"); // フォームが15になったら追加ボタンを非表示にする
     displayCount += 1; // 見えているフォームの数をカウントアップしておく
   })
   $(".how-area").on("click", ".delete-form-btn", function() { // 削除ボタンクリックでイベント発火
