@@ -1,5 +1,4 @@
 class MaterialsController < ApplicationController
-  before_action :set_material, only: %i[edit show]
   before_action :move_to_index, except: %i[index show search]
 
   def index
@@ -22,16 +21,18 @@ class MaterialsController < ApplicationController
   end
 
   def destroy
-    material = Material.find(params[:id])
+    material = current_user.materials.find(params[:id])
     material.destroy
     flash[:notice] = "投稿を削除しました"
     redirect_to("/materials")
   end
 
-  def edit; end
+  def edit
+    @material = current_user.materials.find(params[:id])
+  end
 
   def update
-    @material = Material.find(params[:id])
+    @material = current_user.materials.find(params[:id])
     length = @material.material_images.length
     i = 0
     while i < length
@@ -50,6 +51,7 @@ class MaterialsController < ApplicationController
   end
 
   def show
+    @material = Material.find(params[:id])
     @materials = Material.all
     @comment = MaterialComment.new
     @comments = @material.material_comments.includes(:user)
@@ -66,10 +68,6 @@ class MaterialsController < ApplicationController
 
   def material_params
     params.require(:material).permit(:name, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :explanation, material_images_attributes: %i[src _destroy id]).merge(user_id: current_user.id)
-  end
-
-  def set_material
-    @material = Material.find(params[:id])
   end
 
   def move_to_index
