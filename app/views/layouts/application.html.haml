@@ -12,11 +12,14 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    #wrapper
-      = render 'shared/header'
-      - if flash[:notice]
-        .flash
-          = flash[:notice]
-      .cook-contents
-        = yield
-      = render 'shared/footer'
+    #global-container
+      #container
+        .mobile-menu__cover
+        = render 'shared/header'
+        - if flash[:notice]
+          .flash
+            = flash[:notice]
+        .cook-contents
+          = yield
+        = render 'shared/footer'
+      = render 'shared/mobile-menu'

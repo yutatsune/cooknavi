@@ -12,50 +12,42 @@
       width: 100%;
       padding: 15px 0 0;
       position: relative;
-
+      display: flex;
+      justify-content: space-between;
       .headermain {
         align-items: center;
-
+        display: block;
+        width: 116px;
         &__icon {
           font-size: 28px;
           
           a {
             color: whitesmoke;
+            padding: 3px 5px;
             font-family: 'Philosopher', serif;
             text-decoration: none;
+            &:hover {
+              border-radius: 15px;
+              background-color: darkgray;
+            }
           }
         }
       }
-      .headerbutton {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        button {
-          border: none;
-          outline: none;
-          background-color: whitesmoke;
-          border-radius: 20px;
-          font-size: 25px;
-          font-family: 'Philosopher', serif;
-        }
-        button:hover {
-          background-color: lightblue;
-        }
-      }
-      .tag {
-        font-size: 14px;
-        position: fixed;
-        top: 70px;
-        width: 200px;
-        height: 100%;
-        margin-left: -260px;
-        background-color: black;
-        li {
-          text-align: center;
-          font-size: 18px;
-        }
-        li:hover{
-          background-color: darkgray;
+      .mobile-menu__btn {
+        background-color: transparent;
+        border: none;
+        outline: none !important;
+        cursor: pointer;
+        & > span {
+          background-color: white;
+          width: 35px;
+          height: 2px;
+          display: block;
+          margin-bottom: 9px;
+          transition: transform 0.7s;
+          &:last-child {
+            margin-bottom: 0px;
+          }
         }
       }
     }
@@ -65,6 +57,60 @@
   color: whitesmoke;
   text-decoration: none !important;
 }
+.menu-open {
+  #container {
+    transform: translate(-300px, 60px);
+    box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
+    position: relative;
+    .headfix {
+      .header {
+        .headerIn {
+          .mobile-menu__btn {
+            & > span {
+              background-color: black;
+              &:nth-child(1) {
+                transition-delay: 70ms;
+                transform: translateY(11px) rotate(135deg);
+              }
+              &:nth-child(2) {
+                transition-delay: 0;
+                transform: translateX(-18px) scaleX(0);
+              }
+              &:nth-child(3) {
+                transition-delay: 140ms;
+                transform: translateY(-11px) rotate(-135deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  & .mobile-menu {
+    &__cover {
+      opacity: 1;
+      visibility: visible;
+    }
+    &__item {
+      transform: none;
+      opacity: 1;
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i * 0.07s;
+        }
+      }
+    }
+  }
+}
+#container {
+  background-color: white;
+  position: relative;
+  z-index: 2;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 /* レスポンシブ
 ------------------------------ */
@@ -72,60 +118,53 @@
   .headfix {
     position: fixed;
     width: 100%;
+    z-index: 99;
     
     .header {
       padding: 0px 20px;
-      background-color: black;
+      background-color: rgb(250, 173, 121);
       height: 70px;
   
       .headerIn {
         width: 100%;
         padding: 15px 0 0;
         position: relative;
-  
+        display: flex;
+        justify-content: space-between;
         .headermain {
           align-items: center;
-  
+          display: block;
+          width: 116px;
           &__icon {
             font-size: 28px;
             
             a {
               color: whitesmoke;
+              padding: 3px 5px;
               font-family: 'Philosopher', serif;
               text-decoration: none;
+              &:hover {
+                border-radius: 15px;
+                background-color: darkgray;
+              }
             }
           }
         }
-        .headerbutton {
-          position: absolute;
-          top: 20px;
-          right: 10px;
-          button {
-            border: none;
-            outline: none;
-            background-color: whitesmoke;
-            border-radius: 20px;
-            font-size: 25px;
-            font-family: 'Philosopher', serif;
-          }
-          button:hover {
-            background-color: lightblue;
-          }
-        }
-        .tag {
-          font-size: 10px;
-          position: fixed;
-          top: 70px;
-          width: 200px;
-          height: 100%;
-          margin-left: -220px;
-          background-color: black;
-          li {
-            text-align: center;
-            font-size: 18px;
-          }
-          li:hover{
-            background-color: darkgray;
+        .mobile-menu__btn {
+          background-color: transparent;
+          border: none;
+          outline: none !important;
+          cursor: pointer;
+          & > span {
+            background-color: white;
+            width: 35px;
+            height: 2px;
+            display: block;
+            margin-bottom: 9px;
+            transition: transform 0.7s;
+            &:last-child {
+              margin-bottom: 0px;
+            }
           }
         }
       }
@@ -134,5 +173,56 @@
   .post {
     color: whitesmoke;
     text-decoration: none !important;
+  }
+  .menu-open {
+    #container {
+      transform: translate(-300px, 60px);
+      box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
+      position: relative;
+      .headfix {
+        .header {
+          .headerIn {
+            .mobile-menu__btn {
+              & > span {
+                background-color: black;
+                &:nth-child(1) {
+                  transition-delay: 70ms;
+                  transform: translateY(11px) rotate(135deg);
+                }
+                &:nth-child(2) {
+                  transition-delay: 0;
+                  transform: translateX(-18px) scaleX(0);
+                }
+                &:nth-child(3) {
+                  transition-delay: 140ms;
+                  transform: translateY(-11px) rotate(-135deg);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    & .mobile-menu {
+      &__cover {
+        opacity: 1;
+        visibility: visible;
+      }
+      &__item {
+        transform: none;
+        opacity: 1;
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) {
+            transition-delay: $i * 0.07s;
+          }
+        }
+      }
+    }
+  }
+  #container {
+    background-color: white;
+    position: relative;
+    z-index: 2;
+    transition: all 0.5s;
   }
 }
