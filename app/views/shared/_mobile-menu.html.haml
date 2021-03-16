@@ -1,0 +1,16 @@
+%nav.mobile-menu
+  %ul.mobile-menu__main
+    %li.mobile-menu__item
+      = link_to "レシピを見てみる！", "/recipes", class: "mobile-menu__link"
+    %li.mobile-menu__item
+      = link_to "材料を探してみる！", "/materials", class: "mobile-menu__link"
+    - if user_signed_in?
+      %li.mobile-menu__item
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "mobile-menu__link"
+      %li.mobile-menu__item
+        = link_to  "マイページ", "/users/mypage", class: "mobile-menu__link"
+    - else
+      %li.mobile-menu__item
+        = link_to "ログイン", new_user_session_path, class: 'mobile-menu__link'
+      %li.mobile-menu__item
+        = link_to "新規会員登録", new_user_registration_path, class: 'mobile-menu__link'

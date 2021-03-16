@@ -1,0 +1,41 @@
+.mobile-menu {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  width: 300px;
+  &__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s;
+    cursor: pointer;
+  }
+  &__main {
+    padding: 0;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+  }
+  &__item {
+    padding: 0 40px;
+    display: block;
+    transform: translate3d(0, 0, -1000px);
+    transition: transform 0.3s, opacity 0.2s;
+    opacity: 0;
+  }
+  &__link {
+    color: #535353;
+    margin-top: 30px;
+    font-size: 20px;
+    display: block;
+    text-decoration: none;
+    &:hover{
+      border-radius: 15px;
+      background-color: darkgray;
+    }
+  }
+}
