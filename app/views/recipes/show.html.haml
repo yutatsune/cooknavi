@@ -36,14 +36,14 @@
               = link_to foodstuff.foodstuff, "/materials/search?keyword=#{foodstuff.foodstuff}&button=", method: :get
               .recipe_show_contents__foodstuff__container__quantity
                 = foodstuff.quantity
+        %p.recipe_show_contents__annotation
+          ※ 材料名をクリックすると材料検索画面にリンクします
     .box_child2
       %p 作り方
-      .recipe_show_contents__how.how-grid
-        - @recipe.hows.each_with_index do |how|
+      .recipe_show_contents__how
+        - @recipe.hows.each_with_index do |how, index|
           .recipe_show_contents__how__box
-            .how-image
-              = image_tag how.image.url
-              = how.how
+            = "#{index + 1}: #{how.how}"
   .recipe_show_contents__container
     - if current_user
       = form_with(model: [@recipe, @comment], local: true, id: "new_comment") do |form|
