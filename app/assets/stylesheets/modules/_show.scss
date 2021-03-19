@@ -697,7 +697,7 @@
     max-width: 350px;
     padding-top: 70px;
     &__box {
-      padding: 20px;
+      padding: 10px;
       box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
       background-color: white;
       box-sizing: border-box;
@@ -709,7 +709,7 @@
           margin: 10px 0px;
         }
         .box_grandchild {
-          width: 540px;
+          width: 330px;
           a {
             text-decoration: none;
             color: darkgray;
@@ -718,10 +718,10 @@
             color: darkgray;
           }
           &__photo {
+            padding: 0;
             margin-top: 20px;
-            padding: 30px;
-            height: 300px;
-            width: 450px;
+            height: 220px;
+            width: 330px;
             color: #fff;
             background-size: cover;
             background-position: center;
@@ -732,8 +732,8 @@
             display: flex;
             margin-top: 10px;
             img {
-            max-height: 100px;
-            max-width: 100px;
+            max-height: 58px;
+            max-width: 58px;
             }
           }
           .recipe_name {
@@ -842,6 +842,7 @@
     }
   }
   #map {
+    margin-top: 10px;
     height: 320px;
     width: 320px
   }
