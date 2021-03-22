@@ -38,6 +38,7 @@
               - @material.material_images.length.upto(4) do |i|
                 %input{name: "material[material_images_attributes][#{i}][src]", id: "material_material_images_attributes_#{i}_src", class:"material-hidden-field", type:"file"}
       = form.text_field :name, placeholder: "材料名", class: "edit_material_contents__edit__text"
+      = form.text_field :shop, placeholder: "購入したお店", class: "edit_material_contents__edit__text"
       = form.text_field :postcode, placeholder: "郵便番号", class: "edit_material_contents__edit__text"
       = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "edit_material_contents__edit__text"
       = form.text_field :address_city, placeholder: "市区町村番地", class: "edit_material_contents__edit__text"

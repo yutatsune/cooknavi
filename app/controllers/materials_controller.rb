@@ -65,7 +65,7 @@ class MaterialsController < ApplicationController
   private
 
   def material_params
-    params.require(:material).permit(:name, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :explanation, material_images_attributes: %i[src _destroy id]).merge(user_id: current_user.id)
+    params.require(:material).permit(:name, :shop, :postcode, :prefecture_code, :address_city, :address_street, :address_building, :explanation, material_images_attributes: %i[src _destroy id]).merge(user_id: current_user.id)
   end
 
   def set_material
