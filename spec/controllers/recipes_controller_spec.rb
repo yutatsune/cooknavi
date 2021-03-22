@@ -5,7 +5,7 @@ describe RecipesController do
     it "created_at DESCで並べ替えられたツイートの配列を入力できるか" do
       recipes = create_list(:recipe, 3)
       get :index
-      expect(assigns(:recipes)).to match(recipes.sort{|a, b| b.created_at <=> a.created_at })
+      expect(assigns(:recipes)).to match(recipes.sort { |a, b| b.created_at <=> a.created_at })
     end
     it "indexテンプレートをレンダリングできるか" do
       get :index

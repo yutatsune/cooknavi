@@ -5,7 +5,7 @@ describe MaterialsController do
     it "created_at DESCで並べ替えられたツイートの配列を入力できるか" do
       materials = create_list(:material, 3)
       get :index
-      expect(assigns(:materials)).to match(materials.sort{|a, b| b.created_at <=> a.created_at })
+      expect(assigns(:materials)).to match(materials.sort { |a, b| b.created_at <=> a.created_at })
     end
     it "indexテンプレートをレンダリングできるか" do
       get :index
