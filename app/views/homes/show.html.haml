@@ -3,8 +3,13 @@
     %h2.page-title Make your food happy !
     .button-box
       - if user_signed_in?
-        = link_to "＼みんなどんな料理を作ってる？／\nレシピを見てみる", recipes_path, class: "button"
-        = link_to "＼あの材料はどこで買えるんだろう？／\n材料を探してみる", materials_path, class: "button"
+        = link_to recipes_path, class: "button" do
+          %span ＼みんなどんな料理を作ってる？／
+          %span.login レシピを見てみる
+        = link_to materials_path, class: "button" do
+          %span ＼あの材料はどこで買えるんだろう？／
+          %span.login 材料を探してみる
       - else
-        %p CookNaviへようこそ！
-        = link_to "ゲストログイン(閲覧用)", users_guest_sign_in_path, method: :post, class: "button"
+        = link_to users_guest_sign_in_path, method: :post, class: "button" do
+          %span ＼CookNaviへようこそ！／
+          %span.login ゲストログイン(閲覧用)

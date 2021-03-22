@@ -4,6 +4,7 @@
 @import "homes/show";
 @import "modules/header";
 @import "modules/footer";
+@import "modules/mobile-menu";
 @import "modules/index";
 @import "modules/new";
 @import "modules/create";
@@ -16,10 +17,3 @@
 @import "registrations/new";
 @import "users/mypage";
 @import "users/show";
-
-body,
-#wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}

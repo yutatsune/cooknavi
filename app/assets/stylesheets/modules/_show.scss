@@ -92,6 +92,11 @@
             }
           }
         }
+        .recipe_show_contents__annotation {
+          color: rgb(133, 133, 133);
+          font-size: 13px;
+          margin: 10px 0 0 10px;
+        }
       }
     }
     .how-grid {
@@ -115,8 +120,7 @@
       }
       .recipe_show_contents__how {
         &__box {
-          height: 380px;
-          width: 220px;
+          white-space: pre-wrap;
           color: rgb(133, 133, 133);
           .how-image {
             height: 220px;
@@ -479,71 +483,140 @@
     margin-bottom: 0;
     max-width: 350px;
     padding-top: 70px;
-    &__show {
-      margin-top: 20px;
-      padding: 30px;
-      height: 290px;
-      color: #fff;
-      background-size: cover;
-      background-position: center;
-      border-radius: 3px;
-      box-shadow: 0 0 10px rgba(41,41,41,0.2);
-      p {
-        margin: 0;
-        font-size: 20px;
-        z-index: 2;
-        font-weight: bold;
-        text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
-      }
-      .name {
-        position: absolute;
-        right: 30px;
-        bottom: 30px;
-        z-index: 2;
-        font-size: 13px;
-        display: block;
-        a {
-          text-decoration: none;
-          color: #fff;
-        }
-      }
-    }
     &__box {
-      padding: 20px;
+      padding: 10px;
       box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
       background-color: white;
       box-sizing: border-box;
-      &__list {
-        display: flex;
-        img {
-         max-height: 150px;
-         max-width: 150px;
+      .box_child{
+        display: block;
+        p {
+          font-size: 20px;
+          color: rgb(248, 161, 62);
+          margin: 10px 0px;
+        }
+        .box_grandchild {
+          width: 330px;
+          a {
+            text-decoration: none;
+            color: rgb(133, 133, 133);
+            &:hover {
+              background-color: lightgray;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+          }
+          span {
+            color: rgb(133, 133, 133);
+          }
+          &__photo {
+            margin-top: 20px;
+            padding: 0;
+            height: 220px;
+            width: 330px;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(41,41,41,0.2);
+          }
+          &__list {
+            display: flex;
+            margin-top: 10px;
+            img {
+            max-height: 58px;
+            max-width: 58px;
+            }
+          }
+          .recipe_name {
+            height: 40px;
+            font-size: 20px;
+            margin-top: 15px;
+          }
+          .show_name {
+            height: 40px;
+            a {
+              text-decoration: none;
+            }
+          }
+          .show_likes {
+            white-space: pre-wrap;
+          }
+        }
+        .box_grandchild2{
+          width: 330px;
+          color: rgb(133, 133, 133);
+          .recipe_show_contents__explanation {
+            &__sentence {
+              margin: 0 20px 0 10px;
+            }
+          }
+          .recipe_show_contents__foodstuff {
+            &__container {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 5px;
+              a {
+                margin-left: 10px;
+                color: rgb(133, 133, 133);
+                text-decoration: none;
+                &:hover {
+                  background-color: lightgray;
+                  border-radius: 4px;
+                  cursor: pointer;
+                }
+              }
+              &__quantity {
+                margin-right: 20px;
+              }
+            }
+          }
+          .recipe_show_contents__annotation {
+            color: rgb(133, 133, 133);
+            font-size: 13px;
+            margin: 10px 0 0 10px;
+          }
         }
       }
-      .recipe_name {
-        height: 40px;
-        font-size: 20px;
+      .how-grid {
+        display: grid;
+        gap: 26px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         margin-top: 15px;
+        margin-bottom: 50px;
       }
-      .show_name {
-        height: 40px;
-        a {
-          text-decoration: none;
+      .box_child2 {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        max-width: 960px;
+        p {
+          font-size: 20px;
+          color: rgb(248, 161, 62);
+          margin: 10px 0px;
         }
-      }
-      .show_likes {
-        white-space: pre-wrap;
-      }
-      p {
-        font-size: 20px;
-        color: #57C3E9;
-        margin: 10px 0px;
-      }
-      .recipe_show_contents__material {
-        white-space: pre-wrap;
-      }
-      .recipe_show_contents__how {
-        white-space: pre-wrap;
+        .recipe_show_contents__how {
+          &__box {
+            white-space: pre-wrap;
+            color: rgb(133, 133, 133);
+            .how-image {
+              height: 220px;
+              width: 220px;
+              object-fit: cover;
+              border-radius: 5px;
+              box-shadow: 0 0 10px rgba(41,41,41,0.2);
+              img {
+                height: 220px;
+                width: 220px;
+                object-fit: cover;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(41,41,41,0.2);
+              }
+            }
+          }
+        }
       }
     }
     .list {
@@ -557,12 +630,12 @@
       p {
         margin-top: 10px;
         text-decoration: none;
-        background-color: #de0202;
+        background-color: rgb(248, 161, 62);
         border-radius: 20px;
         border: 0;
         font-size: 18px;
         padding: 10px;
-        width: 290px;
+        width: 594px;
         height: 30px;
         text-align: center;
       }
@@ -584,7 +657,7 @@
         font-family: "游ゴシック", "YuGothic";
       }
       &__send {
-        background-color: #de0202;
+        background-color: rgb(248, 161, 62);
         border-radius: 20px;
         color: #fff;
         border: 0;
@@ -623,72 +696,81 @@
     margin-bottom: 0;
     max-width: 350px;
     padding-top: 70px;
+    &__box {
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+      background-color: white;
+      box-sizing: border-box;
+      .box_child{
+        display: block;
+        p {
+          font-size: 20px;
+          color: rgb(248, 161, 62);
+          margin: 10px 0px;
+        }
+        .box_grandchild {
+          width: 330px;
+          a {
+            text-decoration: none;
+            color: darkgray;
+          }
+          span {
+            color: darkgray;
+          }
+          &__photo {
+            padding: 0;
+            margin-top: 20px;
+            height: 220px;
+            width: 330px;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(41,41,41,0.2);
+          }
+          &__list {
+            display: flex;
+            margin-top: 10px;
+            img {
+            max-height: 58px;
+            max-width: 58px;
+            }
+          }
+          .recipe_name {
+            height: 40px;
+            font-size: 20px;
+            margin-top: 15px;
+          }
+          .show_name {
+            height: 40px;
+            a {
+              text-decoration: none;
+            }
+          }
+          .show_likes {
+            white-space: pre-wrap;
+          }
+        }
+        .box_grandchild2 {
+          color: darkgray;
+          p {
+            font-size: 20px;
+            color: rgb(248, 161, 62);
+            margin: 10px 0px;
+          }
+  
+        }
+      }
+    }
     &__show {
       margin-top: 20px;
       padding: 30px;
-      height: 290px;
+      height: 400px;
       color: #fff;
       background-size: cover;
       background-position: center;
       border-radius: 3px;
       box-shadow: 0 0 10px rgba(41,41,41,0.2);
-      p {
-        margin: 0;
-        font-size: 20px;
-        z-index: 2;
-        font-weight: bold;
-        text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
-      }
-      .name {
-        position: absolute;
-        right: 30px;
-        bottom: 30px;
-        z-index: 2;
-        font-size: 13px;
-        display: block;
-        a {
-          text-decoration: none;
-          color: #fff;
-        }
-      }
-    }
-    &__box {
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
-      background-color: white;
-      box-sizing: border-box;
-      &__list {
-        display: flex;
-        img {
-         max-height: 150px;
-         max-width: 150px;
-        }
-      }
-      .recipe_name {
-        height: 40px;
-        font-size: 20px;
-        margin-top: 15px;
-      }
-      .show_name {
-        height: 40px;
-        a {
-          text-decoration: none;
-        }
-      }
-      .show_likes {
-        white-space: pre-wrap;
-      }
-      p {
-        font-size: 20px;
-        color: #57C3E9;
-        margin: 10px 0px;
-      }
-      .recipe_show_contents__material {
-        white-space: pre-wrap;
-      }
-      .recipe_show_contents__how {
-        white-space: pre-wrap;
-      }
     }
     .list {
       display: flex;
@@ -701,12 +783,12 @@
       p {
         margin-top: 10px;
         text-decoration: none;
-        background-color: #de0202;
+        background-color: rgb(248, 161, 62);
         border-radius: 20px;
         border: 0;
         font-size: 18px;
         padding: 10px;
-        width: 290px;
+        width: 594px;
         height: 30px;
         text-align: center;
       }
@@ -728,7 +810,7 @@
         font-family: "游ゴシック", "YuGothic";
       }
       &__send {
-        background-color: #de0202;
+        background-color: rgb(248, 161, 62);
         border-radius: 20px;
         color: #fff;
         border: 0;
@@ -760,6 +842,7 @@
     }
   }
   #map {
+    margin-top: 10px;
     height: 320px;
     width: 320px
   }

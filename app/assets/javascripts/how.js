@@ -2,14 +2,6 @@ $(function(){
   function buildField(index) {  // 追加するフォームのｈｔｍｌを用意
     const html = `<div class="js-file-group_how" data-index="${index}">
                     <div class="how-box_title">
-                      画像
-                    </div>
-                    <label class="how-box_form">
-                      <i class="fas fa-camera fa-4x"></i>
-                      <input class="hidden-btn" type="file" name="recipe[hows_attributes][${index}][image]" id="recipe_hows_attributes_${index}_image">
-                      <img id="img1" style="width:100px;height:100px;" />
-                    </label>
-                    <div class="how-box_title">
                       作り方
                     </div>
                     <div class="how-box_form">

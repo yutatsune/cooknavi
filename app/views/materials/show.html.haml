@@ -25,6 +25,8 @@
             .image-list__item
               = image_tag image.src.url, alt: "画像", class: "image-index-#{i}"
       .box_grandchild2
+        %p 購入したお店
+        .shop= @material.shop
         %p 購入した場所
         .address_city= @material.prefecture_name + @material.address_city
         .address_building= @material.address_building

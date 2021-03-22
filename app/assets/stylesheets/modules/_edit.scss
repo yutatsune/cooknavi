@@ -225,7 +225,7 @@
         color: #666;
       }
       &__text {
-        width: 100%;
+        width: 270px;
         margin: 5px 0 15px;
         padding: 10px;
         border: 1px solid #D8D8D8;
@@ -233,12 +233,106 @@
         font-family: "游ゴシック", "YuGothic";
       }
       textarea {
-        width: 100%;
+        width: 270px;
         margin: 5px 0 15px;
         padding: 10px;
         border: 1px solid #D8D8D8;
         border-radius: 5px;
         font-family: "游ゴシック", "YuGothic";
+      }
+      .foodstuff-area {
+        .js-file-group {
+          input {
+            width: 50%;
+            margin: 5px 0 15px;
+            padding: 10px 0 10px 10px;
+            border: 1px solid #D8D8D8;
+            border-radius: 5px;
+            font-family: "游ゴシック", "YuGothic";
+          }
+          span {
+            height: 25px;
+            width: 80px;
+            background-color: rgb(248, 161, 62);
+            color: #fff;
+            border-radius: 15px;
+            text-align: center;
+            padding: 2px;
+            margin-bottom: 5px;
+            display: inline-block;
+            &:hover {
+              background: rgb(206, 133, 50);
+              transition: background 0.3s;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .add-form-btn {
+        height: 25px;
+        width: 130px;
+        background-color: rgb(248, 161, 62);
+        color: #fff;
+        border-radius: 15px;
+        text-align: center;
+        padding: 2px;
+        margin-bottom: 5px;
+        &:hover {
+          background: rgb(206, 133, 50);
+          transition: background 0.3s;
+          cursor: pointer;
+        }
+      }
+      .how-area {
+        .js-file-group_how {
+          .fa-camera:hover {
+            cursor: pointer;
+          }
+          .hidden-btn {
+            display: none;
+          }
+          .how-box_form {
+            textarea {
+              width: 270px;
+              margin: 5px 0 15px;
+              padding: 10px;
+              border: 1px solid #D8D8D8;
+              border-radius: 5px;
+              font-family: "游ゴシック", "YuGothic";
+            }
+            span {
+              height: 25px;
+              width: 80px;
+              background-color: rgb(248, 161, 62);
+              color: #fff;
+              border-radius: 15px;
+              text-align: center;
+              padding: 2px;
+              margin-bottom: 5px;
+              display: inline-block;
+              &:hover {
+                background: rgb(206, 133, 50);
+                transition: background 0.3s;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+      .add-form-btn_how {
+        height: 25px;
+        width: 150px;
+        background-color: rgb(248, 161, 62);
+        color: #fff;
+        border-radius: 15px;
+        text-align: center;
+        padding: 2px;
+        margin: 10px 0;
+        &:hover {
+          background: rgb(206, 133, 50);
+          transition: background 0.3s;
+          cursor: pointer;
+        }
       }
       &__send {
         background-color: rgb(248, 161, 62);
@@ -277,7 +371,7 @@
         color: #666;
       }
       &__text {
-        width: 100%;
+        width: 270px;
         margin: 5px 0 15px;
         padding: 10px;
         border: 1px solid #D8D8D8;
@@ -285,7 +379,7 @@
         font-family: "游ゴシック", "YuGothic";
       }
       textarea {
-        width: 100%;
+        width: 270px;
         margin: 5px 0 15px;
         padding: 10px;
         border: 1px solid #D8D8D8;

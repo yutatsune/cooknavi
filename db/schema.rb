@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2021_02_17_144511) do
   end
 
   create_table "hows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", null: false
     t.text "how", null: false
     t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -74,6 +73,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_144511) do
 
   create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "shop", null: false
     t.integer "postcode", null: false
     t.integer "prefecture_code", null: false
     t.string "address_city", null: false

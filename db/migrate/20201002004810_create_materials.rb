@@ -2,6 +2,7 @@ class CreateMaterials < ActiveRecord::Migration[6.0]
   def change
     create_table :materials do |t|
       t.string :name, null: false
+      t.string :shop, null: false
       t.integer :postcode, null: false
       t.integer :prefecture_code, null: false
       t.string :address_city, null: false

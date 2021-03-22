@@ -41,10 +41,6 @@
       .how-area
         = form.fields_for :hows do |how|
           .js-file-group_how{ data: {index: "#{how.index}"} }
-            %label.how-box_title
-              %i.fas.fa-camera.fa-4x
-              = how.file_field :image, class: "hidden-btn"
-              %img#img1{style: "width:100px;height:100px;"}
             .how-box_how
               作り方
             .how-box_form

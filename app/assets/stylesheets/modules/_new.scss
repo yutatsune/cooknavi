@@ -1,94 +1,44 @@
-.new_recipe_contents {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 660px;
-  padding-top: 70px;
-  &__new {
-    margin: 20px 0;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(41,41,41,0.2);
-    background-color: white;
-    box-sizing: border-box;
-    &__title {
-      margin: 0 0 20px;
-      text-align: center;
-      font-weight: normal;
-      font-size: 20px;
-      color: #666;
-    }
-    &__text {
-      width: 588px;
-      margin: 5px 0 15px;
-      padding: 10px 0 10px 10px;
-      border: 1px solid #D8D8D8;
-      border-radius: 5px;
-      font-family: "游ゴシック", "YuGothic";
-    }
-    textarea {
-      width: 588px;
-      margin: 5px 0 15px;
-      padding: 10px 0 10px 10px;
-      border: 1px solid #D8D8D8;
-      border-radius: 5px;
-      font-family: "游ゴシック", "YuGothic";
-    }
-    .foodstuff-area {
-      .js-file-group {
-        input {
-          width: 50%;
-          margin: 5px 0 15px;
-          padding: 10px 0 10px 10px;
-          border: 1px solid #D8D8D8;
-          border-radius: 5px;
-          font-family: "游ゴシック", "YuGothic";
-        }
-        span {
-          height: 25px;
-          width: 80px;
-          background-color: rgb(248, 161, 62);
-          color: #fff;
-          border-radius: 15px;
-          text-align: center;
-          padding: 2px;
-          margin-bottom: 5px;
-          display: inline-block;
-          &:hover {
-            background: rgb(206, 133, 50);
-            transition: background 0.3s;
-            cursor: pointer;
-          }
-        }
+  .new_recipe_contents {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 660px;
+    padding-top: 70px;
+    &__new {
+      margin: 20px 0;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(41,41,41,0.2);
+      background-color: white;
+      box-sizing: border-box;
+      &__title {
+        margin: 0 0 20px;
+        text-align: center;
+        font-weight: normal;
+        font-size: 20px;
+        color: #666;
       }
-    }
-    .add-form-btn {
-      height: 25px;
-      width: 130px;
-      background-color: rgb(248, 161, 62);
-      color: #fff;
-      border-radius: 15px;
-      text-align: center;
-      padding: 2px;
-      margin-bottom: 5px;
-      &:hover {
-        background: rgb(206, 133, 50);
-        transition: background 0.3s;
-        cursor: pointer;
+      &__text {
+        width: 578px;
+        margin: 5px 0 15px;
+        padding: 10px;
+        border: 1px solid #D8D8D8;
+        border-radius: 5px;
+        font-family: "游ゴシック", "YuGothic";
       }
-    }
-    .how-area {
-      .js-file-group_how {
-        .fa-camera:hover {
-          cursor: pointer;
-        }
-        .hidden-btn {
-          display: none;
-        }
-        .how-box_form {
-          textarea {
-            width: 588px;
+      textarea {
+        width: 578px;
+        margin: 5px 0 15px;
+        padding: 10px;
+        border: 1px solid #D8D8D8;
+        border-radius: 5px;
+        font-family: "游ゴシック", "YuGothic";
+      }
+      .foodstuff-area {
+        .js-file-group {
+          input {
+            width: 50%;
             margin: 5px 0 15px;
             padding: 10px 0 10px 10px;
             border: 1px solid #D8D8D8;
@@ -113,276 +63,71 @@
           }
         }
       }
-    }
-    .add-form-btn_how {
-      height: 25px;
-      width: 150px;
-      background-color: rgb(248, 161, 62);
-      color: #fff;
-      border-radius: 15px;
-      text-align: center;
-      padding: 2px;
-      margin: 10px 0;
-      &:hover {
-        background: rgb(206, 133, 50);
-        transition: background 0.3s;
-        cursor: pointer;
-      }
-    }
-    &__send {
-      background-color: rgb(248, 161, 62);
-      border-radius: 20px;
-      width: 100%;
-      color: #fff;
-      border: 0;
-      font-size: 18px;
-      padding: 10px;
-    }
-    &__send:hover {
-      background: rgb(206, 133, 50);
-      transition: background 0.3s;
-      cursor: pointer;
-    }
-  }
-}
-.new_material_contents {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: 660px;
-  padding-top: 70px;
-  &__new {
-    margin: 20px 0;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(41,41,41,0.2);
-    background-color: white;
-    box-sizing: border-box;
-    &__title {
-      margin: 0 0 20px;
-      text-align: center;
-      font-weight: normal;
-      font-size: 20px;
-      color: #666;
-    }
-    &__text {
-      width: 100%;
-      margin: 5px 0 15px;
-      padding: 10px;
-      border: 1px solid #D8D8D8;
-      border-radius: 5px;
-      font-family: "游ゴシック", "YuGothic";
-    }
-    textarea {
-      width: 100%;
-      margin: 5px 0 15px;
-      padding: 10px;
-      border: 1px solid #D8D8D8;
-      border-radius: 5px;
-      font-family: "游ゴシック", "YuGothic";
-    }
-    &__send {
-      background-color: rgb(248, 161, 62);
-      border-radius: 20px;
-      width: 100%;
-      color: #fff;
-      border: 0;
-      font-size: 18px;
-      padding: 10px;
-    }
-    &__send:hover {
-      background: rgb(206, 133, 50);
-      transition: background 0.3s;
-    }
-  }
-}
-
-//image投稿欄のCSS
-.post__drop__box__container{
-  display: block;
-  margin: 16px auto 0;
-  display: flex;
-  flex-wrap: wrap;
-
-  //プレビュー表示欄のCSS
-  .prev-content {
-    display: flex;
-    .preview-box {
-      height: 162px;
-      width: 112px;
-      margin: 0 15px 10px 0;
-      .upper-box {
-        height: 112px;
-        width: 100%;
-        img{
-          width: 112px;
-          height: 112px;
-        }
-      }
-      .lower-box {
-        display: flex;
+      .add-form-btn {
+        height: 25px;
+        width: 130px;
+        background-color: rgb(248, 161, 62);
+        color: #fff;
+        border-radius: 15px;
         text-align: center;
-        .delete-box {
-          color: #00b0ff;
-          width: 100%;
-          height: 50px;
-          line-height: 50px;
-          border: 1px solid #eee;
-          background: #f5f5f5;
+        padding: 2px;
+        margin-bottom: 5px;
+        &:hover {
+          background: rgb(206, 133, 50);
+          transition: background 0.3s;
           cursor: pointer;
         }
       }
-    }
-  }
-
-  //投稿クリックエリアのCSS
-  .label-content{
-    margin-bottom: 10px;
-    width: 620px;
-    .label-box {
-      display: block;
-      border: 1px dashed #ccc;
-      background: #f5f5f5;
-      width: 100%;
-      height: 162px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      &__text-visible {
-        font-size: 14px;
-        line-height: 1.5;
-        font-weight: bold;
-        -webkit-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        pointer-events: none;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-      }
-    }
-  }
-
-  //file_fieldのcss
-  .hidden-content {
-    display: none;
-  }
-}
-
-//image投稿欄のCSS
-.material_post__drop__box__container{
-  display: block;
-  margin: 16px auto 0;
-  display: flex;
-  flex-wrap: wrap;
-
-  //プレビュー表示欄のCSS
-  .material_prev-content {
-    display: flex;
-    .material_preview-box {
-      height: 162px;
-      width: 112px;
-      margin: 0 15px 10px 0;
-      .material_upper-box {
-        height: 112px;
-        width: 100%;
-        img{
-          width: 112px;
-          height: 112px;
+      .how-area {
+        .js-file-group_how {
+          .fa-camera:hover {
+            cursor: pointer;
+          }
+          .hidden-btn {
+            display: none;
+          }
+          .how-box_form {
+            textarea {
+              width: 588px;
+              margin: 5px 0 15px;
+              padding: 10px 0 10px 10px;
+              border: 1px solid #D8D8D8;
+              border-radius: 5px;
+              font-family: "游ゴシック", "YuGothic";
+            }
+            span {
+              height: 25px;
+              width: 80px;
+              background-color: rgb(248, 161, 62);
+              color: #fff;
+              border-radius: 15px;
+              text-align: center;
+              padding: 2px;
+              margin-bottom: 5px;
+              display: inline-block;
+              &:hover {
+                background: rgb(206, 133, 50);
+                transition: background 0.3s;
+                cursor: pointer;
+              }
+            }
+          }
         }
       }
-      .material_lower-box {
-        display: flex;
+      .add-form-btn_how {
+        height: 25px;
+        width: 150px;
+        background-color: rgb(248, 161, 62);
+        color: #fff;
+        border-radius: 15px;
         text-align: center;
-        .material_delete-box {
-          color: #00b0ff;
-          width: 100%;
-          height: 50px;
-          line-height: 50px;
-          border: 1px solid #eee;
-          background: #f5f5f5;
+        padding: 2px;
+        margin: 10px 0;
+        &:hover {
+          background: rgb(206, 133, 50);
+          transition: background 0.3s;
           cursor: pointer;
         }
-      }
-    }
-  }
-
-  //投稿クリックエリアのCSS
-  .material_label-content{
-    margin-bottom: 10px;
-    width: 620px;
-    .material_label-box {
-      display: block;
-      border: 1px dashed #ccc;
-      background: #f5f5f5;
-      width: 100%;
-      height: 162px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      &__text-visible {
-        font-size: 14px;
-        line-height: 1.5;
-        font-weight: bold;
-        -webkit-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        pointer-events: none;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-      }
-    }
-  }
-
-  //file_fieldのcss
-  .material_hidden-content {
-    display: none;
-  }
-}
-
-.form-error {
-  color: red;
-}
-
-/* レスポンシブ
------------------------------- */
-@media (max-width: 600px) {
-  .new_recipe_contents {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    margin-bottom: 0;
-    max-width: 350px;
-    padding-top: 70px;
-    &__new {
-      margin: 20px 0;
-      padding: 30px;
-      box-shadow: 0 0 10px rgba(41,41,41,0.2);
-      background-color: white;
-      box-sizing: border-box;
-      &__title {
-        margin: 0 0 20px;
-        text-align: center;
-        font-weight: normal;
-        font-size: 20px;
-        color: #666;
-      }
-      &__text {
-        width: 100%;
-        margin: 5px 0 15px;
-        padding: 10px;
-        border: 1px solid #D8D8D8;
-        border-radius: 5px;
-        font-family: "游ゴシック", "YuGothic";
-      }
-      textarea {
-        width: 100%;
-        margin: 5px 0 15px;
-        padding: 10px;
-        border: 1px solid #D8D8D8;
-        border-radius: 5px;
-        font-family: "游ゴシック", "YuGothic";
       }
       &__send {
         background-color: rgb(248, 161, 62);
@@ -396,6 +141,7 @@
       &__send:hover {
         background: rgb(206, 133, 50);
         transition: background 0.3s;
+        cursor: pointer;
       }
     }
   }
@@ -405,7 +151,7 @@
     margin-right: auto;
     margin-top: 0;
     margin-bottom: 0;
-    max-width: 350px;
+    max-width: 660px;
     padding-top: 70px;
     &__new {
       margin: 20px 0;
@@ -421,7 +167,7 @@
         color: #666;
       }
       &__text {
-        width: 100%;
+        width: 580px;
         margin: 5px 0 15px;
         padding: 10px;
         border: 1px solid #D8D8D8;
@@ -429,7 +175,7 @@
         font-family: "游ゴシック", "YuGothic";
       }
       textarea {
-        width: 100%;
+        width: 580px;
         margin: 5px 0 15px;
         padding: 10px;
         border: 1px solid #D8D8D8;
@@ -449,6 +195,496 @@
         background: rgb(206, 133, 50);
         transition: background 0.3s;
       }
+    }
+  }
+
+  //image投稿欄のCSS
+  .post__drop__box__container{
+    display: block;
+    margin: 16px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    //プレビュー表示欄のCSS
+    .prev-content {
+      display: flex;
+      .preview-box {
+        height: 162px;
+        width: 112px;
+        margin: 0 15px 10px 0;
+        .upper-box {
+          height: 112px;
+          width: 100%;
+          img{
+            width: 112px;
+            height: 112px;
+          }
+        }
+        .lower-box {
+          display: flex;
+          text-align: center;
+          .delete-box {
+            color: #00b0ff;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #eee;
+            background: #f5f5f5;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    //投稿クリックエリアのCSS
+    .label-content{
+      margin-bottom: 10px;
+      width: 620px;
+      .label-box {
+        display: block;
+        border: 1px dashed #ccc;
+        background: #f5f5f5;
+        width: 100%;
+        height: 162px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__text-visible {
+          font-size: 14px;
+          line-height: 1.5;
+          font-weight: bold;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+      }
+    }
+
+    //file_fieldのcss
+    .hidden-content {
+      display: none;
+    }
+  }
+
+  //image投稿欄のCSS
+  .material_post__drop__box__container{
+    display: block;
+    margin: 16px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    //プレビュー表示欄のCSS
+    .material_prev-content {
+      display: flex;
+      .material_preview-box {
+        height: 162px;
+        width: 112px;
+        margin: 0 15px 10px 0;
+        .material_upper-box {
+          height: 112px;
+          width: 100%;
+          img{
+            width: 112px;
+            height: 112px;
+          }
+        }
+        .material_lower-box {
+          display: flex;
+          text-align: center;
+          .material_delete-box {
+            color: #00b0ff;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #eee;
+            background: #f5f5f5;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    //投稿クリックエリアのCSS
+    .material_label-content{
+      margin-bottom: 10px;
+      width: 620px;
+      .material_label-box {
+        display: block;
+        border: 1px dashed #ccc;
+        background: #f5f5f5;
+        width: 100%;
+        height: 162px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__text-visible {
+          font-size: 14px;
+          line-height: 1.5;
+          font-weight: bold;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+      }
+    }
+
+    //file_fieldのcss
+    .material_hidden-content {
+      display: none;
+    }
+  }
+
+  .form-error {
+    color: red;
+  }
+
+  /* レスポンシブ
+  ------------------------------ */
+  @media (max-width: 600px) {
+    .new_recipe_contents {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      margin-bottom: 0;
+      max-width: 350px;
+      padding-top: 70px;
+      &__new {
+        margin: 20px 0;
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(41,41,41,0.2);
+        background-color: white;
+        box-sizing: border-box;
+        &__title {
+          margin: 0 0 20px;
+          text-align: center;
+          font-weight: normal;
+          font-size: 20px;
+          color: #666;
+        }
+        &__text {
+          width: 270px;
+          margin: 5px 0 15px;
+          padding: 10px;
+          border: 1px solid #D8D8D8;
+          border-radius: 5px;
+          font-family: "游ゴシック", "YuGothic";
+        }
+        textarea {
+          width: 270px;
+          margin: 5px 0 15px;
+          padding: 10px;
+          border: 1px solid #D8D8D8;
+          border-radius: 5px;
+          font-family: "游ゴシック", "YuGothic";
+        }
+        .foodstuff-area {
+          .js-file-group {
+            input {
+              width: 50%;
+              margin: 5px 0 15px;
+              padding: 10px 0 10px 10px;
+              border: 1px solid #D8D8D8;
+              border-radius: 5px;
+              font-family: "游ゴシック", "YuGothic";
+            }
+            span {
+              height: 25px;
+              width: 80px;
+              background-color: rgb(248, 161, 62);
+              color: #fff;
+              border-radius: 15px;
+              text-align: center;
+              padding: 2px;
+              margin-bottom: 5px;
+              display: inline-block;
+              &:hover {
+                background: rgb(206, 133, 50);
+                transition: background 0.3s;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        .add-form-btn {
+          height: 25px;
+          width: 130px;
+          background-color: rgb(248, 161, 62);
+          color: #fff;
+          border-radius: 15px;
+          text-align: center;
+          padding: 2px;
+          margin-bottom: 5px;
+          &:hover {
+            background: rgb(206, 133, 50);
+            transition: background 0.3s;
+            cursor: pointer;
+          }
+        }
+        .how-area {
+          .js-file-group_how {
+            .fa-camera:hover {
+              cursor: pointer;
+            }
+            .hidden-btn {
+              display: none;
+            }
+            .how-box_form {
+              textarea {
+                width: 270px;
+                margin: 5px 0 15px;
+                padding: 10px;
+                border: 1px solid #D8D8D8;
+                border-radius: 5px;
+                font-family: "游ゴシック", "YuGothic";
+              }
+              span {
+                height: 25px;
+                width: 80px;
+                background-color: rgb(248, 161, 62);
+                color: #fff;
+                border-radius: 15px;
+                text-align: center;
+                padding: 2px;
+                margin-bottom: 5px;
+                display: inline-block;
+                &:hover {
+                  background: rgb(206, 133, 50);
+                  transition: background 0.3s;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+        .add-form-btn_how {
+          height: 25px;
+          width: 150px;
+          background-color: rgb(248, 161, 62);
+          color: #fff;
+          border-radius: 15px;
+          text-align: center;
+          padding: 2px;
+          margin: 10px 0;
+          &:hover {
+            background: rgb(206, 133, 50);
+            transition: background 0.3s;
+            cursor: pointer;
+          }
+        }
+        &__send {
+          background-color: rgb(248, 161, 62);
+          border-radius: 20px;
+          width: 100%;
+          color: #fff;
+          border: 0;
+          font-size: 18px;
+          padding: 10px;
+        }
+        &__send:hover {
+          background: rgb(206, 133, 50);
+          transition: background 0.3s;
+          cursor: pointer;
+        }
+      }
+    }
+    .new_material_contents {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      margin-bottom: 0;
+      max-width: 350px;
+      padding-top: 70px;
+      &__new {
+        margin: 20px 0;
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(41,41,41,0.2);
+        background-color: white;
+        box-sizing: border-box;
+        &__title {
+          margin: 0 0 20px;
+          text-align: center;
+          font-weight: normal;
+          font-size: 20px;
+          color: #666;
+        }
+        &__text {
+          width: 270px;
+          margin: 5px 0 15px;
+          padding: 10px;
+          border: 1px solid #D8D8D8;
+          border-radius: 5px;
+          font-family: "游ゴシック", "YuGothic";
+        }
+        textarea {
+          width: 270px;
+          margin: 5px 0 15px;
+          padding: 10px;
+          border: 1px solid #D8D8D8;
+          border-radius: 5px;
+          font-family: "游ゴシック", "YuGothic";
+        }
+        &__send {
+          background-color: rgb(248, 161, 62);
+          border-radius: 20px;
+          width: 100%;
+          color: #fff;
+          border: 0;
+          font-size: 18px;
+          padding: 10px;
+        }
+        &__send:hover {
+          background: rgb(206, 133, 50);
+          transition: background 0.3s;
+        }
+      }
+    }
+  //image投稿欄のCSS
+  .post__drop__box__container{
+    display: block;
+    margin: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    //プレビュー表示欄のCSS
+    .prev-content {
+      display: flex;
+      width: 58px;
+      .preview-box {
+        height: 108px;
+        width: 58px;
+        .upper-box {
+          height: 58px;
+          width: 100%;
+          img{
+            width: 58px;
+            height: 58px;
+          }
+        }
+        .lower-box {
+          display: flex;
+          text-align: center;
+          .delete-box {
+            color: #00b0ff;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #eee;
+            background: #f5f5f5;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    //投稿クリックエリアのCSS
+    .label-content{
+      margin-bottom: 10px;
+      width: 620px;
+      .label-box {
+        display: block;
+        border: 1px dashed #ccc;
+        background: #f5f5f5;
+        width: 100%;
+        height: 162px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__text-visible {
+          font-size: 14px;
+          line-height: 1.5;
+          font-weight: bold;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+      }
+    }
+
+    //file_fieldのcss
+    .hidden-content {
+      display: none;
+    }
+  }
+
+  //image投稿欄のCSS
+  .material_post__drop__box__container{
+    display: block;
+    margin: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    //プレビュー表示欄のCSS
+    .material_prev-content {
+      display: flex;
+      width: 58px;
+      .material_preview-box {
+        height: 108px;
+        width: 58px;
+        .material_upper-box {
+          height: 58px;
+          width: 100%;
+          img{
+            width: 58px;
+            height: 58px;
+          }
+        }
+        .material_lower-box {
+          display: flex;
+          text-align: center;
+          .material_delete-box {
+            color: #00b0ff;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #eee;
+            background: #f5f5f5;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    //投稿クリックエリアのCSS
+    .material_label-content{
+      margin-bottom: 10px;
+      width: 620px;
+      .material_label-box {
+        display: block;
+        border: 1px dashed #ccc;
+        background: #f5f5f5;
+        width: 100%;
+        height: 162px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__text-visible {
+          font-size: 14px;
+          line-height: 1.5;
+          font-weight: bold;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+          pointer-events: none;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+        }
+      }
+    }
+
+    //file_fieldのcss
+    .material_hidden-content {
+      display: none;
     }
   }
 }
