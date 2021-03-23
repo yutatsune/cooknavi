@@ -170,6 +170,25 @@
     }
   }
 }
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  span {
+    display: block;
+    height: 18px;
+    margin-right: 10px;
+    font-size: 18px;
+    a {
+      color: rgb(206, 133, 50);
+      text-decoration: none;
+      &:hover {
+        background-color: rgb(212, 182, 147);
+        border-radius: 5px;
+      }
+    }
+  }
+}
 
 /* レスポンシブ
 ------------------------------ */

@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :move_to_index, except: %i[index show search]
 
   def index
-    @recipes = Recipe.includes(:user).order("created_at DESC")
+    @recipes = Recipe.includes(:user).order("created_at DESC").page(params[:page]).per(9)
   end
 
   def new

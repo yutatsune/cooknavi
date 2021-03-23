@@ -3,7 +3,7 @@ class MaterialsController < ApplicationController
   before_action :move_to_index, except: %i[index show search]
 
   def index
-    @materials = Material.includes(:user).order("created_at DESC")
+    @materials = Material.includes(:user).order("created_at DESC").page(params[:page]).per(9)
   end
 
   def new
