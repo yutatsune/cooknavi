@@ -9,6 +9,12 @@
               = link_to '編集', edit_recipe_path(@recipe.id), method: :get
             %li.material-btn
               = link_to '削除', recipe_path(@recipe.id), method: :delete
+        - if user_signed_in? && current_user != @recipe.user_id
+          %div{id: "follow-button-#{@recipe.user_id}"}
+            - if current_user.following?(@recipe.user)
+              = render 'relationships/unfollow_button', user: @recipe.user
+            - else
+              = render 'relationships/follow_button', user: @recipe.user
         .show_name
           = link_to "投稿者 #{@recipe.user.nickname}", "/users/#{@recipe.user_id}"
         - if current_user.already_liked?(@recipe)
