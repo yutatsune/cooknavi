@@ -1,14 +1,21 @@
 class RecipeLikesController < ApplicationController
+
+  before_action :set_recipe
+
   def create
-    @like = current_user.recipe_likes.create(recipe_id: params[:recipe_id])
-    flash[:notice] = '投稿に｢いいね！｣しました'
-    redirect_to recipe_path(params[:recipe_id])
+    @like = current_user.recipe_likes.new(recipe_id: @recipe.id)
+    @like.save
+    @likes = RecipeLike.where(recipe_id: @recipe.id)
   end
 
   def destroy
-    @like = RecipeLike.find_by(recipe_id: params[:recipe_id], user_id: current_user.id)
-    @like.destroy
-    flash[:notice] = '｢いいね！｣を解除しました'
-    redirect_to recipe_path(params[:recipe_id])
+    @like = RecipeLike.find_by(recipe_id: @recipe.id, user_id: current_user.id).destroy
+    @likes = RecipeLike.where(recipe_id: @recipe.id)
+  end
+
+  private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:recipe_id])
   end
 end

@@ -1,0 +1,1 @@
+$("#recipe_like-<%= @recipe.id %>").html("<%= j(render partial: 'like', locals: { recipe: @recipe }) %>");
