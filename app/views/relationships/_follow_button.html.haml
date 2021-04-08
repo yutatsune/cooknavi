@@ -1,1 +1,3 @@
-= button_to 'フォロー', relationships_path(follow: user), remote: true
+= link_to relationships_path(follow: user), method: "post", remote: true do
+  %i.far.fa-star.unlike_star
+  %span フォローする

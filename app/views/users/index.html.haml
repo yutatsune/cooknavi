@@ -5,7 +5,7 @@
       .user-list
         = link_to "#{user.nickname}", user_path(user.id)
         - if user_signed_in? && current_user != user
-          %div{id: "follow-button-#{user.id}"}
+          .follow_button{id: "follow-button-#{user.id}"}
             - if current_user.following?(user)
               = render 'relationships/unfollow_button', user: user
             - else
@@ -15,7 +15,7 @@
       .user-list
         = link_to "#{user.nickname}", user_path(user.id)
         - if user_signed_in? && current_user != user
-          %div{id: "follow-button-#{user.id}"}
+          .follow_button{id: "follow-button-#{user.id}"}
             - if current_user.following?(user)
               = render 'relationships/unfollow_button', user: user
             - else

@@ -17,6 +17,17 @@
       }
       .box_grandchild {
         width: 540px;
+        .show_name {
+          display: flex;
+          justify-content: space-between;
+          .follow_and_favorite {
+            margin-right: 30px;
+            display: flex;
+            .follow_button {
+              margin-right: 30px;
+            }
+          }
+        }
         a {
           text-decoration: none;
           color: rgb(133, 133, 133);
@@ -30,7 +41,7 @@
           color: rgb(133, 133, 133);
         }
         &__photo {
-          margin-top: 20px;
+          margin-top: 10px;
           padding: 30px;
           height: 300px;
           width: 450px;
@@ -244,11 +255,22 @@
           text-decoration: none;
           color: darkgray;
         }
+        .show_name {
+          display: flex;
+          justify-content: space-between;
+          .follow_and_favorite {
+            margin-right: 30px;
+            display: flex;
+            .follow_button {
+              margin-right: 30px;
+            }
+          }
+        }
         span {
           color: darkgray;
         }
         &__photo {
-          margin-top: 20px;
+          margin-top: 10px;
           padding: 30px;
           height: 300px;
           width: 450px;
@@ -391,6 +413,15 @@
   padding-top: 70px;
   margin-bottom: 0;
   max-width: 1000px;
+  a {
+    text-decoration: none;
+    color: rgb(133, 133, 133);
+    &:hover {
+      background-color: lightgray;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
   .item {
     p {
       margin: 0;
@@ -465,8 +496,13 @@
   color: #de0202;
 }
 .unlike_heart{
-  color: #de0202;
-
+  color: #666;
+}
+.like_star{
+  color: rgb(255, 230, 0);
+}
+.unlike_star{
+  color: #666;
 }
 .comment-delete {
   float: right;
