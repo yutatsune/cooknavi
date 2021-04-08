@@ -1,5 +1,4 @@
 class MaterialLikesController < ApplicationController
-
   before_action :set_material
 
   def create

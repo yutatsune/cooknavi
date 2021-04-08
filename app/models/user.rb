@@ -28,6 +28,7 @@ class User < ApplicationRecord
 
   def follow(other_user)
     return if self == other_user
+
     relationships.find_or_create_by(follow: other_user)
   end
 

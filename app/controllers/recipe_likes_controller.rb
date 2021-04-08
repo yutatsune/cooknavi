@@ -1,5 +1,4 @@
 class RecipeLikesController < ApplicationController
-
   before_action :set_recipe
 
   def create
