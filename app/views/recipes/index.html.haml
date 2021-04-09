@@ -7,17 +7,32 @@
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
-.recipe-contents.grid
-  - @recipes.each do |recipe|
-    .item
-      = link_to image_tag("#{recipe.images.first.src.url}", class: "recipe-image"), recipe_path(recipe.id)
-      %p= recipe.name
-      %span.name
-        %a{href: "/users/#{recipe.user.id}"}
-          %span 投稿者
-          = recipe.user.nickname
-      %i.fas.fa-heart.index_heart
-      %span.count= recipe.liked_users.count
+.recipe-contents
+  %h2 いいねランキング
+  .grid
+    - @all_ranks.each do |recipe|
+      .item
+        = link_to image_tag("#{recipe.images.first.src.url}", class: "recipe-image"), recipe_path(recipe.id)
+        %p= recipe.name
+        %span.name
+          %a{href: "/users/#{recipe.user.id}"}
+            %span 投稿者
+            = recipe.user.nickname
+        %i.fas.fa-heart.index_heart
+        %span.count= recipe.liked_users.count
+.recipe-contents
+  %h2 投稿レシピ一覧
+  .grid
+    - @recipes.each do |recipe|
+      .item
+        = link_to image_tag("#{recipe.images.first.src.url}", class: "recipe-image"), recipe_path(recipe.id)
+        %p= recipe.name
+        %span.name
+          %a{href: "/users/#{recipe.user.id}"}
+            %span 投稿者
+            = recipe.user.nickname
+        %i.fas.fa-heart.index_heart
+        %span.count= recipe.liked_users.count
 - if user_signed_in?
   = link_to new_recipe_path, id: "#button", class: "new_recipe_btn" do
     .exhibitionBtn__box

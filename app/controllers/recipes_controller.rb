@@ -4,6 +4,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.includes(:user).order("created_at DESC").page(params[:page]).per(9)
+    @all_ranks = Recipe.create_recipe_ranks
   end
 
   def new

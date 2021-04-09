@@ -4,6 +4,7 @@ class MaterialsController < ApplicationController
 
   def index
     @materials = Material.includes(:user).order("created_at DESC").page(params[:page]).per(9)
+    @all_ranks = Material.create_material_ranks
   end
 
   def new
