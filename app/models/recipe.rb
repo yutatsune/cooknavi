@@ -21,4 +21,8 @@ class Recipe < ApplicationRecord
       Recipe.all
     end
   end
+
+  def self.create_recipe_ranks
+    Recipe.find(RecipeLike.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
+  end
 end

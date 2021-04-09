@@ -7,17 +7,32 @@
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
-.material-contents.grid
-  - @materials.each do |material|
-    .item
-      = link_to image_tag("#{material.material_images.first.src.url}", class: "material-image"), material_path(material.id)
-      %p= material.name
-      %span.name
-        %a{href: "/users/#{material.user.id}"}
-          %span 投稿者
-          = material.user.nickname
-      %i.fas.fa-heart.index_heart
-      %span.count= material.liked_users.count
+.material-contents
+  %h2 いいねランキング
+  .grid
+    - @materials.each do |material|
+      .item
+        = link_to image_tag("#{material.material_images.first.src.url}", class: "material-image"), material_path(material.id)
+        %p= material.name
+        %span.name
+          %a{href: "/users/#{material.user.id}"}
+            %span 投稿者
+            = material.user.nickname
+        %i.fas.fa-heart.index_heart
+        %span.count= material.liked_users.count
+.material-contents
+  %h2 投稿レシピ一覧
+  .grid
+    - @materials.each do |material|
+      .item
+        = link_to image_tag("#{material.material_images.first.src.url}", class: "material-image"), material_path(material.id)
+        %p= material.name
+        %span.name
+          %a{href: "/users/#{material.user.id}"}
+            %span 投稿者
+            = material.user.nickname
+        %i.fas.fa-heart.index_heart
+        %span.count= material.liked_users.count
 - if user_signed_in?
   = link_to new_material_path, id: "#button", class: "new_recipe_btn" do
     .exhibitionBtn__box

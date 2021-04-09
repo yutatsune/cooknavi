@@ -35,4 +35,8 @@ class Material < ApplicationRecord
 
   geocoded_by :address_city
   after_validation :geocode
+
+  def self.create_material_ranks
+    Material.find(MaterialLike.group(:material_id).order('count(material_id) desc').limit(3).pluck(:material_id))
+  end
 end
