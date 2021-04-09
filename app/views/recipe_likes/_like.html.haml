@@ -1,0 +1,13 @@
+- if user_signed_in?
+  - if RecipeLike.find_by(user_id: current_user.id, recipe_id: recipe.id)
+    = link_to recipe_recipe_like_path(recipe, recipe.recipe_likes), method: "delete", remote: true, class: "likes-count" do
+      %i.fas.fa-heart.like_heart
+      = recipe.recipe_likes.count
+  - else
+    = link_to recipe_recipe_likes_path(recipe), method: "post", remote: true, class: "likes-count" do
+      %i.far.fa-heart.unlike_heart
+      = recipe.recipe_likes.count
+- else
+  %i.far.fa-heart.like_heart
+  = recipe.recipe_likes.count
+  

@@ -1,0 +1,12 @@
+- if user_signed_in?
+  - if MaterialLike.find_by(user_id: current_user.id, material_id: material.id)
+    = link_to material_material_like_path(material, material.material_likes), method: "delete", remote: true, class: "likes-count" do
+      %i.fas.fa-heart.like_heart
+      = material.material_likes.count
+  - else
+    = link_to material_material_likes_path(material), method: "post", remote: true, class: "likes-count" do
+      %i.far.fa-heart.unlike_heart
+      = material.material_likes.count
+- else
+  %i.far.fa-heart.like_heart
+  = material.material_likes.count

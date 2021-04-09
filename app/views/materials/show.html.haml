@@ -11,14 +11,15 @@
               = link_to '削除', material_path(@material.id), method: :delete
         .show_name
           = link_to "投稿者 #{@material.user.nickname}", "/users/#{@material.user_id}"
-        - if current_user.material_already_liked?(@material)
-          = link_to material_material_like_path(@material), method: :delete do
-            %i.fas.fa-heart.like_heart
-        - else
-          = link_to material_material_likes_path(@material), method: :post do
-            %i.far.fa-heart.unlike_heart
-        %span
-          #{@material.material_likes.count}
+          .follow_and_favorite
+            - if user_signed_in? && current_user != @material.user
+              .follow_button{id: "follow-button-#{@material.user_id}"}
+                - if current_user.following?(@material.user)
+                  = render 'relationships/unfollow_button', user: @material.user
+                - else
+                  = render 'relationships/follow_button', user: @material.user
+            .like_button{id: "material_like-#{@material.id}"}
+              = render 'material_likes/like', {material: @material}
         .box_grandchild__photo{style: "background-image: url(#{@material.material_images.first.src.url});"}
         .box_grandchild__list
           - @material.material_images.each_with_index do |image, i|
