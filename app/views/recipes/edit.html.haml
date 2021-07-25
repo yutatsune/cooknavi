@@ -3,7 +3,7 @@
     .form-error
       = message
   .edit_recipe_contents__edit
-    = form_with(model: @recipe, local: true) do |form|
+    = form_with(model: [@tag, @recipe], local: true) do |form|
       %h3.edit_recipe_contents__edit__title 編集する
       .recipe__block__form
         .recipe__block__form__upload
@@ -38,6 +38,7 @@
               - @recipe.images.length.upto(4) do |i|
                 %input{name: "recipe[images_attributes][#{i}][src]", id: "recipe_images_attributes_#{i}_src", class:"recipe-hidden-field", type:"file"}
       = form.text_field :name, placeholder: "料理名", class: "edit_recipe_contents__edit__text"
+      = form.text_field :tag_name, value: @tag_list, placeholder: "レシピに関するタグを半角スペース区切りで5つまで入力(例 カレー 定番料理 )", class: "new_recipe_contents__new__text"
       = form.text_area :explanation, placeholder: "説明", rows: "5"
       .foodstuff-area
         = form.fields_for :foodstuffs do |foodstuff|

@@ -3,7 +3,7 @@
     .form-error
       = message
   .new_recipe_contents__new
-    = form_with(model: @recipe, local: true) do |form|
+    = form_with(model: [@tag, @recipe], local: true) do |form|
       %h3.new_recipe_contents__new__title レシピの投稿
       .recipe__block__form
         .recipe__block__form__upload
@@ -24,6 +24,7 @@
                 %input{class:"recipe-hidden-field", type: "file", name: "recipe[images_attributes][3][src]", id: "recipe_images_attributes_3_src" }
                 %input{class:"recipe-hidden-field", type: "file", name: "recipe[images_attributes][4][src]", id: "recipe_images_attributes_4_src" }
       = form.text_field :name, placeholder: "料理名", class: "new_recipe_contents__new__text"
+      = form.text_field :tag_name, placeholder: "レシピに関するタグをカンマで区切りで5つまで入力(例 カレー,定番料理 )", class: "new_recipe_contents__new__text"
       = form.text_area :explanation, placeholder: "説明", rows: "5"
       .foodstuff-area
         = form.fields_for :foodstuffs do |foodstuff|
