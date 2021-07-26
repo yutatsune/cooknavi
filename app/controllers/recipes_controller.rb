@@ -39,6 +39,7 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
+    @tag_list = @recipe.tags.pluck(:tag_name).join(",")
     tag_list = params[:recipe][:tag_name].split(',')
     length = @recipe.images.length
     i = 0

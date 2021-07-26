@@ -3,6 +3,9 @@
     .box_child
       .box_grandchild
         %p.recipe_name= @recipe.name
+        .box_grandchild__tags
+          - @recipe.tags.first(3).each do |tag|
+            %span= "# " + tag.tag_name
         - if user_signed_in? && current_user.id == @recipe.user_id
           %ul.btn
             %li.material-btn
@@ -26,12 +29,6 @@
             .image-list__item
               = image_tag image.src.url, alt: "画像", class: "image-index-#{i}"
       .box_grandchild2
-        .recipe_show_contents__tags
-        .recipe_show_contents__foodstuff
-          %p タグ
-          - @recipe.tags.each_with_index do |tag|
-            .recipe_show_contents__foodstuff__container
-              = "# " + tag.tag_name
         .recipe_show_contents__explanation
           %p 説明
           .recipe_show_contents__explanation__sentence
