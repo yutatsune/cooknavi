@@ -53,6 +53,8 @@
               = foodstuff.text_field :quantity
               - if @recipe.persisted?
                 = foodstuff.check_box :_destroy, data:{ index: foodstuff.index }, class: "hidden-destroy"
+                - unless foodstuff.index===0
+                  %span.delete-form-btn 削除する
       .add-form-btn
         材料を追加する
       .how-area
@@ -64,6 +66,8 @@
               = how.text_area :how
               - if @recipe.persisted?
                 = how.check_box :_destroy, data:{ index: how.index }, class: "hidden-destroy_how"
+                - unless how.index===0
+                  %span.delete-form-btn 削除する
       .add-form-btn_how
         作り方を追加する
       = form.submit "編集", class: "edit_recipe_contents__edit__send"
