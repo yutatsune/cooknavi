@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[edit show]
   before_action :move_to_index, except: %i[index show search]
+  before_action :set_q, only: [:index, :search]
 
   def index
     @recipes = Recipe.includes(:user).order("created_at DESC").page(params[:page]).per(9)
@@ -66,7 +67,7 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.search(params[:keyword])
+    @recipes = @q.result.distinct.page(params[:page]).per(9)
   end
 
   private
@@ -81,5 +82,9 @@ class RecipesController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def set_q
+    @q = Recipe.ransack(params[:q])
   end
 end

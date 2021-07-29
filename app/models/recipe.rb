@@ -16,14 +16,6 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :foodstuffs, allow_destroy: true
   accepts_nested_attributes_for :hows, allow_destroy: true
 
-  def self.search(search)
-    if search != ""
-      Recipe.where('name LIKE(?)', "%#{search}%")
-    else
-      Recipe.all
-    end
-  end
-
   def self.create_recipe_ranks
     Recipe.find(RecipeLike.group(:recipe_id).order('count(recipe_id) desc').limit(3).pluck(:recipe_id))
   end
