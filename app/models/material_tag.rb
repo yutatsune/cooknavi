@@ -1,0 +1,2 @@
+class MaterialTag < ApplicationRecord
+end
