@@ -98,10 +98,11 @@ ActiveRecord::Schema.define(version: 2021_07_22_132156) do
   end
 
   create_table "recipe_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "recipe_id", null: false
-    t.bigint "tag_id", null: false
+    t.bigint "recipe_id"
+    t.bigint "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id", "tag_id"], name: "index_recipe_tags_on_recipe_id_and_tag_id", unique: true
     t.index ["recipe_id"], name: "index_recipe_tags_on_recipe_id"
     t.index ["tag_id"], name: "index_recipe_tags_on_tag_id"
   end
@@ -126,10 +127,9 @@ ActiveRecord::Schema.define(version: 2021_07_22_132156) do
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "tag_name", null: false
+    t.string "tag_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tag_name"], name: "index_tags_on_tag_name", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

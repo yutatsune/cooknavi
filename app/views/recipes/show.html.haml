@@ -5,7 +5,8 @@
         %p.recipe_name= @recipe.name
         .box_grandchild__tags
           - @recipe.tags.first(3).each do |tag|
-            %span= "# " + tag.tag_name
+            %span #
+            = link_to tag.tag_name, "/recipes/search?q%5Bname_or_foodstuffs_foodstuff_or_tags_tag_name_cont%5D=#{tag.tag_name}&button=", method: :get
         - if user_signed_in? && current_user.id == @recipe.user_id
           %ul.btn
             %li.material-btn
