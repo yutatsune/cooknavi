@@ -3,7 +3,7 @@
     .form-error
       = message
   .new_material_contents__new
-    = form_with(model: @material, local: true) do |form|
+    = form_with(model: [@mtag, @material], local: true) do |form|
       %h3.new_material_contents__new__title 材料の投稿
       .material__block__form
         .material__block__form__upload
@@ -24,6 +24,7 @@
                 %input{class:"material-hidden-field", type: "file", name: "material[material_images_attributes][3][src]", id: "material_material_images_attributes_3_src" }
                 %input{class:"material-hidden-field", type: "file", name: "material[material_images_attributes][4][src]", id: "material_material_images_attributes_4_src" }
       = form.text_field :name, placeholder: "材料名", class: "new_material_contents__new__text"
+      = form.text_field :tag_name, placeholder: "材料に関するタグをカンマで区切りで5つまで入力(例 たまねぎ,常備菜 )", class: "new_recipe_contents__new__text"
       = form.text_field :shop, placeholder: "購入したお店", class: "new_material_contents__new__text"
       = form.text_field :postcode, placeholder: "郵便番号", class: "new_material_contents__new__text"
       = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "new_material_contents__new__text"

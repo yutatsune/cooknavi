@@ -12,15 +12,9 @@ class Material < ApplicationRecord
   has_many :material_likes
   has_many :liked_users, through: :material_likes, source: :user
   has_many :material_images, dependent: :destroy
+  has_many :material_tags, dependent: :destroy
+  has_many :mtags, through: :material_tags
   accepts_nested_attributes_for :material_images, allow_destroy: true
-
-  def self.search(search)
-    if search != ""
-      Material.where('name LIKE(?)', "%#{search}%")
-    else
-      Material.all
-    end
-  end
 
   include JpPrefecture
   jp_prefecture :prefecture_code
@@ -38,5 +32,22 @@ class Material < ApplicationRecord
 
   def self.create_material_ranks
     Material.find(MaterialLike.group(:material_id).order('count(material_id) desc').limit(3).pluck(:material_id))
+  end
+
+  def save_materials(mtags)
+    if mtags.length <= 3
+      current_tags = self.mtags.pluck(:tag_name) unless self.mtags.nil?
+      old_tags = current_tags - mtags
+      new_tags = mtags - current_tags
+      # Destroy
+      old_tags.each do |old_name|
+        self.mtags.delete Mtag.find_by(tag_name:old_name)
+      end
+      # Create
+      new_tags.each do |new_name|
+        material_tag = Mtag.find_or_create_by(tag_name:new_name)
+        self.mtags << material_tag
+      end
+    end
   end
 end

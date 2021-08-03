@@ -38,7 +38,7 @@
           %p 材料
           - @recipe.foodstuffs.each_with_index do |foodstuff|
             .recipe_show_contents__foodstuff__container
-              = link_to foodstuff.foodstuff, "/materials/search?keyword=#{foodstuff.foodstuff}&button=", method: :get
+              = link_to foodstuff.foodstuff, "/materials/search?q%5Bname_or_mtags_tag_name_cont%5D=#{foodstuff.foodstuff}&button=", method: :get
               .recipe_show_contents__foodstuff__container__quantity
                 = foodstuff.quantity
         %p.recipe_show_contents__annotation

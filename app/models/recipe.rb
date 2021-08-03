@@ -21,17 +21,19 @@ class Recipe < ApplicationRecord
   end
 
   def save_recipes(tags)
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
-    old_tags = current_tags - tags
-    new_tags = tags - current_tags
-    # Destroy
-    old_tags.each do |old_name|
-      self.tags.delete Tag.find_by(tag_name:old_name)
-    end
-    # Create
-    new_tags.each do |new_name|
-      recipe_tag = Tag.find_or_create_by(tag_name:new_name)
-      self.tags << recipe_tag
+    if tags.length <= 3
+      current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
+      old_tags = current_tags - tags
+      new_tags = tags - current_tags
+      # Destroy
+      old_tags.each do |old_name|
+        self.tags.delete Tag.find_by(tag_name:old_name)
+      end
+      # Create
+      new_tags.each do |new_name|
+        recipe_tag = Tag.find_or_create_by(tag_name:new_name)
+        self.tags << recipe_tag
+      end
     end
   end
 end

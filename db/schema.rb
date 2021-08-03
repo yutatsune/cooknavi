@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_132156) do
+ActiveRecord::Schema.define(version: 2021_08_03_065923) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 2021_07_22_132156) do
     t.index ["user_id"], name: "index_material_likes_on_user_id"
   end
 
+  create_table "material_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "material_id"
+    t.bigint "mtag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["material_id", "mtag_id"], name: "index_material_tags_on_material_id_and_mtag_id", unique: true
+    t.index ["material_id"], name: "index_material_tags_on_material_id"
+    t.index ["mtag_id"], name: "index_material_tags_on_mtag_id"
+  end
+
   create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "shop", null: false
@@ -85,6 +95,12 @@ ActiveRecord::Schema.define(version: 2021_07_22_132156) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_materials_on_user_id"
+  end
+
+  create_table "mtags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "recipe_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -151,6 +167,8 @@ ActiveRecord::Schema.define(version: 2021_07_22_132156) do
   add_foreign_key "material_images", "materials"
   add_foreign_key "material_likes", "materials"
   add_foreign_key "material_likes", "users"
+  add_foreign_key "material_tags", "materials"
+  add_foreign_key "material_tags", "mtags"
   add_foreign_key "materials", "users"
   add_foreign_key "recipe_likes", "recipes"
   add_foreign_key "recipe_likes", "users"
