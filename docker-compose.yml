@@ -16,10 +16,15 @@ services:
       - db
   db:
     image: mysql:5.7
-    env_file:
-      - ./environments/db.env
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      MYSQL_DATABASE: root
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "4306:3306"
     volumes:
-      - db-data:/var/lib/mysql
+      - db-data:/var/lib/mysql:cached
   web:
     build:
       context: containers/nginx
