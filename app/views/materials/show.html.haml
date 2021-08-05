@@ -2,6 +2,7 @@
   .material_show_contents__box
     .box_child
       .box_grandchild
+        = link_to 'Topに戻る', materials_path, method: :get
         %p= @material.name
         .box_grandchild__tags
           - @material.mtags.first(3).each do |mtag|
@@ -39,7 +40,7 @@
         %p 説明文
         .explanation= @material.explanation
         .box_grandchild2__search
-          = link_to 'この材料を使っているレシピはこちら！', "/recipes/search?q%5Bname_or_foodstuffs_foodstuff_or_tags_tag_name_cont%5D=#{@material.name}&button=", method: :get
+          = link_to '＼この材料を使っているレシピはこちら！／', "/recipes/search?q%5Bname_or_foodstuffs_foodstuff_or_tags_tag_name_cont%5D=#{@material.name}&button=", method: :get
     .box_child2
       #map
   .material_show_contents__container

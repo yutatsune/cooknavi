@@ -10,8 +10,14 @@
 .recipe-contents
   %h2 いいねランキング
   .grid
-    - @all_ranks.each do |recipe|
+    - @all_ranks.each.with_index(1) do |recipe, i|
       .item
+        .item__rank
+          - if i === 1
+            %i.fas.fa-crown.item__rank__crown
+          .item__rank__count
+            = i
+            位
         = link_to image_tag("#{recipe.images.first.src.url}", class: "recipe-image"), recipe_path(recipe.id)
         %p= recipe.name
         %span.name

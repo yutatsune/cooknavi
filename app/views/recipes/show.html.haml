@@ -2,6 +2,7 @@
   .recipe_show_contents__box
     .box_child
       .box_grandchild
+        = link_to 'Topに戻る', recipes_path, method: :get
         %p.recipe_name= @recipe.name
         .box_grandchild__tags
           - @recipe.tags.first(3).each do |tag|

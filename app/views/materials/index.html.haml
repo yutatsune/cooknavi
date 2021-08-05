@@ -10,8 +10,14 @@
 .material-contents
   %h2 いいねランキング
   .grid
-    - @materials.each do |material|
+    - @all_ranks.each.with_index(1) do |material, i|
       .item
+        .item__rank
+          - if i === 1
+            %i.fas.fa-crown.item__rank__crown
+          .item__rank__count
+            = i
+            位
         = link_to image_tag("#{material.material_images.first.src.url}", class: "material-image"), material_path(material.id)
         %p= material.name
         %span.name
