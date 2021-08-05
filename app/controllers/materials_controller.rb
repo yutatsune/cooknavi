@@ -1,6 +1,7 @@
 class MaterialsController < ApplicationController
   before_action :set_material, only: %i[edit show]
   before_action :move_to_index, except: %i[index show search]
+  before_action :set_q, only: %i[index search]
 
   def index
     @materials = Material.includes(:user).order("created_at DESC").page(params[:page]).per(9)
@@ -14,7 +15,9 @@ class MaterialsController < ApplicationController
 
   def create
     @material = Material.new(material_params)
+    tag_list = params[:material][:tag_name].split(',')
     if @material.save
+      @material.save_materials(tag_list)
       flash[:notice] = "新規投稿しました"
       redirect_to("/materials")
     else
@@ -29,29 +32,24 @@ class MaterialsController < ApplicationController
     redirect_to("/materials")
   end
 
-  def edit; end
+  def edit
+    @tag_list = @material.mtags.pluck(:tag_name).join(",")
+  end
 
   def update
     @material = Material.find(params[:id])
-    length = @material.material_images.length
-    i = 0
-    while i < length
-      if material_params[:material_images_attributes][i.to_s]["_destroy"] == "0"
-        @material.update(material_params)
-        flash[:notice] = "投稿を編集しました"
-        redirect_to("/materials")
-        return
-      else
-        i += 1
-      end
+    @tag_list = @material.mtags.pluck(:tag_name).join(",")
+    tag_list = params[:material][:tag_name].split(',')
+    if @material.update(material_params)
+      @material.save_materials(tag_list)
+      flash[:notice] = "投稿を編集しました"
+      redirect_to material_path(params[:id])
+    else
+      render("materials/edit")
     end
-    @material.update(material_params) if material_params[:material_images_attributes][i.to_s]
-    render("materials/edit")
-    nil
   end
 
   def show
-    @materials = Material.all
     @comment = MaterialComment.new
     @comments = @material.material_comments.includes(:user)
     @like = MaterialLike.new
@@ -60,7 +58,7 @@ class MaterialsController < ApplicationController
   end
 
   def search
-    @materials = Material.search(params[:keyword])
+    @materials = @q.result.distinct.page(params[:page]).per(9)
   end
 
   private
@@ -75,5 +73,9 @@ class MaterialsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def set_q
+    @q = Material.ransack(params[:q])
   end
 end

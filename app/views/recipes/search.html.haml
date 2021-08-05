@@ -1,9 +1,9 @@
-#recipe_search.big-bg_search
+#search_recipe.big-bg_search
   .home-content_search
     %h2.page-title_search Recipes Search
 .searchbar
-  = form_with url: search_recipes_path, local: true, method: :get, class: "form" do |f|
-    = f.text_field :keyword, placeholder: "レシピの検索", class: "searchbar-input"
+  = search_form_for @q, url: search_recipes_path, local: true, method: :get, class: "form" do |f|
+    = f.search_field :name_or_foodstuffs_foodstuff_cont, placeholder: "レシピ名または材料名、タグで検索！", class: "searchbar-input"
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
@@ -24,3 +24,4 @@
       .exhibitionbox__text
         レシピ投稿
       %i.fas.fa-hotdog.fa-3x
+= paginate @recipes

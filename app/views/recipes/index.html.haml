@@ -2,16 +2,22 @@
   .home-content
     %h2.page-title Recipes
 .searchbar
-  = form_with url: search_recipes_path, local: true, method: :get, class: "form" do |f|
-    = f.text_field :keyword, placeholder: "レシピの検索", class: "searchbar-input"
+  = search_form_for @q, url: search_recipes_path, local: true, method: :get, class: "form" do |f|
+    = f.search_field :name_or_foodstuffs_foodstuff_or_tags_tag_name_cont, placeholder: "レシピ名または材料名、タグで検索！", class: "searchbar-input"
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
 .recipe-contents
   %h2 いいねランキング
   .grid
-    - @all_ranks.each do |recipe|
+    - @all_ranks.each.with_index(1) do |recipe, i|
       .item
+        .item__rank
+          - if i === 1
+            %i.fas.fa-crown.item__rank__crown
+          .item__rank__count
+            = i
+            位
         = link_to image_tag("#{recipe.images.first.src.url}", class: "recipe-image"), recipe_path(recipe.id)
         %p= recipe.name
         %span.name

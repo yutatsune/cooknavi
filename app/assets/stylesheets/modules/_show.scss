@@ -40,6 +40,10 @@
         span {
           color: rgb(133, 133, 133);
         }
+        &__tags {
+          padding: 5px;
+          margin-bottom: 10px;
+        }
         &__photo {
           margin-top: 10px;
           padding: 30px;
@@ -254,6 +258,11 @@
         a {
           text-decoration: none;
           color: darkgray;
+          &:hover {
+            background-color: lightgray;
+            border-radius: 4px;
+            cursor: pointer;
+          }
         }
         .show_name {
           display: flex;
@@ -310,7 +319,20 @@
           color: rgb(248, 161, 62);
           margin: 10px 0px;
         }
-
+        &__search {
+          padding: 5px;
+          margin-top: 10px;
+          a {
+            color: darkgray;
+            text-decoration: none;
+            font-size: 18px;
+            &:hover {
+              background-color: lightgray;
+              border-radius: 4px;
+              cursor: pointer;
+            }
+          }
+        }
       }
     }
   }
@@ -507,6 +529,7 @@
 .comment-delete {
   float: right;
 }
+
 
 /* レスポンシブ
 ------------------------------ */

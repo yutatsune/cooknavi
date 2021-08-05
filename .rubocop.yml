@@ -39,8 +39,8 @@ Metrics/AbcSize:
 
 Metrics/MethodLength:
   Exclude:
-    - 'app/controllers/recipes_controller.rb'
-    - 'app/controllers/materials_controller.rb'
+    - 'app/models/recipe.rb'
+    - 'app/models/material.rb'
 
 Style/AsciiComments:
   Exclude:

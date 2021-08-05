@@ -2,8 +2,10 @@
   - @material.errors.full_messages.each do |message|
     .form-error
       = message
+  .edit_material_contents__back
+    = link_to '材料に戻る', material_path(params[:id]), method: :get
   .edit_material_contents__edit
-    = form_with(model: @material, local: true) do |form|
+    = form_with(model: [@mtag, @material], local: true) do |form|
       %h3.edit_material_contents__new__title 材料の編集
       .material__block__form
         .material__block__form__upload
@@ -37,11 +39,28 @@
                 //5つのfile_fieldを準備するに当たって、足りない分を表示
               - @material.material_images.length.upto(4) do |i|
                 %input{name: "material[material_images_attributes][#{i}][src]", id: "material_material_images_attributes_#{i}_src", class:"material-hidden-field", type:"file"}
+      = form.label :name, "材料名", class: "new_material_contents__new__label"
+      %span.new_material_contents__new__mandatory 必須
       = form.text_field :name, placeholder: "材料名", class: "edit_material_contents__edit__text"
+      = form.label :tag_name, "タグ", class: "new_material_contents__new__label"
+      %span.new_material_contents__new__any 任意
+      = form.text_field :tag_name, value: @tag_list, placeholder: "材料に関するタグをカンマで区切りで5つまで入力(例 たまねぎ,常備菜 )", class: "new_recipe_contents__new__text"
+      = form.label :shop, "店舗名", class: "new_material_contents__new__label"
+      %span.new_material_contents__new__mandatory 必須
       = form.text_field :shop, placeholder: "購入したお店", class: "edit_material_contents__edit__text"
+      = form.label :postcode, "郵便番号", class: "new_material_contents__new__label"
+      %span.new_material_contents__new__mandatory 必須
       = form.text_field :postcode, placeholder: "郵便番号", class: "edit_material_contents__edit__text"
+      = form.label :prefecture_code, "都道府県", class: "new_material_contents__new__label"
+      %span.new_material_contents__new__mandatory 必須
       = form.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: "edit_material_contents__edit__text"
+      = form.label :address_city, "市区町村番地", class: "new_material_contents__new__label"
+      %span.new_material_contents__new__mandatory 必須
       = form.text_field :address_city, placeholder: "市区町村番地", class: "edit_material_contents__edit__text"
+      = form.label :address_building, "建物名", class: "new_material_contents__new__label"
+      %span.new_material_contents__new__any 任意
       = form.text_field :address_building, placeholder: "建物名", class: "edit_material_contents__edit__text"
+      = form.label :explanation, "材料の説明", class: "new_material_contents__new__label"
+      %span.new_material_contents__new__mandatory 必須
       = form.text_area :explanation, placeholder: "説明文", rows: "5"
       = form.submit "編集する", class: "edit_material_contents__edit__send"

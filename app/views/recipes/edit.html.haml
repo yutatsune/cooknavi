@@ -2,8 +2,10 @@
   - @recipe.errors.full_messages.each do |message|
     .form-error
       = message
+  .edit_recipe_contents__back
+    = link_to 'レシピに戻る', recipe_path(params[:id]), method: :get
   .edit_recipe_contents__edit
-    = form_with(model: @recipe, local: true) do |form|
+    = form_with(model: [@tag, @recipe], local: true) do |form|
       %h3.edit_recipe_contents__edit__title 編集する
       .recipe__block__form
         .recipe__block__form__upload
@@ -37,9 +39,18 @@
                 //5つのfile_fieldを準備するに当たって、足りない分を表示
               - @recipe.images.length.upto(4) do |i|
                 %input{name: "recipe[images_attributes][#{i}][src]", id: "recipe_images_attributes_#{i}_src", class:"recipe-hidden-field", type:"file"}
-      = form.text_field :name, placeholder: "料理名", class: "edit_recipe_contents__edit__text"
+      = form.label :name, "レシピ名", class: "new_recipe_contents__new__label"
+      %span.new_recipe_contents__new__mandatory 必須
+      = form.text_field :name, placeholder: "料理名", class: "new_recipe_contents__new__text"
+      = form.label :tag_name, "タグ", class: "new_recipe_contents__new__label"
+      %span.new_recipe_contents__new__any 任意
+      = form.text_field :tag_name, placeholder: "レシピに関するタグをカンマで区切りで3つまで入力(例 カレー,定番料理 )", class: "new_recipe_contents__new__text"
+      = form.label :explanation, "レシピの説明", class: "new_recipe_contents__new__label"
+      %span.new_recipe_contents__new__mandatory 必須
       = form.text_area :explanation, placeholder: "説明", rows: "5"
       .foodstuff-area
+        = form.label :foodstuffs, "材料(15個まで追加可能)", class: "new_recipe_contents__new__label"
+        %span.new_recipe_contents__new__mandatory 必須
         = form.fields_for :foodstuffs do |foodstuff|
           .js-file-group{ data: {index: "#{foodstuff.index}"} }
             .foodstuff-box_title
@@ -52,9 +63,13 @@
               = foodstuff.text_field :quantity
               - if @recipe.persisted?
                 = foodstuff.check_box :_destroy, data:{ index: foodstuff.index }, class: "hidden-destroy"
+                - unless foodstuff.index===0
+                  %span.delete-form-btn 削除する
       .add-form-btn
         材料を追加する
       .how-area
+        = form.label :hows, "作り方(15個まで追加可能)", class: "new_recipe_contents__new__label"
+        %span.new_recipe_contents__new__mandatory 必須
         = form.fields_for :hows do |how|
           .js-file-group_how{ data: {index: "#{how.index}"} }
             .how-box_how
@@ -63,6 +78,8 @@
               = how.text_area :how
               - if @recipe.persisted?
                 = how.check_box :_destroy, data:{ index: how.index }, class: "hidden-destroy_how"
+                - unless how.index===0
+                  %span.delete-form-btn 削除する
       .add-form-btn_how
         作り方を追加する
       = form.submit "編集", class: "edit_recipe_contents__edit__send"

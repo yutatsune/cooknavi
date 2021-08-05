@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[edit show]
   before_action :move_to_index, except: %i[index show search]
+  before_action :set_q, only: %i[index search]
 
   def index
     @recipes = Recipe.includes(:user).order("created_at DESC").page(params[:page]).per(9)
@@ -16,7 +17,9 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    tag_list = params[:recipe][:tag_name].split(',')
     if @recipe.save
+      @recipe.save_recipes(tag_list)
       flash[:notice] = "新規投稿しました"
       redirect_to("/recipes")
     else
@@ -31,25 +34,21 @@ class RecipesController < ApplicationController
     redirect_to("/")
   end
 
-  def edit; end
+  def edit
+    @tag_list = @recipe.tags.pluck(:tag_name).join(",")
+  end
 
   def update
     @recipe = Recipe.find(params[:id])
-    length = @recipe.images.length
-    i = 0
-    while i < length
-      if recipe_params[:images_attributes][i.to_s]["_destroy"] == "0"
-        @recipe.update(recipe_params)
-        flash[:notice] = "投稿を編集しました"
-        redirect_to recipe_path(params[:id])
-        return
-      else
-        i += 1
-      end
+    @tag_list = @recipe.tags.pluck(:tag_name).join(",")
+    tag_list = params[:recipe][:tag_name].split(',')
+    if @recipe.update(recipe_params)
+      @recipe.save_recipes(tag_list)
+      flash[:notice] = "投稿を編集しました"
+      redirect_to recipe_path(params[:id])
+    else
+      render("recipes/edit")
     end
-    @recipe.update(recipe_params) if recipe_params[:images_attributes][i.to_s]
-    render("recipes/edit")
-    nil
   end
 
   def show
@@ -59,7 +58,7 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.search(params[:keyword])
+    @recipes = @q.result.distinct.order("created_at DESC").page(params[:page]).per(9)
   end
 
   private
@@ -74,5 +73,9 @@ class RecipesController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def set_q
+    @q = Recipe.ransack(params[:q])
   end
 end

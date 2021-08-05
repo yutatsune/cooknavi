@@ -2,7 +2,12 @@
   .recipe_show_contents__box
     .box_child
       .box_grandchild
+        = link_to 'Topに戻る', recipes_path, method: :get
         %p.recipe_name= @recipe.name
+        .box_grandchild__tags
+          - @recipe.tags.first(3).each do |tag|
+            %span #
+            = link_to tag.tag_name, "/recipes/search?q%5Bname_or_foodstuffs_foodstuff_or_tags_tag_name_cont%5D=#{tag.tag_name}&button=", method: :get
         - if user_signed_in? && current_user.id == @recipe.user_id
           %ul.btn
             %li.material-btn
@@ -34,7 +39,7 @@
           %p 材料
           - @recipe.foodstuffs.each_with_index do |foodstuff|
             .recipe_show_contents__foodstuff__container
-              = link_to foodstuff.foodstuff, "/materials/search?keyword=#{foodstuff.foodstuff}&button=", method: :get
+              = link_to foodstuff.foodstuff, "/materials/search?q%5Bname_or_mtags_tag_name_cont%5D=#{foodstuff.foodstuff}&button=", method: :get
               .recipe_show_contents__foodstuff__container__quantity
                 = foodstuff.quantity
         %p.recipe_show_contents__annotation
