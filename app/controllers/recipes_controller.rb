@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[edit show]
   before_action :move_to_index, except: %i[index show search]
-  before_action :set_q, only: [:index, :search]
+  before_action :set_q, only: %i[index search]
 
   def index
     @recipes = Recipe.includes(:user).order("created_at DESC").page(params[:page]).per(9)

@@ -35,19 +35,19 @@ class Material < ApplicationRecord
   end
 
   def save_materials(mtags)
-    if mtags.length <= 3
-      current_tags = self.mtags.pluck(:tag_name) unless self.mtags.nil?
-      old_tags = current_tags - mtags
-      new_tags = mtags - current_tags
-      # Destroy
-      old_tags.each do |old_name|
-        self.mtags.delete Mtag.find_by(tag_name:old_name)
-      end
-      # Create
-      new_tags.each do |new_name|
-        material_tag = Mtag.find_or_create_by(tag_name:new_name)
-        self.mtags << material_tag
-      end
+    return unless mtags.length <= 3
+
+    current_tags = self.mtags.pluck(:tag_name) unless self.mtags.nil?
+    old_tags = current_tags - mtags
+    new_tags = mtags - current_tags
+    # Destroy
+    old_tags.each do |old_name|
+      self.mtags.delete Mtag.find_by(tag_name: old_name)
+    end
+    # Create
+    new_tags.each do |new_name|
+      material_tag = Mtag.find_or_create_by(tag_name: new_name)
+      self.mtags << material_tag
     end
   end
 end
