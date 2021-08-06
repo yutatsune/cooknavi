@@ -59,6 +59,7 @@ class RecipesController < ApplicationController
 
   def search
     @recipes = @q.result.distinct.order("created_at DESC").page(params[:page]).per(9)
+    @search_recipes = @q.result.distinct
   end
 
   private

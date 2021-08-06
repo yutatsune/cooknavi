@@ -3,10 +3,17 @@
     %h2.page-title_search Recipes Search
 .searchbar
   = search_form_for @q, url: search_recipes_path, local: true, method: :get, class: "form" do |f|
-    = f.search_field :name_or_foodstuffs_foodstuff_cont, placeholder: "レシピ名または材料名、タグで検索！", class: "searchbar-input"
+    = f.search_field :name_or_foodstuffs_foodstuff_or_tags_tag_name_cont, placeholder: "レシピ名または材料名、タグで検索！", class: "searchbar-input"
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
+.search_result
+  - if params[:q][:name_or_foodstuffs_foodstuff_or_tags_tag_name_cont] == ""
+    = "検索キーワードがありません。"
+  - elsif @search_recipes.present?
+    = "「#{params[:q][:name_or_foodstuffs_foodstuff_or_tags_tag_name_cont]}」の検索結果: #{@search_recipes.count}件"
+  - else
+    = "検索に一致するレシピはありませんでした"
 .recipe-contents.grid
   - @recipes.each do |recipe|
     .item

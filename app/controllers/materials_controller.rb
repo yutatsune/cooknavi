@@ -59,6 +59,7 @@ class MaterialsController < ApplicationController
 
   def search
     @materials = @q.result.distinct.page(params[:page]).per(9)
+    @search_materials = @q.result.distinct
   end
 
   private

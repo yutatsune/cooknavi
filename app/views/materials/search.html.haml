@@ -7,6 +7,13 @@
     = button_tag type: 'submit', class: 'search-btn' do
       .searchbar__icon
         = image_tag ("icon-search 1.png"), class: "searchicon"
+.search_result
+  - if params[:q][:name_or_mtags_tag_name_cont] == ""
+    = "検索キーワードがありません。"
+  - elsif @search_materials.present?
+    = "「#{params[:q][:name_or_mtags_tag_name_cont]}」の検索結果: #{@search_materials.count}件"
+  - else
+    = "検索に一致する材料はありませんでした"
 .material-contents.grid
   - @materials.each do |material|
     .item
