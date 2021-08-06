@@ -64,7 +64,6 @@
           }
         }
         .recipe_name {
-          height: 40px;
           font-size: 20px;
           margin-top: 15px;
         }
@@ -277,6 +276,10 @@
         }
         span {
           color: darkgray;
+        }
+        &__tags {
+          padding: 5px;
+          margin-bottom: 10px;
         }
         &__photo {
           margin-top: 10px;
