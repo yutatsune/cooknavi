@@ -1,0 +1,5 @@
+= form_with(model: [recipe, comment] ) do |form|
+  %div
+    = form.text_area :text, placeholder: "コメントを入力", rows: "2", class: "recipe_show_contents__container__text"
+  .actions
+    = form.submit "投稿する", class: "recipe_show_contents__container__send"
