@@ -50,8 +50,8 @@ class MaterialsController < ApplicationController
   end
 
   def show
-    @comment = MaterialComment.new
-    @comments = @material.material_comments.includes(:user)
+    @material_comment = MaterialComment.new
+    @material_comments = @material.material_comments.includes(:user)
     @like = MaterialLike.new
     gon.material_latitude = @material.latitude
     gon.material_longitude = @material.longitude
