@@ -1,0 +1,9 @@
+- material_comments.each do |material_comment|
+  - unless material_comment.id.nil?
+    %p.material_show_contents__container__comments__main
+      %strong
+        = link_to "#{material_comment.user.nickname}さん", user_path(material_comment.user.id)
+      = material_comment.text
+      - if material_comment.user == current_user
+        %span.comment-delete
+          = link_to '削除', material_material_comment_path(material_comment.material_id, material_comment.id), method: :delete, remote: true

@@ -8,7 +8,7 @@ class Material < ApplicationRecord
   validates :address_city, presence: true
   validates :explanation, presence: true
   belongs_to :user
-  has_many :material_comments
+  has_many :material_comments, dependent: :destroy
   has_many :material_likes
   has_many :liked_users, through: :material_likes, source: :user
   has_many :material_images, dependent: :destroy

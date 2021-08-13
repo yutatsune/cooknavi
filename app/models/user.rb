@@ -3,10 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :recipes
-  has_many :comments
-  has_many :materials
-  has_many :material_comments
+  has_many :recipes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :materials, dependent: :destroy
+  has_many :material_comments, dependent: :destroy
   has_many :recipe_likes
   has_many :liked_recipes, through: :recipe_likes, source: :recipe
   has_many :material_likes

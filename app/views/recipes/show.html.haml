@@ -52,22 +52,11 @@
             = "#{index + 1}: #{how.how}"
   .recipe_show_contents__container
     - if current_user
-      = form_with(model: [@recipe, @comment], local: true, id: "new_comment") do |form|
-        = form.text_area :text, placeholder: "コメントを入力", rows: "2", class: "recipe_show_contents__container__text"
-        = form.submit "投稿する", class: "recipe_show_contents__container__send"
+      = render partial: 'comments/form', locals: { comment: @comment, recipe: @recipe }
     - else
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
     .recipe_show_contents__container__comments
-      %h4 ＜コメント一覧＞
-      - if @comments
-        - @comments.each do |comment|
-          %p.recipe_show_contents__container__comments__main
-            %strong
-              = link_to comment.user.nickname, "/users/#{comment.user_id}"
-              ：
-            = comment.text
-            - if user_signed_in? && current_user.id == comment.user_id
-              %span.comment-delete
-                = link_to '削除', recipe_comment_path(@recipe, comment), method: :delete
-            
+      %h4 Comments
+      #comments_area
+        = render partial: 'comments/index', locals: { comments: @comments }

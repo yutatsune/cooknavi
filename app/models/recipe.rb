@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
   validates :name, presence: true
   validates :explanation, presence: true
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   has_many :foodstuffs, dependent: :destroy
   has_many :hows, dependent: :destroy

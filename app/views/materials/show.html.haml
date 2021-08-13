@@ -44,21 +44,12 @@
     .box_child2
       #map
   .material_show_contents__container
-    - if user_signed_in?
-      = form_with(model: [@material, @comment], local: true, id: "material_new_comment") do |form|
-        = form.text_area :text, placeholder: "コメントを入力", rows: "2", class: "material_show_contents__container__text"
-        = form.submit "投稿する", class: "material_show_contents__container__send"
+    - if current_user
+      = render partial: 'material_comments/form', locals: { material_comment: @material_comment, material: @material }
     - else
       %strong
         %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
     .material_show_contents__container__comments
-      %h4 ＜コメント一覧＞
-      - @comments.each do |material_comment|
-        %p.material_show_contents__container__comments__main
-          %strong
-            = link_to material_comment.user.nickname, "/users/#{material_comment.user_id}"
-            ：
-          = material_comment.text
-          - if user_signed_in? && current_user.id == material_comment.user_id
-            %span.comment-delete
-              = link_to '削除', material_material_comment_path(@material, material_comment), method: :delete
+      %h4 Comments
+      #material_comments_area
+        = render partial: 'material_comments/index', locals: { material_comments: @material_comments }
